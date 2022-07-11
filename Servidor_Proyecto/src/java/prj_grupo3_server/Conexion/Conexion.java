@@ -10,6 +10,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.util.JSON;
 import org.json.*;
+import prj_grupo3_server.Modelo.Articulo;
 import prj_grupo3_server.Modelo.Ciudad;
 import prj_grupo3_server.Modelo.Cliente;
 import prj_grupo3_server.Modelo.Cobrador;
@@ -33,7 +34,7 @@ public class Conexion {
         db = mongo.getDB("distribuidas");
     }
 
-    public static void singIn(String user,String pass){
+    public static void singIn(String user, String pass) {
         col = db.getCollection("User");
 
         JSONObject persona;
@@ -43,8 +44,6 @@ public class Conexion {
         persona.put("Pass", pass);
         col.insert((DBObject) JSON.parse(persona.toString()));
     }
-    
-    
 
     public static void insertarCliente(String ruc, String nombre, String dir) throws JSONException {
         col = db.getCollection("Cliente");
@@ -71,7 +70,8 @@ public class Conexion {
         updateObject.put("$set", newDocument); // (3)
         db.getCollection("Ciudad").update(query, updateObject);
     }
-public static void insertarCiudad(String codigo, String nombre) throws JSONException {
+
+    public static void insertarCiudad(String codigo, String nombre) throws JSONException {
         col = db.getCollection("Ciudad");
         JSONObject persona;
         persona = new JSONObject();
@@ -80,6 +80,7 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         col.insert((DBObject) JSON.parse(persona.toString()));
 
     }
+
     public static void actualizarCliente(String ruc, String nombre, String dir) {
 
         BasicDBObject query = new BasicDBObject();
@@ -184,9 +185,10 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         }
         return cli;
     }
-  //------------COBRADOR
-      //-------INSERTAR----COBRADOR
-     public static void insertarCobrador(String cedula, String nombre, String dir) throws JSONException {
+    //------------COBRADOR
+    //-------INSERTAR----COBRADOR
+
+    public static void insertarCobrador(String cedula, String nombre, String dir) throws JSONException {
         col = db.getCollection("Cobrador");
 
         JSONObject persona;
@@ -198,8 +200,9 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         col.insert((DBObject) JSON.parse(persona.toString()));
 
     }
-     //-----ACTUALIZAR----COBRADOR
-         public static void actualizarCobrador(String cedula, String nombre, String dir) {
+    //-----ACTUALIZAR----COBRADOR
+
+    public static void actualizarCobrador(String cedula, String nombre, String dir) {
 
         BasicDBObject query = new BasicDBObject();
         query.put("Cedula_Cobrador", cedula);
@@ -212,13 +215,15 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         updateObject.put("$set", newDocument); // (3)
         db.getCollection("Cobrador").update(query, updateObject);
     }
-     //------ ELIMINAR----COBRADOR
-         public static void eliminarCobrador(String cedula) {
+    //------ ELIMINAR----COBRADOR
+
+    public static void eliminarCobrador(String cedula) {
         col = db.getCollection("Cobrador");
         col.remove(new BasicDBObject().append("Cedula_Cobrador", cedula));
     }
+
     //------- LISTAR----COBRADOR
-         public static ArrayList<Cobrador> listarCobrador() {
+    public static ArrayList<Cobrador> listarCobrador() {
         ArrayList<Cobrador> cobradores = new ArrayList<>();
         col = db.getCollection("Cobrador");
         //BasicDBObject filtro = new BasicDBObject();
@@ -240,8 +245,9 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         }
         return cobradores;
     }
+
     //---------- BUSCAR----COBRADOR
-         public static Cobrador buscarCobrador(String codigo) {
+    public static Cobrador buscarCobrador(String codigo) {
         Cobrador cobrador = new Cobrador();
         col = db.getCollection("Cobrador");
         BasicDBObject filtro = new BasicDBObject();
@@ -262,10 +268,10 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         }
         return cobrador;
     }
-         
-          //------------FORMA PAGO
-      //-------INSERTAR------FORMA PAGO
-     public static void insertarFormaPago(String codigo, String nombre) throws JSONException {
+
+    //------------FORMA PAGO
+    //-------INSERTAR------FORMA PAGO
+    public static void insertarFormaPago(String codigo, String nombre) throws JSONException {
         col = db.getCollection("Forma_Pago");
         JSONObject persona;
         persona = new JSONObject();
@@ -274,10 +280,11 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         col.insert((DBObject) JSON.parse(persona.toString()));
 
     }
-     //-----ACTUALIZAR------FORMA PAGO
-         public static void actualizarFormaPago(String codigo, String nombre) {
+    //-----ACTUALIZAR------FORMA PAGO
 
-         BasicDBObject query = new BasicDBObject();
+    public static void actualizarFormaPago(String codigo, String nombre) {
+
+        BasicDBObject query = new BasicDBObject();
         query.put("Codigo_FP", codigo);
 
         BasicDBObject newDocument = new BasicDBObject();
@@ -287,14 +294,16 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         updateObject.put("$set", newDocument); // (3)
         db.getCollection("Forma_Pago").update(query, updateObject);
     }
-     //------ ELIMINAR------FORMA PAGO
-         public static void eliminarFormaPago(String codigo) {
+    //------ ELIMINAR------FORMA PAGO
+
+    public static void eliminarFormaPago(String codigo) {
         col = db.getCollection("Forma_Pago");
         col.remove(new BasicDBObject().append("Codigo_FP", codigo));
     }
+
     //------- LISTAR------FORMA PAGO
-         public static ArrayList<FormaPago> listarFormaPago() {
-     ArrayList<FormaPago> formapago = new ArrayList<>();
+    public static ArrayList<FormaPago> listarFormaPago() {
+        ArrayList<FormaPago> formapago = new ArrayList<>();
         col = db.getCollection("Forma_Pago");
         //BasicDBObject filtro = new BasicDBObject();
         //filtro.getString("Nombre_Cobrador");
@@ -302,22 +311,22 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         while (cur.hasNext()) {
             String n1 = "";
             String n2 = "";
-           
+
             n1 = cur.next().get("Codigo_FP") + "";
             n2 = cur.curr().get("Nombre_FP") + "";
-           
+
             FormaPago FP = new FormaPago();
             FP.setCodigo(n1);
             FP.setNombre_FP(n2);
-            
-            
-            System.out.println(FP.getCodigo() + "-" + FP.getNombre_FP() );
+
+            System.out.println(FP.getCodigo() + "-" + FP.getNombre_FP());
             formapago.add(FP);
         }
         return formapago;
     }
+
     //---------- BUSCAR------FORMA PAGO
-         public static FormaPago buscarFormaPago(String codigo) {
+    public static FormaPago buscarFormaPago(String codigo) {
         FormaPago FP = new FormaPago();
         col = db.getCollection("Forma_Pago");
         BasicDBObject filtro = new BasicDBObject();
@@ -326,16 +335,94 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
         while (cur.hasNext()) {
             String n1 = "";
             String n2 = "";
-          
+
             n1 = cur.next().get("Codigo_FP") + "";
             n2 = cur.curr().get("Nombre_FP") + "";
-            
+
             FP.setCodigo(n1);
             FP.setNombre_FP(n2);
 
-            System.out.println(FP.getCodigo() + "-" + FP.getNombre_FP() );
+            System.out.println(FP.getCodigo() + "-" + FP.getNombre_FP());
 
         }
         return FP;
     }
+
+    /**
+     * **********ARTICULO***********
+     */
+    public static void insertarArticulo(String codigo, String nombre, String precio) throws JSONException {
+        col = db.getCollection("articulo");
+
+        JSONObject articulo;
+
+        articulo = new JSONObject();
+        articulo.put("codigo", codigo);
+        articulo.put("nombre", nombre);
+        articulo.put("precio", precio);
+        col.insert((DBObject) JSON.parse(articulo.toString()));
+
+    }
+
+    public static void actualizarArticulo(String codigo, String nombre, String precio) {
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("codigo", codigo);
+
+        BasicDBObject newDocument = new BasicDBObject();
+        newDocument.put("nombre", nombre); // (2)
+        newDocument.put("precio", precio); // (2)
+
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newDocument); // (3)
+        db.getCollection("articulo").update(query, updateObject);
+    }
+
+    public static void eliminarArticulo(String codigo) {
+        col = db.getCollection("articulo");
+        col.remove(new BasicDBObject().append("codigo", codigo));
+    }
+
+    public static Articulo buscarArticulo(String codigo) {
+        Articulo art = new Articulo();
+        col = db.getCollection("articulo");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("codigo", codigo);
+        DBCursor cur = col.find(filtro);
+        while (cur.hasNext()) {
+            String n1 = "";
+            String n2 = "";
+            String n3 = "";
+            n1 = cur.next().get("codigo") + "";
+            n2 = cur.curr().get("nombre") + "";
+            n3 = cur.curr().get("precio") + "";
+            art.setCodigo(n1);
+            art.setNombre(n2);
+            art.setPrecio(n3);
+            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio());
+        }
+        return art;
+    }
+
+    public static ArrayList<Articulo> listarArticulo() {
+        ArrayList<Articulo> articulo = new ArrayList<>();
+        col = db.getCollection("articulo");
+        DBCursor cur = col.find();
+        while (cur.hasNext()) {
+            String n1 = "";
+            String n2 = "";
+            String n3 = "";
+            n1 = cur.next().get("codigo") + "";
+            n2 = cur.curr().get("nombre") + "";
+            n3 = cur.curr().get("precio") + "";
+            Articulo art = new Articulo();
+            art.setCodigo(n1);
+            art.setNombre(n2);
+            art.setPrecio(n3);
+            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio());
+            articulo.add(art);
+        }
+        return articulo;
+    }
+
 }

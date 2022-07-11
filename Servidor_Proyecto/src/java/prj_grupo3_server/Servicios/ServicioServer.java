@@ -26,12 +26,17 @@ import prj_grupo3_server.Modelo.Cliente;
 import prj_grupo3_server.Modelo.Cobrador;
 import prj_grupo3_server.Modelo.FormaPago;
 
-
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.eliminarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.insertarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.listarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.singIn;
+import prj_grupo3_server.Modelo.Articulo;
 
 @WebService(serviceName = "servicio_web_servidor")
 public class ServicioServer {
@@ -41,14 +46,14 @@ public class ServicioServer {
         System.out.println("1");
         try {
             Conectar();
-            
+
             singIn(user, pass);
             return 1;
         } catch (Exception e) {
             return 2;
         }
     }
-    
+
     @WebMethod(operationName = "insertarCiudadS")
     public int insertarCiudadS(@WebParam(name = "Codigo_Ciudad") String Codigo_Ciudad, @WebParam(name = "Nombre_Ciudad") String Nombre_Ciudad) {
         System.out.println("1");
@@ -157,7 +162,7 @@ public class ServicioServer {
         return cli;
     }
 //***********COBRADOR************
-    
+
     @WebMethod(operationName = "insertarCobradorS")
     public int insertarCobradorS(@WebParam(name = "Cedula_Cobrador") String Cedula_Cobrador, @WebParam(name = "Nombre_Cobrador") String Nombre_Cobrador, @WebParam(name = "Direccion_Cobrador") String Direccion_Cobrador) {
         System.out.println("1");
@@ -170,7 +175,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "actualizarCobradorS")
+
+    @WebMethod(operationName = "actualizarCobradorS")
     public int actualizarCobradorS(@WebParam(name = "Cedula_Cobrador") String Cedula_Cobrador, @WebParam(name = "Nombre_Cobrador") String Nombre_Cobrador, @WebParam(name = "Direccion_Cobrador") String Direccion_Cobrador) {
         try {
             Conectar();
@@ -181,7 +187,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "eliminarCobradorS")
+
+    @WebMethod(operationName = "eliminarCobradorS")
     public int eliminarCobradorS(@WebParam(name = "Cedula_Cobrador") String Cedula_Cobrador) {
         try {
             Conectar();
@@ -191,7 +198,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "listarCobradorS")
+
+    @WebMethod(operationName = "listarCobradorS")
     public ArrayList<Cobrador> listarCobradorS() {
 
         Conectar();
@@ -199,6 +207,7 @@ public class ServicioServer {
         cobradorr = listarCobrador();
         return cobradorr;
     }
+
     @WebMethod(operationName = "buscarCobradorS")
     public Cobrador buscarCobradorS(@WebParam(name = "Cedula_Cobrador") String Cedula_Cobrador) {
 
@@ -207,10 +216,8 @@ public class ServicioServer {
         cobradorr = buscarCobrador(Cedula_Cobrador);
         return cobradorr;
     }
-    
-    
+
     //***********FORMA PAGO************
-    
     @WebMethod(operationName = "insertarFormaPagoS")
     public int insertarFormaPagoS(@WebParam(name = "Codigo_FP") String Codigo_FP, @WebParam(name = "Nombre_FP") String Nombre_FP) {
         System.out.println("1");
@@ -223,7 +230,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "actualizarFormaPagoS")
+
+    @WebMethod(operationName = "actualizarFormaPagoS")
     public int actualizarFormaPagoS(@WebParam(name = "Codigo_FP") String Codigo_FP, @WebParam(name = "Nombre_FP") String Nombre_FP) {
         try {
             Conectar();
@@ -234,7 +242,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "eliminarFormaPagoS")
+
+    @WebMethod(operationName = "eliminarFormaPagoS")
     public int eliminarFormaPagoS(@WebParam(name = "Codigo_FP") String Codigo_FP) {
         try {
             Conectar();
@@ -244,7 +253,8 @@ public class ServicioServer {
             return 2;
         }
     }
-     @WebMethod(operationName = "listarFormaPagoS")
+
+    @WebMethod(operationName = "listarFormaPagoS")
     public ArrayList<FormaPago> listarFormaPagoS() {
 
         Conectar();
@@ -252,6 +262,7 @@ public class ServicioServer {
         formapago = listarFormaPago();
         return formapago;
     }
+
     @WebMethod(operationName = "buscarFormaPagoS")
     public FormaPago buscarFormaPagoS(@WebParam(name = "Codigo_FP") String Codigo_FP) {
 
@@ -264,4 +275,60 @@ public class ServicioServer {
     private void actualizarFormaPago(String Codigo_FP, String Nombre_FP) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    /*----------CRUD ARTICULOS------------*/
+    @WebMethod(operationName = "insertarArticuloS")
+    public int insertarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio) {
+        System.out.println("1");
+        try {
+            Conectar();
+            insertarArticulo(codigo, nombre, precio);
+
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "actualizarArticuloS")
+    public int actualizarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio) {
+        try {
+            Conectar();
+            actualizarArticulo(codigo, nombre, precio);
+
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "eliminarArticuloS")
+    public int eliminarArticuloS(@WebParam(name = "codigo") String codigo) {
+        try {
+            Conectar();
+            eliminarArticulo(codigo);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "listarArticuloS")
+    public ArrayList<Articulo> listarArticuloS() {
+
+        Conectar();
+        ArrayList<Articulo> art = new ArrayList<>();
+        art = listarArticulo();
+        return art;
+    }
+
+    @WebMethod(operationName = "buscarArticuloS")
+    public Articulo buscarArticuloS(@WebParam(name = "codigo") String codigo) {
+
+        Conectar();
+        Articulo art = new Articulo();
+        art = buscarArticulo(codigo);
+        return art;
+    }
+
 }
