@@ -8,8 +8,9 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-          
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Reporte Cruzado</title>
         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
@@ -19,9 +20,62 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:include src="header.xhtml" />
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">Ventas por Ciudad</h1>
+                <p class="lead">Reportes de ventas por cada Ciudad </p>
+                <hr class=""></hr>
+            </div>
+        </div>
 
-  
-        
+
+        <div id="content" class="container my-5">
+            <h1 class="form-label text-center"> Reporte </h1>
+            <h:form>
+                <div class="row my-3">
+                    <br></br>
+                    <h3 class="form-label text-center my-3"> Rango de Fechas </h3>
+                    <div class="row my-2">
+                        <div class="col">
+                            <label class="form-label"> Fecha Inicio </label>
+                            <input type="date" id="start" name="trip-start"
+                                   value="2018-07-22"
+                                   min="2018-07-22" max="2022-07-16" class="form-control"></input>
+                        </div>
+                        <div class="col">
+                            <label class="form-label"> Fecha Fin </label>
+                            <input type="date" id="start" name="trip-start"
+                                   value="2018-07-22"
+                                   min="2018-07-22" max="2022-07-16" class="form-control"></input>
+                        </div>
+                    </div>
+                    <h:commandButton id="genReporte1" value="Generar Reporte" action="#" class="btn btn-primary my-4">
+                    </h:commandButton>
+                </div>
+
+            </h:form>
+            <div class="row">
+                <hr class="my-3"></hr>
+                <h2 class="form-label text-left"> Matriz </h2>
+
+                <h:dataTable value="#{articulo_crud.articulos}" var="productos" class="table table-striped mt-4" >
+                    <h:column>    
+                        <f:facet name="header">Productos</f:facet>
+                            #{productos.nombre}
+                    </h:column>
+                    <c:forEach var="clientes" items="#{cliente_crud.clientes}">
+                        <h:column>    
+                            <f:facet name="header">#{clientes.nombreCliente}</f:facet>
+                        </h:column>
+
+                    </c:forEach>     
+
+                </h:dataTable>    
+
+            </div>
+
+        </div>
+
     </h:body>
-    
+
 </html>

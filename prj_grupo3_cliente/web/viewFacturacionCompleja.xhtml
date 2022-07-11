@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-          
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facturacion</title>
         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
@@ -18,16 +14,72 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </h:head>
     <h:body>
-        <ui:include src="header.xhtml" />
+        <h:body>
+            <ui:include src="header.xhtml" />
 
-  <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-5">Facturacion</h1>
-                <p class="lead">Pagina compleja para realizar compras dentro de la tienda. </p>
-                <hr class=""></hr>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-5">Facturacion</h1>
+                    <p class="lead">Pagina compleja para realizar compras dentro de la tienda. </p>
+                    <hr class=""></hr>
+                </div>
             </div>
-        </div>
-        
+
+            <div id="content" class="container my-5">
+                <h1 class="form-label text-center"> Facturas </h1>
+                <div class="row">
+                    <div class="col">
+
+                        <h2 class="form-label text-center"> Cabecera </h2>
+                        <br></br>
+                        <label class="form-label"> Seleccione Cliente </label>
+                        <select class="mdb-select md-form form-control">
+                            <c:forEach var="clientes" items="#{cliente_crud.clientes}">
+                                <option value="#{clientes.rucCliente}">#{clientes.nombreCliente}</option>
+                            </c:forEach> 
+                        </select>
+                        <br></br>
+                        <label class="form-label"> Seleccione Ciudad </label>
+                        <select class="mdb-select md-form form-control">
+                            <c:forEach var="ciudades" items="#{ciudad_crud.ciudades}">
+                                <option value="#{ciudades.codigoCiudad}">#{ciudades.nombreCiudad}</option>
+                            </c:forEach> 
+                        </select>
+                        <br></br>
+                        <label class="form-label"> Fecha de Facturacion </label>
+                        <input type="date" id="start" name="trip-start"
+                               value="2018-07-22"
+                               min="2018-07-22" max="2022-07-16" class="form-control"></input>
+                    </div>
+
+                    <div class="col">
+                        <h2 class="form-label text-center"> Detalle </h2>
+                        <h:dataTable value="" var="" class="table table-striped mt-4" >
+                            <h:column>
+                                <f:facet name="header">Articulo</f:facet>
+                                Papas
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Precio Unit</f:facet>  
+                                0.5
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Cantidad</f:facet>  
+                                2
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Precio Total</f:facet>
+                                1
+                            </h:column>
+                        </h:dataTable>    
+                    </div>
+                </div>
+
+            </div>
+
+
+        </h:body>
+
     </h:body>
-  
+
 </html>
