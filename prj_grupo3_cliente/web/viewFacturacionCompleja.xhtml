@@ -54,6 +54,27 @@
 
                     <div class="col">
                         <h2 class="form-label text-center"> Detalle </h2>
+                        <div>
+                            <h:form>
+                                <div class="row my-3">
+                                    <div class="col" >
+                                        <label class="form-label"> Seleccione producto </label>
+                                        <select class="mdb-select md-form form-control">
+                                            <c:forEach var="articulos" items="#{articulo_crud.articulos}">
+                                                <option value="#{articulos.codigo}">#{articulos.nombre}</option>
+                                            </c:forEach> 
+                                        </select>
+                                    </div>
+                                    <div class="col" >
+                                        <label class="form-label"> Seleccione cantidad </label>
+                                        
+                                    </div>
+                                </div>
+                                <h:commandButton id="agregarArticulo" value="Agregar Producto" action="#" class="btn btn-primary mx-3" >
+                                </h:commandButton>
+                            </h:form>
+
+                        </div>
                         <h:dataTable value="" var="" class="table table-striped mt-4" >
                             <h:column>
                                 <f:facet name="header">Articulo</f:facet>
@@ -73,6 +94,7 @@
                             </h:column>
                         </h:dataTable>    
                     </div>
+
                 </div>
 
             </div>
