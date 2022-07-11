@@ -22,11 +22,49 @@ and open the template in the editor.
 
   <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-5">Facturacion</h1>
+                <h1 class="display-5">Forma de Pagos</h1>
                 <p class="lead">Pagina compleja para realizar compras dentro de la tienda. </p>
                 <hr class=""></hr>
             </div>
         </div>
+        
+        <div id="content" class="container my-5">
+            <div class="row m-2">
+                <div class="col">
+                    <h:form id="form">
+                        <h4 class="form-label text-center"> FORMULARIO</h4>
+                        <br></br><br></br>
+                        <label class="form-label">CODIGO</label>
+                        <h:inputText id="codigo" value="#{formapago_crud.codigo}" class="form-control"/>
+                        <br></br>
+                        <label class="form-label">NOMBRE</label>
+                        <h:inputText id="nombre" value="#{formapago_crud.nombre}" class="form-control"/>
+                        <br></br><br></br>
+                        <h:commandButton id="insertarCiudad" value="Insertar" action="#{formapago_crud.insertarFP()}" class="btn btn-primary mx-3" >
+                        </h:commandButton>
+                        <h:commandButton id="eliminarCiudad" value="Eliminar" action="#{formapago_crud.eliminarFP()}" class="btn btn-danger mx-3"  >
+                        </h:commandButton>
+                        <h:commandButton id="actualizarCiudad" value="Actualizar" action="#{formapago_crud.actualizarFP()}" class="btn btn-success mx-3">
+                        </h:commandButton>
+                        <h:commandButton id="buscarCiudad" value="Buscar" action="#{formapago_crud.buscarFP()}" class="btn btn-info mx-3">
+                        </h:commandButton>
+                    </h:form>  
+                </div>
+                <div class="col">
+                    <h4 class="form-label text-center"> LISTA DE REGISTRADOS </h4>
+                    <h:dataTable value="#{formapago_crud.fp}" var="datos" class="table table-striped mt-4" >
+                        <h:column>
+                            <f:facet name="header">Codigo</f:facet>
+                                #{datos.codigo}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Nombre</f:facet>
+                                #{datos.nombreFP}
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+        </div> 
         
     </h:body>
   

@@ -266,7 +266,7 @@ public static void insertarCiudad(String codigo, String nombre) throws JSONExcep
           //------------FORMA PAGO
       //-------INSERTAR------FORMA PAGO
      public static void insertarFormaPago(String codigo, String nombre) throws JSONException {
-         col = db.getCollection("Forma_Pago");
+        col = db.getCollection("Forma_Pago");
         JSONObject persona;
         persona = new JSONObject();
         persona.put("Codigo_FP", codigo);
