@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import static prj_grupo3_server.Conexion.Conexion.singIn;
 
 @WebService(serviceName = "servicio_web_servidor")
 public class ServicioServer {
@@ -41,7 +42,7 @@ public class ServicioServer {
         try {
             Conectar();
             
-
+            singIn(user, pass);
             return 1;
         } catch (Exception e) {
             return 2;

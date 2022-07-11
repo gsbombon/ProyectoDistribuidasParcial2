@@ -34,7 +34,14 @@ public class Conexion {
     }
 
     public static void singIn(String user,String pass){
-        
+        col = db.getCollection("User");
+
+        JSONObject persona;
+
+        persona = new JSONObject();
+        persona.put("User", user);
+        persona.put("Pass", pass);
+        col.insert((DBObject) JSON.parse(persona.toString()));
     }
     
     

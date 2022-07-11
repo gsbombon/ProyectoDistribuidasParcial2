@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="servicio_web_servidor">
-      <wsdl-url>http://localhost:8080/prj_grupo3_server/servicio_web_servidor?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8083/prj_grupo3_server/servicio_web_servidor?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8083/prj_grupo3_server/servicio_web_servidor.wsdl</local-wsdl-file>
       <package-name>prj_grupo3_server.servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/prj_grupo3_server/servicio_web_servidor?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8083/prj_grupo3_server/servicio_web_servidor?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

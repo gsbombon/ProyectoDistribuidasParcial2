@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/prj_grupo3_server/servicio_web_servidor?wsdl" uri="wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl"/>
     <system systemId="http://localhost:8080/prj_grupo3_server/servicio_web_servidor?xsd=1" uri="wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.xsd_1.xsd"/>
+    <system systemId="http://localhost:8083/prj_grupo3_server/servicio_web_servidor?wsdl" uri="wsdl/localhost_8083/prj_grupo3_server/servicio_web_servidor.wsdl"/>
+    <system systemId="http://localhost:8083/prj_grupo3_server/servicio_web_servidor?xsd=1" uri="wsdl/localhost_8083/prj_grupo3_server/servicio_web_servidor.xsd_1.xsd"/>
 </catalog>
