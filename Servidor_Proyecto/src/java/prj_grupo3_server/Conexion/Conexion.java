@@ -11,6 +11,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.util.JSON;
 import org.json.*;
 import prj_grupo3_server.Modelo.Articulo;
+import prj_grupo3_server.Modelo.CabeceraFactura;
 import prj_grupo3_server.Modelo.Ciudad;
 import prj_grupo3_server.Modelo.Cliente;
 import prj_grupo3_server.Modelo.Cobrador;
@@ -425,4 +426,76 @@ public class Conexion {
         return articulo;
     }
 
+    /// CREAR NUEVA DETALLE FACTURA 
+    public static void crearDetalleFactura(String numCabecera) throws JSONException {
+        col = db.getCollection("DetalleFactura");
+        JSONObject cabFactura = new JSONObject();
+        cabFactura.put("Numero_Cabecera",numCabecera);
+        col.insert((DBObject) JSON.parse(cabFactura.toString()));
+    }
+    
+    // ELIMINAR CABECERA DETALLE FACTURA
+    public static void eliminarDetalleFactura(String numCabecera) {
+        col = db.getCollection("DetalleFactura");
+        col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
+        // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
+    }
+    
+    /// CREAR NUEVA FACTURA 
+    public static void crearCabeceraFactura(String numCabecera, String rucCliente, String codCiudad,String fecha) throws JSONException {
+        col = db.getCollection("CabeceraFactura");
+        JSONObject cabFactura = new JSONObject();
+        cabFactura.put("Numero_Cabecera",numCabecera);
+        cabFactura.put("Ruc_Cliente", rucCliente );
+        cabFactura.put("Fecha_Cabecera", fecha );
+        cabFactura.put("Codigo_Ciudad", codCiudad);
+        col.insert((DBObject) JSON.parse(cabFactura.toString()));
+    }
+    
+    // ACTUALIZAR CABECERA FACTURA
+    public static void actualizarCabeceraFactura(String numCabecera, String rucCliente, String codCiudad,String fecha) throws JSONException {
+        BasicDBObject query = new BasicDBObject();
+        query.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject newDocument = new BasicDBObject();
+        newDocument.put("Ruc_Cliente", rucCliente); // (2)
+        newDocument.put("Codigo_Ciudad", codCiudad); // (2)
+        newDocument.put("Fecha_Cabecera",fecha);
+        
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newDocument); // (3)
+        db.getCollection("CabeceraFactura").update(query, updateObject);
+    }
+    
+    
+    // ELIMINAR CABECERA FACTURA
+    public static void eliminarCabeceraFactura(String numCabecera) {
+        col = db.getCollection("CabeceraFactura");
+        col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
+        // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
+    }
+    
+    /// BUSCAR FACTURA 
+    public static CabeceraFactura buscarCabeceraFactura(String numFactura) {
+        CabeceraFactura cabFac = new CabeceraFactura();
+        col = db.getCollection("CabeceraFactura");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Numero_Cabecera", numFactura);
+        DBCursor cur = col.find(filtro);
+        while (cur.hasNext()) {
+            String nFactura = cur.next().get("Numero_Factura")+"";
+            String rCliente = cur.curr().get("Ruc_Cliente")+"";
+            String fecha = cur.curr().get("Fecha_Cabecera")+"";
+            String cCiudad  = cur.curr().get("Codigo_Ciudad")+"";
+            
+            cabFac.setCodCiudad(cCiudad);
+            cabFac.setRucCliente(rCliente);
+            cabFac.setFecha(fecha);
+            cabFac.setCodCiudad(cCiudad);
+        }
+        return cabFac;
+    }
+    
+    
+    
 }

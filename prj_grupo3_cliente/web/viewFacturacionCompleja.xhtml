@@ -26,30 +26,46 @@
             </div>
 
             <div id="content" class="container my-5">
+
+
+
                 <h1 class="form-label text-center"> Facturas </h1>
                 <div class="row">
                     <div class="col">
+                        
+                            <h2 class="form-label text-center"> Cabecera </h2>
+                            <br></br>
+                            <label class="form-label"> Factura # </label>
+                            <h:inputText id="numCabecera" value="#{cabeceraFactura_crud.numCabecera}" class="form-control"/>
+                            <br></br>
+                            <label class="form-label"> Cliente </label>
+                            <select id="rucCliente" class="mdb-select md-form form-control"  value="#{cabeceraFactura_crud.rucCliente}">
+                                <c:forEach var="clientes" items="#{cliente_crud.clientes}">
+                                    <option value="#{clientes.rucCliente}">#{clientes.nombreCliente}</option>
+                                </c:forEach> 
+                            </select>
+                            <br></br>
+                            <label class="form-label"> Ciudad de entrega </label>
+                            <select id="codCiudad" class="mdb-select md-form form-control" value="#{cabeceraFactura_crud.codCiudad}">
+                                <c:forEach var="ciudades" items="#{ciudad_crud.ciudades}">
+                                    <option value="#{ciudades.codigoCiudad}">#{ciudades.nombreCiudad}</option>
+                                </c:forEach> 
+                            </select>
+                            <br></br>
+                            <label class="form-label"> Fecha de Facturacion </label>
+                            <input type="date" id="fecha" value="#{cabeceraFactura_crud.fecha}"
+                                   min="2018-07-22" max="2022-07-16" class="form-control" ></input>
 
-                        <h2 class="form-label text-center"> Cabecera </h2>
-                        <br></br>
-                        <label class="form-label"> Seleccione Cliente </label>
-                        <select class="mdb-select md-form form-control">
-                            <c:forEach var="clientes" items="#{cliente_crud.clientes}">
-                                <option value="#{clientes.rucCliente}">#{clientes.nombreCliente}</option>
-                            </c:forEach> 
-                        </select>
-                        <br></br>
-                        <label class="form-label"> Seleccione Ciudad </label>
-                        <select class="mdb-select md-form form-control">
-                            <c:forEach var="ciudades" items="#{ciudad_crud.ciudades}">
-                                <option value="#{ciudades.codigoCiudad}">#{ciudades.nombreCiudad}</option>
-                            </c:forEach> 
-                        </select>
-                        <br></br>
-                        <label class="form-label"> Fecha de Facturacion </label>
-                        <input type="date" id="start" name="trip-start"
-                               value="2018-07-22"
-                               min="2018-07-22" max="2022-07-16" class="form-control"></input>
+                            <br></br><br></br>
+                            <h:commandButton id="insertarCabeceraFactura" value="Crear" action="#{cabeceraFactura_crud.crearCabeceraFactura2(numCabecera,rucCliente,codCiudad,fecha)}" class="btn btn-primary mx-3" >
+                            </h:commandButton>
+                            <h:commandButton id="elminarCabeceraFactura" value="Eliminar" action="#{cabeceraFactura_crud.eliminarCabeceraFactura}" class="btn btn-danger mx-3">
+                            </h:commandButton>
+                            <h:commandButton id="actualizarCabeceraFactura" value="Actualizar" action="#{cabeceraFactura_crud.actualizarCabeceraFactura}" class="btn btn-success mx-3">
+                            </h:commandButton>
+                            <h:commandButton id="buscarCabeceraFactura" value="Buscar" action="#{cabeceraFactura_crud.buscarCabeceraFactura}" class="btn btn-info mx-3">
+                            </h:commandButton>
+                        
                     </div>
 
                     <div class="col">
@@ -66,8 +82,8 @@
                                         </select>
                                     </div>
                                     <div class="col" >
-                                        <label class="form-label"> Seleccione cantidad </label>
-                                        
+                                        <label class="form-label"> Cantidad </label>
+                                        <input type="number" id="tentacles" name="tentacles" min="10" max="100" class="form-control"></input>
                                     </div>
                                 </div>
                                 <h:commandButton id="agregarArticulo" value="Agregar Producto" action="#" class="btn btn-primary mx-3" >
@@ -78,19 +94,19 @@
                         <h:dataTable value="" var="" class="table table-striped mt-4" >
                             <h:column>
                                 <f:facet name="header">Articulo</f:facet>
-                                Papas
+                                
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Precio Unit</f:facet>  
-                                0.5
+                                
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Cantidad</f:facet>  
-                                2
+                                
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Precio Total</f:facet>
-                                1
+                                
                             </h:column>
                         </h:dataTable>    
                     </div>
