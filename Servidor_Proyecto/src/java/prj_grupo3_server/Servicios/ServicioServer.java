@@ -32,6 +32,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.actualizarCabeceraFactura;
+import static prj_grupo3_server.Conexion.Conexion.agregarProducto;
 import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.buscarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.buscarDetalleFactura;
@@ -42,7 +43,9 @@ import static prj_grupo3_server.Conexion.Conexion.eliminarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.eliminarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.eliminarDetalleFactura;
 import static prj_grupo3_server.Conexion.Conexion.insertarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.insertarUsuario;
 import static prj_grupo3_server.Conexion.Conexion.listarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.login;
 import static prj_grupo3_server.Conexion.Conexion.singIn;
 import prj_grupo3_server.Modelo.Articulo;
 import prj_grupo3_server.Modelo.CabeceraFactura;
@@ -341,7 +344,8 @@ public class ServicioServer {
     }
 
     @WebMethod(operationName = "crearCabeceraFacturaS")
-    public int crearCabeceraFacturaS(@WebParam(name = "numFactura") String numFactura, @WebParam(name = "rucCliente") String rucCliente,
+    public int crearCabeceraFacturaS(@WebParam(name = "numFactura") String numFactura,
+            @WebParam(name = "rucCliente") String rucCliente,
             @WebParam(name = "fecha") String fecha, @WebParam(name = "codCiudad") String codCiudad) {
         try {
             Conectar();
@@ -415,18 +419,53 @@ public class ServicioServer {
         return detalleFac;
     }
 
-    
     @WebMethod(operationName = "crearFacturaS")
     public int crearFacturaS(@WebParam(name = "numFactura") String numFactura, @WebParam(name = "rucCliente") String rucCliente,
-            @WebParam(name = "fecha") String fecha, 
+            @WebParam(name = "fecha") String fecha,
             @WebParam(name = "codCiudad") String codCiudad,
             @WebParam(name = "precioFinal") String precioFinal) {
         try {
             Conectar();
-            crearFactura(numFactura, rucCliente, codCiudad, fecha,precioFinal);
+            crearFactura(numFactura, rucCliente, codCiudad, fecha, precioFinal);
             return 1;
         } catch (Exception e) {
             return 2;
         }
     }
+
+    @WebMethod(operationName = "agregarProductoS")
+    public int agregarProductoS(@WebParam(name = "numFactura") String numFactura,
+            @WebParam(name = "nombreItem") String nombreItem,
+            @WebParam(name = "cantidadItem") String cantidadItem,
+            @WebParam(name = "precioItem") String precioItem,
+            @WebParam(name = "precioTotalItem") String precioTotalItem) {
+        try {
+            Conectar();
+            ItemFactura item = new ItemFactura(nombreItem, precioItem, cantidadItem, precioTotalItem);
+            agregarProducto(numFactura, item);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "loginS")
+    public int loginS(@WebParam(name = "Usuario") String Usuario, @WebParam(name = "Contrasena") String Contrasena) {
+        Conectar();
+        int op = login(Usuario, Contrasena);
+        return op;
+    }
+    
+    @WebMethod(operationName = "crearUsuarioS")
+    public int crearUsuarioS(@WebParam(name = "user") String user,
+            @WebParam(name = "pass") String pass) {
+        try {
+            Conectar();
+            insertarUsuario(user,pass);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
 }

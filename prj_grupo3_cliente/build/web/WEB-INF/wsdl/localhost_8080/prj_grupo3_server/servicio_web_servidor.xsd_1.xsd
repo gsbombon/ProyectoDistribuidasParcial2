@@ -28,6 +28,10 @@
 
 <xs:element name="actualizarFormaPagoSResponse" type="tns:actualizarFormaPagoSResponse"/>
 
+<xs:element name="agregarProductoS" type="tns:agregarProductoS"/>
+
+<xs:element name="agregarProductoSResponse" type="tns:agregarProductoSResponse"/>
+
 <xs:element name="buscarArticuloS" type="tns:buscarArticuloS"/>
 
 <xs:element name="buscarArticuloSResponse" type="tns:buscarArticuloSResponse"/>
@@ -290,7 +294,7 @@
 
 <xs:complexType name="detalleFactura">
 <xs:sequence>
-<xs:element name="articulosDetalle" type="tns:itemFactura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="itemsDetalle" type="tns:itemFactura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
 <xs:element name="precioTotal" type="xs:double"/>
 </xs:sequence>
@@ -596,6 +600,22 @@
 <xs:element name="fecha" type="xs:string" minOccurs="0"/>
 <xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
 <xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProductoS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreItem" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidadItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioTotalItem" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProductoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

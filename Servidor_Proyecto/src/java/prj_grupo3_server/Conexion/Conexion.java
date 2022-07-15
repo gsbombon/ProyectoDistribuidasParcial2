@@ -14,6 +14,9 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import org.bson.Document;
@@ -438,8 +441,11 @@ public class Conexion {
     /// CREAR NUEVA DETALLE FACTURA 
     public static void crearDetalleFactura(String numCabecera) throws JSONException {
         col = db.getCollection("DetalleFactura");
+        String it[] = {};
         JSONObject cabFactura = new JSONObject();
         cabFactura.put("Numero_Cabecera", numCabecera);
+        cabFactura.put("Items_Detalle", it);
+        cabFactura.put("Precio_Total_Cabecera", "0");
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
 
@@ -462,22 +468,22 @@ public class Conexion {
         filtro.put("Numero_Cabecera", numFactura);
         DBCursor cur = col.find(filtro);
         BasicDBObject account = null;
-        
-        String precioTotalDetalle ="";
-        while(cur.hasNext()){
-            account = ( BasicDBObject ) cur.next();
-            BasicDBList items = ( BasicDBList ) account.get( "Items_Detalle" );
-            
-            for( Iterator< Object > it = items.iterator(); it.hasNext(); ){
-                BasicDBObject dbo = ( BasicDBObject ) it.next();
+
+        String precioTotalDetalle = "";
+        while (cur.hasNext()) {
+            account = (BasicDBObject) cur.next();
+            BasicDBList items = (BasicDBList) account.get("Items_Detalle");
+
+            for (Iterator< Object> it = items.iterator(); it.hasNext();) {
+                BasicDBObject dbo = (BasicDBObject) it.next();
                 ItemFactura item = new ItemFactura();
-                item.makePojoFromBson( dbo );
+                item.makePojoFromBson(dbo);
                 itemsArray.add(item);
                 System.out.println(item.toString());
-            }  
-            precioTotalDetalle = ""+cur.curr().get("Precio_Total_Detalle");
+            }
+            precioTotalDetalle = "" + cur.curr().get("Precio_Total_Detalle");
         }
-        
+
         detalleFac.setNumCabecera(numFactura);
         detalleFac.setItemsDetalle(itemsArray);
         detalleFac.setPrecioTotal(Double.parseDouble(precioTotalDetalle));
@@ -551,6 +557,83 @@ public class Conexion {
         cabFactura.put("Total_Factura", precioFinal);
         cabFactura.put("Ciudad_Factura", nomCiudad);
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
+    }
+
+    // AGREGAR PRODUCTO AL DETALLE
+    public static void agregarProducto2(String numCabecera, ItemFactura item) {
+        col = db.getCollection("DetalleFactura");
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject newItem = new BasicDBObject();
+        newItem.put("Items_Detalle", item);
+
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newItem);
+        db.getCollection("DetalleFactura").update(query, updateObject);
+    }
+
+    // AGREGAR PRODUCTO AL DETALLE
+    public static void agregarProducto(String numCabecera, ItemFactura item) {
+        col = db.getCollection("DetalleFactura");
+        BasicDBObject match = new BasicDBObject();
+        match.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject itemSpec = new BasicDBObject();
+        itemSpec.put("Nombre_Item", item.getNombreItem());
+        itemSpec.put("Cantidad_Item", item.getCantidadItem());
+        itemSpec.put("Precio_Item", item.getPrecioItem());
+        itemSpec.put("Precio_Total_Item", item.getPrecioTotalItem());
+
+        BasicDBObject update = new BasicDBObject();
+        update.put("$push", new BasicDBObject("Items_Detalle", itemSpec));
+
+        col.update(match, update);
+    }
+
+    // FUNCIONES PARA LOGIN
+    public static void insertarUsuario(String nombre, String password) throws JSONException {
+        col = db.getCollection("Usuario");
+        JSONObject persona;
+        persona = new JSONObject();
+        persona.put("Nombre_Usuario", nombre);
+        persona.put("Password_Usuario", password);
+        col.insert((DBObject) JSON.parse(persona.toString()));
+    }
+
+    public static int login(String usuario, String contrasena) {
+        col = db.getCollection("Usuario");
+        int i = 0;
+        DBCursor cur = col.find();
+        while (cur.hasNext()) {
+            String n1 = "";
+            String n2 = "";
+            n1 = cur.next().get("Nombre_Usuario") + "";
+            n2 = cur.curr().get("Password_Usuario") + "";
+            if (n1.equals(usuario) && n2.equals(contrasena)) {
+                i++;
+            }
+        }
+        if (i > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+    public static void actualizarStockArticulo(String articulo, String cantidad) {
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("Nombre_Articulo", articulo);
+
+        BasicDBObject newDocument = new BasicDBObject();
+        newDocument.put("Stock_Articulo", cantidad); // (2)
+
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newDocument); // (3)
+        db.getCollection("Articulo").update(query, updateObject);
     }
 
 }

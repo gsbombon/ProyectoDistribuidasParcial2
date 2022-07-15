@@ -42,12 +42,12 @@
                             <br></br>
                             <label class="form-label"> Ruc Cliente </label>
                             <h:selectOneMenu id="cliente" value="#{cabeceraFactura_crud.rucCliente}" class="form-control">
-                                <f:selectItems value="#{cliente_crud.listaRucClientes}" />
+                                <f:selectItems value="#{cabeceraFactura_crud.cli_crud.listaRucClientes}" />
                             </h:selectOneMenu>
                             <br></br>
                             <label class="form-label"> Ciudad de entrega </label>
                             <h:selectOneMenu id="ciudad" value="#{cabeceraFactura_crud.cfCiudad}" class="form-control">
-                                <f:selectItems value="#{ciudad_crud.listaNombreCiudades}" />
+                                <f:selectItems value="#{cabeceraFactura_crud.ciu_crud.listaNombreCiudades}" />
                             </h:selectOneMenu>
                             <br></br>
 
@@ -77,13 +77,13 @@
                                     </div>
                                     <div class="col" >
                                         <label class="form-label"> Seleccione producto </label>
-                                        <h:selectOneMenu id="ciudad" value="#{itemFactura_crud.nombreItem}" class="form-control">
-                                            <f:selectItems value="#{articulo_crud.listaNombreArticulo}" />
+                                        <h:selectOneMenu id="ciudad" value="#{cabeceraFactura_crud.if_crud.nombreItem}" class="form-control">
+                                            <f:selectItems value="#{cabeceraFactura_crud.art_crud.listaNombreArticulo}" />
                                         </h:selectOneMenu>
-                                    </div>
+                                    </div> 
                                     <div class="col" >
                                         <label class="form-label"> Cantidad </label>
-                                        <h:inputText id="numDetale" value="#{itemFactura_crud.cantidadItem}" class="form-control" />
+                                        <h:inputText id="numDetale" value="#{cabeceraFactura_crud.if_crud.cantidadItem}" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="row my-3">
@@ -92,7 +92,7 @@
                                         </h:commandButton>
                                     </div>
                                     <div class="col" >
-                                        <input type="number" id="precioTotal" name="precioTotal" disabled="true" class="form-control"></input>
+                                        <p>#{cabeceraFactura_crud.mensajeItem}</p>
                                     </div>
                                 </div>
                             </h:form>

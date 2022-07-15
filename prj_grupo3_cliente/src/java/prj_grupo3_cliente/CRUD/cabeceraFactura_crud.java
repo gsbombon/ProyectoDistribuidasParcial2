@@ -21,13 +21,67 @@ public class cabeceraFactura_crud {
     public String rucCliente;
     public String cfCiudad;
     public String fecha;
+    public String mensajeItem = "Esperando...";
     public String mensaje = "";
     public CabeceraFactura cabeceraFactura;
     public DetalleFactura detalleFactura;
     public detalleFactura_crud df_crud = new detalleFactura_crud();
+    public itemFactura_crud if_crud = new itemFactura_crud();
+    public articulo_crud art_crud = new articulo_crud();
+    public cliente_crud cli_crud = new cliente_crud();
+    public ciudad_crud ciu_crud = new ciudad_crud();
+
+    public ciudad_crud getCiu_crud() {
+        return ciu_crud;
+    }
+
+    public void setCiu_crud(ciudad_crud ciu_crud) {
+        this.ciu_crud = ciu_crud;
+    }
+
+    public articulo_crud getArt_crud() {
+        return art_crud;
+    }
+
+    public void setArt_crud(articulo_crud art_crud) {
+        this.art_crud = art_crud;
+    }
+    
+    
+    public cliente_crud getCli_crud() {
+        return cli_crud;
+    }
+
+    public void setCli_crud(cliente_crud cli_crud) {
+        this.cli_crud = cli_crud;
+    }
+
+    public itemFactura_crud getIf_crud() {
+        return if_crud;
+    }
+
+    public void setIf_crud(itemFactura_crud if_crud) {
+        this.if_crud = if_crud;
+    }
+
+    public String getMensaje() {
+        return mensajeItem;
+    }
+
+    public void setMensaje(String mensajeItem) {
+        this.mensajeItem = mensajeItem;
+    }
 
     public detalleFactura_crud getDf_crud() {
         return df_crud;
+    }
+
+    public String getMensajeItem() {
+        return mensajeItem;
+    }
+
+    public void setMensajeItem(String mensajeItem) {
+        this.mensajeItem = mensajeItem;
     }
 
     public void setDf_crud(detalleFactura_crud df_crud) {
@@ -106,10 +160,10 @@ public class cabeceraFactura_crud {
             if (resultado == 1) {
                 this.limpiarForm();
             } else {
-                mensaje = "No se pudo insertar";
+                mensajeItem = "No se pudo insertar";
             }
         } catch (Exception ex) {
-            mensaje = "No se pudo insertar";
+            mensajeItem = "No se pudo insertar";
         }
     }
 
@@ -148,10 +202,14 @@ public class cabeceraFactura_crud {
         rucCliente = cabeceraFactura.getRucCliente();
         cfCiudad = cabeceraFactura.getCodCiudad();
         fecha = cabeceraFactura.getFecha();
-        this.buscarDetalleFactura(numCabecera);
+        try {
+            this.buscarDetalleFactura(numCabecera);
+        } catch (Exception e) {
+            System.out.println("ERROR NULL");
+        }
 
     }
-    
+
     public void buscarDetalleFactura(String numFactura) {
         detalleFactura = port.buscarDetalleFacturaS(numFactura);
         df_crud.numCabecera = numFactura;
@@ -159,10 +217,10 @@ public class cabeceraFactura_crud {
         df_crud.precioTotal = this.precioTotalFactura(df_crud.itemsDetalle);
     }
 
-    public double precioTotalFactura(ArrayList<ItemFactura> items){
+    public double precioTotalFactura(ArrayList<ItemFactura> items) {
         double sum = 0;
-        for(ItemFactura i: items){
-            sum+=Double.parseDouble(i.getPrecioTotalItem());
+        for (ItemFactura i : items) {
+            sum += Double.parseDouble(i.getPrecioTotalItem());
         }
         return sum;
     }
