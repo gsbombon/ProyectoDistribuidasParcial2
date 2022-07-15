@@ -18,10 +18,19 @@ public class ciudad_crud {
     public String nombre = "";
     public String mensaje = "";
     public ArrayList<Ciudad> ciudades = (ArrayList<Ciudad>) port.listarCiudadS();
+    public ArrayList<String> listaNombreCiudades = (ArrayList<String>) this.cmbNombreCiudades();
     public Ciudad ciudad;
 
     public ciudad_crud() {
 
+    }
+
+    public ArrayList<String> getListaNombreCiudades() {
+        return listaNombreCiudades;
+    }
+
+    public void setListaNombreCiudades(ArrayList<String> listaNombreCiudades) {
+        this.listaNombreCiudades = listaNombreCiudades;
     }
 
     public ArrayList<Ciudad> getCiudades() {
@@ -59,6 +68,14 @@ public class ciudad_crud {
     public void limpiarForm() {
         codigo = "";
         nombre = "";
+    }
+
+    public ArrayList<String> cmbNombreCiudades() {
+        ArrayList<String> nombresClientes = new ArrayList<>();
+        this.ciudades.forEach((cli) -> {
+            nombresClientes.add(cli.getNombreCiudad());
+        });
+        return nombresClientes;
     }
 
     public void insertarCiudad() {

@@ -34,8 +34,10 @@ import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.actualizarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.buscarCabeceraFactura;
+import static prj_grupo3_server.Conexion.Conexion.buscarDetalleFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearDetalleFactura;
+import static prj_grupo3_server.Conexion.Conexion.crearFactura;
 import static prj_grupo3_server.Conexion.Conexion.eliminarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.eliminarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.eliminarDetalleFactura;
@@ -44,6 +46,8 @@ import static prj_grupo3_server.Conexion.Conexion.listarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.singIn;
 import prj_grupo3_server.Modelo.Articulo;
 import prj_grupo3_server.Modelo.CabeceraFactura;
+import prj_grupo3_server.Modelo.DetalleFactura;
+import prj_grupo3_server.Modelo.ItemFactura;
 
 @WebService(serviceName = "servicio_web_servidor")
 public class ServicioServer {
@@ -348,7 +352,7 @@ public class ServicioServer {
             return 2;
         }
     }
-    
+
     @WebMethod(operationName = "crearDetalleFacturaS")
     public int crearDetalleFacturaS(@WebParam(name = "numFactura") String numFactura) {
         try {
@@ -359,7 +363,7 @@ public class ServicioServer {
             return 2;
         }
     }
-    
+
     @WebMethod(operationName = "eliminarDetalleFacturaS")
     public int eliminarDetalleFacturaS(@WebParam(name = "numFactura") String numFactura) {
         try {
@@ -394,7 +398,7 @@ public class ServicioServer {
             return 2;
         }
     }
-    
+
     @WebMethod(operationName = "buscarCabeceraFacturaS")
     public CabeceraFactura buscarCabeceraFacturaS(@WebParam(name = "numCabecera") String numCabecera) {
         Conectar();
@@ -402,6 +406,27 @@ public class ServicioServer {
         cf = buscarCabeceraFactura(numCabecera);
         return cf;
     }
-    
 
+    @WebMethod(operationName = "buscarDetalleFacturaS")
+    public DetalleFactura buscarDetalleFacturaS(@WebParam(name = "numCabecera") String numCabecera) {
+        Conectar();
+        DetalleFactura detalleFac = new DetalleFactura();
+        detalleFac = buscarDetalleFactura(numCabecera);
+        return detalleFac;
+    }
+
+    
+    @WebMethod(operationName = "crearFacturaS")
+    public int crearFacturaS(@WebParam(name = "numFactura") String numFactura, @WebParam(name = "rucCliente") String rucCliente,
+            @WebParam(name = "fecha") String fecha, 
+            @WebParam(name = "codCiudad") String codCiudad,
+            @WebParam(name = "precioFinal") String precioFinal) {
+        try {
+            Conectar();
+            crearFactura(numFactura, rucCliente, codCiudad, fecha,precioFinal);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
 }

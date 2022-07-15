@@ -1,4 +1,3 @@
-
 package prj_grupo3_cliente.CRUD;
 
 import java.util.ArrayList;
@@ -7,10 +6,12 @@ import javax.faces.bean.ManagedBean;
 import prj_grupo3_server.servicios.Cliente;
 import prj_grupo3_server.servicios.ServicioWebServidor;
 import prj_grupo3_server.servicios.ServicioServer;
+
 @ManagedBean()
 @SessionScoped
 
 public class cliente_crud {
+
     private ServicioWebServidor service = new ServicioWebServidor();
     ServicioServer port = service.getServicioServerPort();
     public String ruc = "";
@@ -18,8 +19,27 @@ public class cliente_crud {
     public String direccion = "";
     public String mensaje = "";
     public ArrayList<Cliente> clientes = (ArrayList<Cliente>) port.listarClienteS();
+    public ArrayList<String> listaRucClientes = (ArrayList<String>)this.cmbRucCliente();
+    public ArrayList<String> listaNombreClientes = (ArrayList<String>)this.cmbNombreCliente();
     public Cliente cliente;
 
+    public ArrayList<String> getListaRucClientes() {
+        return listaRucClientes;
+    }
+
+    public void setListaRucClientes(ArrayList<String> listaRucClientes) {
+        this.listaRucClientes = listaRucClientes;
+    }
+
+    public ArrayList<String> getListaNombreClientes() {
+        return listaNombreClientes;
+    }
+
+    public void setListaNombreClientes(ArrayList<String> listaNombreClientes) {
+        this.listaNombreClientes = listaNombreClientes;
+    }
+    
+    
     public ArrayList<Cliente> getClientes() {
         return clientes;
     }
@@ -27,7 +47,6 @@ public class cliente_crud {
     public void setCobradores(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
     }
-    
 
     public cliente_crud() {
     }
@@ -64,11 +83,24 @@ public class cliente_crud {
         this.mensaje = mensaje;
     }
 
-    
+    public ArrayList<String> cmbNombreCliente() {
+        ArrayList<String> nombresClientes = new ArrayList<>();
+        this.clientes.forEach((cli) -> {
+            nombresClientes.add(cli.getNombreCliente());
+        });
+        return nombresClientes;
+    }
 
-    public void insertarCliente()      
-    {
-    int resultado;
+    public ArrayList<String> cmbRucCliente() {
+        ArrayList<String> rucClientes = new ArrayList<>();
+        this.clientes.forEach((cli) -> {
+            rucClientes.add(cli.getRucCliente());
+        });
+        return rucClientes;
+    }
+
+    public void insertarCliente() {
+        int resultado;
         try {
             resultado = port.insertarClienteS(ruc, nombre, direccion);
             if (resultado == 1) {
@@ -82,16 +114,15 @@ public class cliente_crud {
             mensaje = "No se pudo insertar";
         }
     }
-    
-    public void limpiarFormulario(){
-        ruc="";
-        nombre="";
-        direccion="";
+
+    public void limpiarFormulario() {
+        ruc = "";
+        nombre = "";
+        direccion = "";
     }
-    
-    public void eliminarCliente()      
-    {
-    int resultado;
+
+    public void eliminarCliente() {
+        int resultado;
         try {
             resultado = port.eliminarClienteS(ruc);
             if (resultado == 1) {
@@ -105,10 +136,9 @@ public class cliente_crud {
             mensaje = "No se pudo eliminar";
         }
     }
-    
-    public void actualizarCliente()      
-    {
-    int resultado;
+
+    public void actualizarCliente() {
+        int resultado;
         try {
             resultado = port.actualizarClienteS(ruc, nombre, direccion);
             if (resultado == 1) {
@@ -122,16 +152,15 @@ public class cliente_crud {
             mensaje = "No se pudo actualizar";
         }
     }
-    
-    public void listarCliente()      
-    {
-        clientes = (ArrayList<Cliente>) port.listarClienteS();      
+
+    public void listarCliente() {
+        clientes = (ArrayList<Cliente>) port.listarClienteS();
     }
-    
-    public void buscarCliente()      
-    {
+
+    public void buscarCliente() {
         cliente = port.buscarClienteS(ruc);
         nombre = cliente.getNombreCliente();
-        direccion =cliente.getDireccionCliente();
+        direccion = cliente.getDireccionCliente();
     }
 }
+

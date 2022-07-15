@@ -1,9 +1,18 @@
 
 package prj_grupo3_server.Modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
-public class CabeceraFactura {
+@Entity
+public class CabeceraFactura implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String numCabecera;
     private String rucCliente;
     private String codCiudad;

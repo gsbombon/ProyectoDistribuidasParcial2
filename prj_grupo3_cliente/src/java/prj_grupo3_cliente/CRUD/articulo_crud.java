@@ -18,7 +18,16 @@ public class articulo_crud {
     public String precio = "";
     public String mensaje = "";
     public ArrayList<Articulo> articulos = (ArrayList<Articulo>) port.listarArticuloS();
+    public ArrayList<String> listaNombreArticulo = (ArrayList<String>) this.cmbNombreArticulos();
     public Articulo articulo;
+
+    public ArrayList<String> getListaNombreArticulo() {
+        return listaNombreArticulo;
+    }
+
+    public void setListaNombreArticulo(ArrayList<String> listaNombreArticulo) {
+        this.listaNombreArticulo = listaNombreArticulo;
+    }
 
     public ArrayList<Articulo> getArticulos() {
         return articulos;
@@ -119,6 +128,14 @@ public class articulo_crud {
 
     public void listarArticulo() {
         articulos = (ArrayList<Articulo>) port.listarArticuloS();
+    }
+
+    public ArrayList<String> cmbNombreArticulos() {
+        ArrayList<String> nombresArticulos = new ArrayList<>();
+        this.articulos.forEach((cli) -> {
+            nombresArticulos.add(cli.getNombre());
+        });
+        return nombresArticulos;
     }
 
     public void buscarArticulo() {
