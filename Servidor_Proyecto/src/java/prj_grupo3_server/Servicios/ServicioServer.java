@@ -32,18 +32,26 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.actualizarCabeceraFactura;
+import static prj_grupo3_server.Conexion.Conexion.actualizarMovimiento;
 import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.buscarArticuloN;
 import static prj_grupo3_server.Conexion.Conexion.buscarCabeceraFactura;
+import static prj_grupo3_server.Conexion.Conexion.buscarMovimiento;
+import static prj_grupo3_server.Conexion.Conexion.buscarMovimientoN;
 import static prj_grupo3_server.Conexion.Conexion.crearCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearDetalleFactura;
 import static prj_grupo3_server.Conexion.Conexion.eliminarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.eliminarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.eliminarDetalleFactura;
+import static prj_grupo3_server.Conexion.Conexion.eliminarMovimiento;
 import static prj_grupo3_server.Conexion.Conexion.insertarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.insertarMovimiento;
 import static prj_grupo3_server.Conexion.Conexion.listarArticulo;
+import static prj_grupo3_server.Conexion.Conexion.listarMovimiento;
 import static prj_grupo3_server.Conexion.Conexion.singIn;
 import prj_grupo3_server.Modelo.Articulo;
 import prj_grupo3_server.Modelo.CabeceraFactura;
+import prj_grupo3_server.Modelo.Movimiento;
 
 @WebService(serviceName = "servicio_web_servidor")
 public class ServicioServer {
@@ -284,11 +292,11 @@ public class ServicioServer {
 
     /*----------CRUD ARTICULOS------------*/
     @WebMethod(operationName = "insertarArticuloS")
-    public int insertarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio) {
+    public int insertarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio, @WebParam(name = "cantidad") String cantidad) {
         System.out.println("1");
         try {
             Conectar();
-            insertarArticulo(codigo, nombre, precio);
+            insertarArticulo(codigo, nombre, precio, cantidad);
 
             return 1;
         } catch (Exception e) {
@@ -297,10 +305,10 @@ public class ServicioServer {
     }
 
     @WebMethod(operationName = "actualizarArticuloS")
-    public int actualizarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio) {
+    public int actualizarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio, @WebParam(name = "cantidad") String cantidad) {
         try {
             Conectar();
-            actualizarArticulo(codigo, nombre, precio);
+            actualizarArticulo(codigo, nombre, precio, cantidad);
 
             return 1;
         } catch (Exception e) {
@@ -330,11 +338,86 @@ public class ServicioServer {
 
     @WebMethod(operationName = "buscarArticuloS")
     public Articulo buscarArticuloS(@WebParam(name = "codigo") String codigo) {
+
         Conectar();
         Articulo art = new Articulo();
         art = buscarArticulo(codigo);
         return art;
     }
+    
+    @WebMethod(operationName = "buscarArticuloSN")
+    public Articulo buscarArticuloSN(@WebParam(name = "nombre") String nombre) {
+
+        Conectar();
+        Articulo art = new Articulo();
+        art = buscarArticuloN(nombre);
+        return art;
+    }
+    
+    /*----------CRUD TIPO MOVIMIENTO------------*/
+    @WebMethod(operationName = "insertarMovimientoS")
+    public int insertarMovimientoS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "signo") String signo) {
+        System.out.println("1");
+        try {
+            Conectar();
+            insertarMovimiento(codigo, nombre, signo);
+
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "actualizarMovimientoS")
+    public int actualizarMovimientoS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "signo") String signo) {
+        try {
+            Conectar();
+            actualizarMovimiento(codigo, nombre, signo);
+
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "eliminarMovimientoS")
+    public int eliminarMovimientoS(@WebParam(name = "codigo") String codigo) {
+        try {
+            Conectar();
+            eliminarMovimiento(codigo);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @WebMethod(operationName = "listarMovimientoS")
+    public ArrayList<Movimiento> listarMovimientoS() {
+
+        Conectar();
+        ArrayList<Movimiento> mov = new ArrayList<>();
+        mov = listarMovimiento();
+        return mov;
+    }
+
+    @WebMethod(operationName = "buscarMovimientoS")
+    public Movimiento buscarMovimientoS(@WebParam(name = "codigo") String codigo) {
+
+        Conectar();
+        Movimiento mov = new Movimiento();
+        mov = buscarMovimiento(codigo);
+        return mov;
+    }
+    
+    @WebMethod(operationName = "buscarMovimientoSN")
+    public Movimiento buscarMovimientoSN(@WebParam(name = "nombre") String nombre) {
+
+        Conectar();
+        Movimiento mov = new Movimiento();
+        mov = buscarMovimientoN(nombre);
+        return mov;
+    }
+    
 
     @WebMethod(operationName = "crearCabeceraFacturaS")
     public int crearCabeceraFacturaS(@WebParam(name = "numFactura") String numFactura, @WebParam(name = "rucCliente") String rucCliente,

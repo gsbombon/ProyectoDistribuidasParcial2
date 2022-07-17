@@ -7,26 +7,31 @@ import prj_grupo3_server.servicios.Articulo;
 import prj_grupo3_server.servicios.ServicioServer;
 import prj_grupo3_server.servicios.ServicioWebServidor;
 
+
+
+
 @ManagedBean()
 @SessionScoped
 public class articulo_crud {
-
     private ServicioWebServidor service = new ServicioWebServidor();
     ServicioServer port = service.getServicioServerPort();
     public String codigo = "";
     public String nombre = "";
     public String precio = "";
+    public String cantidad = "";
     public String mensaje = "";
     public ArrayList<Articulo> articulos = (ArrayList<Articulo>) port.listarArticuloS();
     public Articulo articulo;
-
-    public ArrayList<Articulo> getArticulos() {
+    
+     public ArrayList<Articulo> getArticulos() {
         return articulos;
     }
-
-    public void setArticulo(ArrayList<Articulo> articulos) {
+     
+     
+     public void setArticulo(ArrayList<Articulo> articulos) {
         this.articulos = articulos;
     }
+    
 
     public articulo_crud() {
     }
@@ -55,6 +60,15 @@ public class articulo_crud {
         this.precio = precio;
     }
 
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    
     public String getMensaje() {
         return mensaje;
     }
@@ -63,10 +77,13 @@ public class articulo_crud {
         this.mensaje = mensaje;
     }
 
-    public void insertarArticulo() {
-        int resultado;
+    
+
+    public void insertarArticulo()      
+    {
+    int resultado;
         try {
-            resultado = port.insertarArticuloS(codigo, nombre, precio);
+            resultado = port.insertarArticuloS(codigo, nombre, precio, cantidad);
             if (resultado == 1) {
                 mensaje = "Se insertó satisfactoriamente";
                 this.listarArticulo();
@@ -78,15 +95,17 @@ public class articulo_crud {
             mensaje = "No se pudo insertar";
         }
     }
-
-    public void limpiarFormulario() {
-        codigo = "";
-        nombre = "";
-        precio = "";
+    
+    public void limpiarFormulario(){
+        codigo="";
+        nombre="";
+        precio="";
+        cantidad="";
     }
-
-    public void eliminarArticulo() {
-        int resultado;
+    
+    public void eliminarArticulo()      
+    {
+    int resultado;
         try {
             resultado = port.eliminarArticuloS(codigo);
             if (resultado == 1) {
@@ -100,11 +119,12 @@ public class articulo_crud {
             mensaje = "No se pudo eliminar";
         }
     }
-
-    public void actualizarArticulo() {
-        int resultado;
+    
+    public void actualizarArticulo()      
+    {
+    int resultado;
         try {
-            resultado = port.actualizarArticuloS(codigo, nombre, precio);
+            resultado = port.actualizarArticuloS(codigo, nombre, precio, cantidad);
             if (resultado == 1) {
                 mensaje = "Se actualizo satisfactoriamente";
                 this.listarArticulo();
@@ -116,14 +136,24 @@ public class articulo_crud {
             mensaje = "No se pudo actualizar";
         }
     }
-
-    public void listarArticulo() {
-        articulos = (ArrayList<Articulo>) port.listarArticuloS();
+    
+    public void listarArticulo()      
+    {
+        articulos = (ArrayList<Articulo>) port.listarArticuloS();      
     }
-
-    public void buscarArticulo() {
+    
+    public void buscarArticulo()      
+    {
         articulo = port.buscarArticuloS(codigo);
         nombre = articulo.getNombre();
-        precio = articulo.getPrecio();
+        precio =articulo.getPrecio();
+        cantidad = articulo.getCantidad();
+    }
+    public void buscarArticuloN()      
+    {
+        articulo = port.buscarArticuloSN(nombre);
+        codigo = articulo.getCodigo();
+        precio =articulo.getPrecio();
+        cantidad = articulo.getCantidad();
     }
 }

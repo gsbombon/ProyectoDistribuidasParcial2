@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package prj_grupo3_server.Modelo;
 
@@ -15,18 +16,16 @@ import javax.persistence.Id;
  * @author lizpu
  */
 @Entity
-public class Articulo implements Serializable {
-
+public class Movimiento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String codigo;
     private String nombre;
-    private String precio;
-    private String cantidad;
+    private String signo;
 
-    public Articulo() {
+    public Movimiento() {
     }
-
+     
     public String getCodigo() {
         return codigo;
     }
@@ -43,22 +42,14 @@ public class Articulo implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getPrecio() {
-        return precio;
+    public String getSigno() {
+        return signo;
     }
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public void setSigno(String signo) {
+        this.signo = signo;
     }
-
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
-
     
-
+    
+    
 }
