@@ -1,10 +1,13 @@
 package prj_grupo3_cliente.CRUD;
 
+import static java.lang.System.out;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import prj_grupo3_server.servicios.CabeceraFactura;
 import prj_grupo3_server.servicios.Ciudad;
+import prj_grupo3_server.servicios.DetalleFactura;
+import prj_grupo3_server.servicios.ItemFactura;
 import prj_grupo3_server.servicios.ServicioWebServidor;
 import prj_grupo3_server.servicios.ServicioServer;
 
@@ -16,10 +19,74 @@ public class cabeceraFactura_crud {
     ServicioServer port = service.getServicioServerPort();
     public String numCabecera;
     public String rucCliente;
-    public String codCiudad;
+    public String cfCiudad;
     public String fecha;
+    public String mensajeItem = "Esperando...";
     public String mensaje = "";
     public CabeceraFactura cabeceraFactura;
+    public DetalleFactura detalleFactura;
+    public detalleFactura_crud df_crud = new detalleFactura_crud();
+    public itemFactura_crud if_crud = new itemFactura_crud();
+    public articulo_crud art_crud = new articulo_crud();
+    public cliente_crud cli_crud = new cliente_crud();
+    public ciudad_crud ciu_crud = new ciudad_crud();
+
+    public ciudad_crud getCiu_crud() {
+        return ciu_crud;
+    }
+
+    public void setCiu_crud(ciudad_crud ciu_crud) {
+        this.ciu_crud = ciu_crud;
+    }
+
+    public articulo_crud getArt_crud() {
+        return art_crud;
+    }
+
+    public void setArt_crud(articulo_crud art_crud) {
+        this.art_crud = art_crud;
+    }
+    
+    
+    public cliente_crud getCli_crud() {
+        return cli_crud;
+    }
+
+    public void setCli_crud(cliente_crud cli_crud) {
+        this.cli_crud = cli_crud;
+    }
+
+    public itemFactura_crud getIf_crud() {
+        return if_crud;
+    }
+
+    public void setIf_crud(itemFactura_crud if_crud) {
+        this.if_crud = if_crud;
+    }
+
+    public String getMensaje() {
+        return mensajeItem;
+    }
+
+    public void setMensaje(String mensajeItem) {
+        this.mensajeItem = mensajeItem;
+    }
+
+    public detalleFactura_crud getDf_crud() {
+        return df_crud;
+    }
+
+    public String getMensajeItem() {
+        return mensajeItem;
+    }
+
+    public void setMensajeItem(String mensajeItem) {
+        this.mensajeItem = mensajeItem;
+    }
+
+    public void setDf_crud(detalleFactura_crud df_crud) {
+        this.df_crud = df_crud;
+    }
 
     public cabeceraFactura_crud() {
     }
@@ -27,7 +94,7 @@ public class cabeceraFactura_crud {
     public cabeceraFactura_crud(String numCabecera, String rucCliente, String codCiudad, String fecha) {
         this.numCabecera = numCabecera;
         this.rucCliente = rucCliente;
-        this.codCiudad = codCiudad;
+        this.cfCiudad = codCiudad;
         this.fecha = fecha;
     }
 
@@ -63,12 +130,12 @@ public class cabeceraFactura_crud {
         this.rucCliente = rucCliente;
     }
 
-    public String getCodCiudad() {
-        return codCiudad;
+    public String getCfCiudad() {
+        return cfCiudad;
     }
 
-    public void setCodCiudad(String codCiudad) {
-        this.codCiudad = codCiudad;
+    public void setCfCiudad(String cfCiudad) {
+        this.cfCiudad = cfCiudad;
     }
 
     public String getFecha() {
@@ -80,7 +147,7 @@ public class cabeceraFactura_crud {
     }
 
     public void limpiarForm() {
-        this.codCiudad = "";
+        this.cfCiudad = "";
         this.fecha = "";
         this.rucCliente = "";
         this.numCabecera = "";
@@ -89,28 +156,14 @@ public class cabeceraFactura_crud {
     public void crearCabeceraFactura() {
         int resultado;
         try {
-            resultado = port.crearCabeceraFacturaS(numCabecera, rucCliente, fecha, codCiudad);
+            resultado = port.crearCabeceraFacturaS(numCabecera, rucCliente, fecha, cfCiudad);
             if (resultado == 1) {
                 this.limpiarForm();
             } else {
-                mensaje = "No se pudo insertar";
+                mensajeItem = "No se pudo insertar";
             }
         } catch (Exception ex) {
-            mensaje = "No se pudo insertar";
-        }
-    }
-
-    public void crearCabeceraFactura2(String numCabecera, String rucCliente, String fecha, String codCiudad) {
-        int resultado;
-        try {
-            resultado = port.crearCabeceraFacturaS(numCabecera, rucCliente, fecha, codCiudad);
-            if (resultado == 1) {
-                this.limpiarForm();
-            } else {
-                mensaje = "No se pudo insertar";
-            }
-        } catch (Exception ex) {
-            mensaje = "No se pudo insertar";
+            mensajeItem = "No se pudo insertar";
         }
     }
 
@@ -132,7 +185,7 @@ public class cabeceraFactura_crud {
     public void actualizarCabeceraFactura() {
         int resultado;
         try {
-            resultado = port.actualizarCabeceraFacturaS(numCabecera, rucCliente, fecha, codCiudad);
+            resultado = port.actualizarCabeceraFacturaS(numCabecera, rucCliente, fecha, cfCiudad);
             if (resultado == 1) {
                 mensaje = "Se actualizo satisfactoriamente";
                 this.limpiarForm();
@@ -147,8 +200,28 @@ public class cabeceraFactura_crud {
     public void buscarCabeceraFactura() {
         cabeceraFactura = port.buscarCabeceraFacturaS(numCabecera);
         rucCliente = cabeceraFactura.getRucCliente();
-        codCiudad = cabeceraFactura.getCodCiudad();
+        cfCiudad = cabeceraFactura.getCodCiudad();
         fecha = cabeceraFactura.getFecha();
+        try {
+            this.buscarDetalleFactura(numCabecera);
+        } catch (Exception e) {
+            System.out.println("ERROR NULL");
+        }
+
     }
 
+    public void buscarDetalleFactura(String numFactura) {
+        detalleFactura = port.buscarDetalleFacturaS(numFactura);
+        df_crud.numCabecera = numFactura;
+        df_crud.itemsDetalle = (ArrayList<ItemFactura>) detalleFactura.getItemsDetalle();
+        df_crud.precioTotal = this.precioTotalFactura(df_crud.itemsDetalle);
+    }
+
+    public double precioTotalFactura(ArrayList<ItemFactura> items) {
+        double sum = 0;
+        for (ItemFactura i : items) {
+            sum += Double.parseDouble(i.getPrecioTotalItem());
+        }
+        return sum;
+    }
 }

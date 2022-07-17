@@ -35,11 +35,12 @@ and open the template in the editor.
                 <div class="row my-3">
                     <br></br>
                     <label class="form-label"> Seleccione Ciudad </label>
-                    <select class="mdb-select md-form form-control">
-                        <c:forEach var="ciudades" items="#{ciudad_crud.ciudades}">
-                            <option value="#{ciudades.codigoCiudad}">#{ciudades.nombreCiudad}</option>
-                        </c:forEach> 
-                    </select>
+                    <br></br>
+                    <label class="form-label"> Ciudad de entrega </label>
+                    <h:selectOneMenu id="ciudad" value="#{cabeceraFactura_crud.cfCiudad}" class="form-control">
+                        <f:selectItems value="#{ciudad_crud.listaNombreCiudades}" />
+                    </h:selectOneMenu>
+                    <br></br>
                     <br></br>
                     <h3 class="form-label text-center my-3"> Rango de Fechas </h3>
                     <div class="row my-2">

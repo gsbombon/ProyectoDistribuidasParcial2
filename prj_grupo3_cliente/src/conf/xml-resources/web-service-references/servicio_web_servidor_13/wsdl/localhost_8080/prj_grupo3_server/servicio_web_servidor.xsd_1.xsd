@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://Servicios.prj_grupo3_server/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios.prj_grupo3_server/">
+
+<xs:element name="SingIn" type="tns:SingIn"/>
+
+<xs:element name="SingInResponse" type="tns:SingInResponse"/>
+
+<xs:element name="actualizarArticuloS" type="tns:actualizarArticuloS"/>
+
+<xs:element name="actualizarArticuloSResponse" type="tns:actualizarArticuloSResponse"/>
+
+<xs:element name="actualizarCabeceraFacturaS" type="tns:actualizarCabeceraFacturaS"/>
+
+<xs:element name="actualizarCabeceraFacturaSResponse" type="tns:actualizarCabeceraFacturaSResponse"/>
+
+<xs:element name="actualizarCiudadS" type="tns:actualizarCiudadS"/>
+
+<xs:element name="actualizarCiudadSResponse" type="tns:actualizarCiudadSResponse"/>
+
+<xs:element name="actualizarClienteS" type="tns:actualizarClienteS"/>
+
+<xs:element name="actualizarClienteSResponse" type="tns:actualizarClienteSResponse"/>
+
+<xs:element name="actualizarCobradorS" type="tns:actualizarCobradorS"/>
+
+<xs:element name="actualizarCobradorSResponse" type="tns:actualizarCobradorSResponse"/>
+
+<xs:element name="actualizarFormaPagoS" type="tns:actualizarFormaPagoS"/>
+
+<xs:element name="actualizarFormaPagoSResponse" type="tns:actualizarFormaPagoSResponse"/>
+
+<xs:element name="agregarProductoS" type="tns:agregarProductoS"/>
+
+<xs:element name="agregarProductoSResponse" type="tns:agregarProductoSResponse"/>
+
+<xs:element name="buscarArticuloS" type="tns:buscarArticuloS"/>
+
+<xs:element name="buscarArticuloSResponse" type="tns:buscarArticuloSResponse"/>
+
+<xs:element name="buscarCabeceraFacturaS" type="tns:buscarCabeceraFacturaS"/>
+
+<xs:element name="buscarCabeceraFacturaSResponse" type="tns:buscarCabeceraFacturaSResponse"/>
+
+<xs:element name="buscarCiudadS" type="tns:buscarCiudadS"/>
+
+<xs:element name="buscarCiudadSResponse" type="tns:buscarCiudadSResponse"/>
+
+<xs:element name="buscarClienteS" type="tns:buscarClienteS"/>
+
+<xs:element name="buscarClienteSResponse" type="tns:buscarClienteSResponse"/>
+
+<xs:element name="buscarCobradorS" type="tns:buscarCobradorS"/>
+
+<xs:element name="buscarCobradorSResponse" type="tns:buscarCobradorSResponse"/>
+
+<xs:element name="buscarDetalleFacturaS" type="tns:buscarDetalleFacturaS"/>
+
+<xs:element name="buscarDetalleFacturaSResponse" type="tns:buscarDetalleFacturaSResponse"/>
+
+<xs:element name="buscarFormaPagoS" type="tns:buscarFormaPagoS"/>
+
+<xs:element name="buscarFormaPagoSResponse" type="tns:buscarFormaPagoSResponse"/>
+
+<xs:element name="crearCabeceraFacturaS" type="tns:crearCabeceraFacturaS"/>
+
+<xs:element name="crearCabeceraFacturaSResponse" type="tns:crearCabeceraFacturaSResponse"/>
+
+<xs:element name="crearDetalleFacturaS" type="tns:crearDetalleFacturaS"/>
+
+<xs:element name="crearDetalleFacturaSResponse" type="tns:crearDetalleFacturaSResponse"/>
+
+<xs:element name="crearFacturaS" type="tns:crearFacturaS"/>
+
+<xs:element name="crearFacturaSResponse" type="tns:crearFacturaSResponse"/>
+
+<xs:element name="crearUsuarioS" type="tns:crearUsuarioS"/>
+
+<xs:element name="crearUsuarioSResponse" type="tns:crearUsuarioSResponse"/>
+
+<xs:element name="eliminarArticuloS" type="tns:eliminarArticuloS"/>
+
+<xs:element name="eliminarArticuloSResponse" type="tns:eliminarArticuloSResponse"/>
+
+<xs:element name="eliminarCabeceraFacturaS" type="tns:eliminarCabeceraFacturaS"/>
+
+<xs:element name="eliminarCabeceraFacturaSResponse" type="tns:eliminarCabeceraFacturaSResponse"/>
+
+<xs:element name="eliminarCiudadS" type="tns:eliminarCiudadS"/>
+
+<xs:element name="eliminarCiudadSResponse" type="tns:eliminarCiudadSResponse"/>
+
+<xs:element name="eliminarClienteS" type="tns:eliminarClienteS"/>
+
+<xs:element name="eliminarClienteSResponse" type="tns:eliminarClienteSResponse"/>
+
+<xs:element name="eliminarCobradorS" type="tns:eliminarCobradorS"/>
+
+<xs:element name="eliminarCobradorSResponse" type="tns:eliminarCobradorSResponse"/>
+
+<xs:element name="eliminarDetalleFacturaS" type="tns:eliminarDetalleFacturaS"/>
+
+<xs:element name="eliminarDetalleFacturaSResponse" type="tns:eliminarDetalleFacturaSResponse"/>
+
+<xs:element name="eliminarFormaPagoS" type="tns:eliminarFormaPagoS"/>
+
+<xs:element name="eliminarFormaPagoSResponse" type="tns:eliminarFormaPagoSResponse"/>
+
+<xs:element name="insertarArticuloS" type="tns:insertarArticuloS"/>
+
+<xs:element name="insertarArticuloSResponse" type="tns:insertarArticuloSResponse"/>
+
+<xs:element name="insertarCiudadS" type="tns:insertarCiudadS"/>
+
+<xs:element name="insertarCiudadSResponse" type="tns:insertarCiudadSResponse"/>
+
+<xs:element name="insertarClienteS" type="tns:insertarClienteS"/>
+
+<xs:element name="insertarClienteSResponse" type="tns:insertarClienteSResponse"/>
+
+<xs:element name="insertarCobradorS" type="tns:insertarCobradorS"/>
+
+<xs:element name="insertarCobradorSResponse" type="tns:insertarCobradorSResponse"/>
+
+<xs:element name="insertarFormaPagoS" type="tns:insertarFormaPagoS"/>
+
+<xs:element name="insertarFormaPagoSResponse" type="tns:insertarFormaPagoSResponse"/>
+
+<xs:element name="listarArticuloS" type="tns:listarArticuloS"/>
+
+<xs:element name="listarArticuloSResponse" type="tns:listarArticuloSResponse"/>
+
+<xs:element name="listarCiudadS" type="tns:listarCiudadS"/>
+
+<xs:element name="listarCiudadSResponse" type="tns:listarCiudadSResponse"/>
+
+<xs:element name="listarClienteS" type="tns:listarClienteS"/>
+
+<xs:element name="listarClienteSResponse" type="tns:listarClienteSResponse"/>
+
+<xs:element name="listarCobradorS" type="tns:listarCobradorS"/>
+
+<xs:element name="listarCobradorSResponse" type="tns:listarCobradorSResponse"/>
+
+<xs:element name="listarFormaPagoS" type="tns:listarFormaPagoS"/>
+
+<xs:element name="listarFormaPagoSResponse" type="tns:listarFormaPagoSResponse"/>
+
+<xs:element name="loginS" type="tns:loginS"/>
+
+<xs:element name="loginSResponse" type="tns:loginSResponse"/>
+
+<xs:complexType name="crearUsuarioS">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+<xs:element name="pass" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearUsuarioSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCobradorS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cobrador" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cobrador">
+<xs:sequence>
+<xs:element name="cedula_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCiudadS">
+<xs:sequence>
+<xs:element name="Codigo_Ciudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCiudadSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearCabeceraFacturaS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+<xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="codCiudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearCabeceraFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCabeceraFacturaS">
+<xs:sequence>
+<xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCabeceraFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCiudadS">
+<xs:sequence>
+<xs:element name="Codigo_Ciudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCiudadSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ciudad" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ciudad">
+<xs:sequence>
+<xs:element name="codigo_Ciudad" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre_Ciudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarFormaPagoS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:formaPago" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="formaPago">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarFormaPagoS">
+<xs:sequence>
+<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarArticuloS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarArticuloSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:articulo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articulo">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearDetalleFacturaS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearDetalleFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarDetalleFacturaS">
+<xs:sequence>
+<xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarDetalleFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:detalleFactura" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleFactura">
+<xs:sequence>
+<xs:element name="itemsDetalle" type="tns:itemFactura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
+<xs:element name="precioTotal" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="itemFactura">
+<xs:sequence>
+<xs:element name="cantidadItem" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioTotalItem" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarCiudadS">
+<xs:sequence>
+<xs:element name="Codigo_Ciudad" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Ciudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarCiudadSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarArticuloS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarArticuloSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SingIn">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+<xs:element name="pass" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SingInResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarClienteS">
+<xs:sequence>
+<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="Direccion_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearFacturaS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+<xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="codCiudad" type="xs:string" minOccurs="0"/>
+<xs:element name="precioFinal" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarArticuloS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarArticuloSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCiudadS">
+<xs:sequence>
+<xs:element name="Codigo_Ciudad" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Ciudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCiudadSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCobradorS">
+<xs:sequence>
+<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cobrador" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginS">
+<xs:sequence>
+<xs:element name="Usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="Contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarCobradorS">
+<xs:sequence>
+<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="Direccion_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarDetalleFacturaS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarDetalleFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarClienteS">
+<xs:sequence>
+<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="Direccion_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarFormaPagoS">
+<xs:sequence>
+<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarClienteS">
+<xs:sequence>
+<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cliente">
+<xs:sequence>
+<xs:element name="direccion_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre_Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="ruc_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCobradorS">
+<xs:sequence>
+<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarClienteS">
+<xs:sequence>
+<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCabeceraFacturaS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+<xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="codCiudad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCabeceraFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCobradorS">
+<xs:sequence>
+<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_Cobrador" type="xs:string" minOccurs="0"/>
+<xs:element name="Direccion_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarFormaPagoS">
+<xs:sequence>
+<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarArticuloS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarArticuloSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarFormaPagoS">
+<xs:sequence>
+<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:formaPago" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCabeceraFacturaS">
+<xs:sequence>
+<xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCabeceraFacturaSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cabeceraFactura" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cabeceraFactura">
+<xs:sequence>
+<xs:element name="codCiudad" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="numCabecera" type="xs:string" minOccurs="0"/>
+<xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProductoS">
+<xs:sequence>
+<xs:element name="numFactura" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreItem" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidadItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioItem" type="xs:string" minOccurs="0"/>
+<xs:element name="precioTotalItem" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarProductoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarArticuloS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarArticuloSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:articulo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCiudadS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCiudadSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ciudad" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarClienteS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

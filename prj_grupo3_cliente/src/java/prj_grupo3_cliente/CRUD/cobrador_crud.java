@@ -20,13 +20,14 @@ import prj_grupo3_server.servicios.ServicioWebServidor;
 @ManagedBean()
 @SessionScoped
 public class cobrador_crud {
+
     private ServicioWebServidor service = new ServicioWebServidor();
     ServicioServer port = service.getServicioServerPort();
-      private String Cedula_Cobrador= "";
-   private String Nombre_Cobrador= "";
-   private String Direccion_Cobrador= "";
-     public String mensaje = "";
-     public ArrayList<Cobrador> cobrador = (ArrayList<Cobrador>) port.listarCobradorS();
+    private String Cedula_Cobrador = "";
+    private String Nombre_Cobrador = "";
+    private String Direccion_Cobrador = "";
+    public String mensaje = "";
+    public ArrayList<Cobrador> cobrador = (ArrayList<Cobrador>) port.listarCobradorS();
     public Cobrador cobradores;
 
     public ArrayList<Cobrador> getCobrador() {
@@ -36,8 +37,6 @@ public class cobrador_crud {
     public void setCobrador(ArrayList<Cobrador> cobrador) {
         this.cobrador = cobrador;
     }
-    
- 
 
     public String getCedula_Cobrador() {
         return Cedula_Cobrador;
@@ -70,10 +69,9 @@ public class cobrador_crud {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-     
-     public void insertarCobrador()      
-    {
-    int resultado;
+
+    public void insertarCobrador() {
+        int resultado;
         try {
             resultado = port.insertarCobradorS(Cedula_Cobrador, Nombre_Cobrador, Direccion_Cobrador);
             if (resultado == 1) {
@@ -87,16 +85,15 @@ public class cobrador_crud {
             mensaje = "No se pudo insertar";
         }
     }
-    
-    public void limpiarFormulario(){
-        Cedula_Cobrador="";
-        Nombre_Cobrador="";
-        Direccion_Cobrador="";
+
+    public void limpiarFormulario() {
+        Cedula_Cobrador = "";
+        Nombre_Cobrador = "";
+        Direccion_Cobrador = "";
     }
-    
-    public void eliminarCobrador()      
-    {
-    int resultado;
+
+    public void eliminarCobrador() {
+        int resultado;
         try {
             resultado = port.eliminarCobradorS(Cedula_Cobrador);
             if (resultado == 1) {
@@ -110,10 +107,9 @@ public class cobrador_crud {
             mensaje = "No se pudo eliminar";
         }
     }
-    
-    public void actualizarCobrador()      
-    {
-    int resultado;
+
+    public void actualizarCobrador() {
+        int resultado;
         try {
             resultado = port.actualizarCobradorS(Cedula_Cobrador, Nombre_Cobrador, Direccion_Cobrador);
             if (resultado == 1) {
@@ -127,19 +123,15 @@ public class cobrador_crud {
             mensaje = "No se pudo actualizar";
         }
     }
-    
-    public void listarCobrador()      
-    {
-        cobrador = (ArrayList<Cobrador>) port.listarCobradorS();      
+
+    public void listarCobrador() {
+        cobrador = (ArrayList<Cobrador>) port.listarCobradorS();
     }
-    
-    public void buscarCobrador()      
-    {
+
+    public void buscarCobrador() {
         cobradores = port.buscarCobradorS(Cedula_Cobrador);
         Nombre_Cobrador = cobradores.getNombreCobrador();
         Direccion_Cobrador = cobradores.getDireccionCobrador();
     }
-     
-     
-     
+
 }
