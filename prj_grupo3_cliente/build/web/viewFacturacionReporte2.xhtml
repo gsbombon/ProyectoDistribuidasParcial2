@@ -72,25 +72,6 @@ and open the template in the editor.
                         </c:forEach>     
                     </h:dataTable>    
                 </div>
-
-                <div class="row">
-                    <hr class="my-3"></hr>
-                    <h2 class="form-label text-left"> Matriz </h2>
-
-                    <h:dataTable value="#{reporte2_crud.articulos}" var="articulos" class="table table-striped mt-4" >
-                        <h:column>    
-                            <f:facet name="header">Productos</f:facet>
-                                #{articulos.nombre}
-                        </h:column>
-                        <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
-                            <h:column>    
-                                <f:facet name="header">#{clientes.nombreCliente}</f:facet>
-                                    #{reporte2_crud.precioGastadoArticuloCliente(clientes.nombreCliente)}
-                            </h:column>
-                        </c:forEach>     
-                    </h:dataTable>    
-                </div>
-
             </h:form>
         </div>
 
