@@ -7,25 +7,25 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para factura complex type.
+ * <p>Java class for factura complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="factura"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="codFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="nomCiudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="rucCliente" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="tipoPago" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="totalFactura" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="factura">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="codFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="nomCiudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="rucCliente" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="tipoPago" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="totalFactura" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -49,7 +49,7 @@ public class Factura {
     protected Double totalFactura;
 
     /**
-     * Obtiene el valor de la propiedad codFactura.
+     * Gets the value of the codFactura property.
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad codFactura.
+     * Sets the value of the codFactura property.
      * 
      * @param value
      *     allowed object is
@@ -73,7 +73,7 @@ public class Factura {
     }
 
     /**
-     * Obtiene el valor de la propiedad fecha.
+     * Gets the value of the fecha property.
      * 
      * @return
      *     possible object is
@@ -85,7 +85,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Sets the value of the fecha property.
      * 
      * @param value
      *     allowed object is
@@ -97,7 +97,7 @@ public class Factura {
     }
 
     /**
-     * Obtiene el valor de la propiedad nomCiudad.
+     * Gets the value of the nomCiudad property.
      * 
      * @return
      *     possible object is
@@ -109,7 +109,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad nomCiudad.
+     * Sets the value of the nomCiudad property.
      * 
      * @param value
      *     allowed object is
@@ -121,7 +121,7 @@ public class Factura {
     }
 
     /**
-     * Obtiene el valor de la propiedad rucCliente.
+     * Gets the value of the rucCliente property.
      * 
      * @return
      *     possible object is
@@ -133,7 +133,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad rucCliente.
+     * Sets the value of the rucCliente property.
      * 
      * @param value
      *     allowed object is
@@ -145,7 +145,7 @@ public class Factura {
     }
 
     /**
-     * Obtiene el valor de la propiedad tipoPago.
+     * Gets the value of the tipoPago property.
      * 
      * @return
      *     possible object is
@@ -157,7 +157,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad tipoPago.
+     * Sets the value of the tipoPago property.
      * 
      * @param value
      *     allowed object is
@@ -169,7 +169,7 @@ public class Factura {
     }
 
     /**
-     * Obtiene el valor de la propiedad totalFactura.
+     * Gets the value of the totalFactura property.
      * 
      * @return
      *     possible object is
@@ -181,7 +181,7 @@ public class Factura {
     }
 
     /**
-     * Define el valor de la propiedad totalFactura.
+     * Sets the value of the totalFactura property.
      * 
      * @param value
      *     allowed object is

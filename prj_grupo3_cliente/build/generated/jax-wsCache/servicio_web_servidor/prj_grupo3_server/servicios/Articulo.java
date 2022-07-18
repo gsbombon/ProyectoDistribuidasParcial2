@@ -8,23 +8,23 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para articulo complex type.
+ * <p>Java class for articulo complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="articulo"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="codigo_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="nombre_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="precio_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="stock_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="articulo">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="codigo_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="nombre_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="precio_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="stock_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -48,7 +48,7 @@ public class Articulo {
     protected String stockArticulo;
 
     /**
-     * Obtiene el valor de la propiedad codigoArticulo.
+     * Gets the value of the codigoArticulo property.
      * 
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class Articulo {
     }
 
     /**
-     * Define el valor de la propiedad codigoArticulo.
+     * Sets the value of the codigoArticulo property.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +72,7 @@ public class Articulo {
     }
 
     /**
-     * Obtiene el valor de la propiedad nombreArticulo.
+     * Gets the value of the nombreArticulo property.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class Articulo {
     }
 
     /**
-     * Define el valor de la propiedad nombreArticulo.
+     * Sets the value of the nombreArticulo property.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class Articulo {
     }
 
     /**
-     * Obtiene el valor de la propiedad precioArticulo.
+     * Gets the value of the precioArticulo property.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class Articulo {
     }
 
     /**
-     * Define el valor de la propiedad precioArticulo.
+     * Sets the value of the precioArticulo property.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +120,7 @@ public class Articulo {
     }
 
     /**
-     * Obtiene el valor de la propiedad stockArticulo.
+     * Gets the value of the stockArticulo property.
      * 
      * @return
      *     possible object is
@@ -132,7 +132,7 @@ public class Articulo {
     }
 
     /**
-     * Define el valor de la propiedad stockArticulo.
+     * Sets the value of the stockArticulo property.
      * 
      * @param value
      *     allowed object is

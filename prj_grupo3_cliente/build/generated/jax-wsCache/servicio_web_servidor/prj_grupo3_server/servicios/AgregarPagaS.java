@@ -7,24 +7,24 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para agregarPagaS complex type.
+ * <p>Java class for agregarPagaS complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="agregarPagaS"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="numFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="fechapagoItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="formapagoItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="valorpagarItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="cobradorItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="agregarPagaS">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="numFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="fechapagoItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="formapagoItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="valorpagarItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="cobradorItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -46,7 +46,7 @@ public class AgregarPagaS {
     protected String cobradorItem;
 
     /**
-     * Obtiene el valor de la propiedad numFactura.
+     * Gets the value of the numFactura property.
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Define el valor de la propiedad numFactura.
+     * Sets the value of the numFactura property.
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechapagoItem.
+     * Gets the value of the fechapagoItem property.
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Define el valor de la propiedad fechapagoItem.
+     * Sets the value of the fechapagoItem property.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Obtiene el valor de la propiedad formapagoItem.
+     * Gets the value of the formapagoItem property.
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Define el valor de la propiedad formapagoItem.
+     * Sets the value of the formapagoItem property.
      * 
      * @param value
      *     allowed object is
@@ -118,7 +118,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Obtiene el valor de la propiedad valorpagarItem.
+     * Gets the value of the valorpagarItem property.
      * 
      * @return
      *     possible object is
@@ -130,7 +130,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Define el valor de la propiedad valorpagarItem.
+     * Sets the value of the valorpagarItem property.
      * 
      * @param value
      *     allowed object is
@@ -142,7 +142,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Obtiene el valor de la propiedad cobradorItem.
+     * Gets the value of the cobradorItem property.
      * 
      * @return
      *     possible object is
@@ -154,7 +154,7 @@ public class AgregarPagaS {
     }
 
     /**
-     * Define el valor de la propiedad cobradorItem.
+     * Sets the value of the cobradorItem property.
      * 
      * @param value
      *     allowed object is

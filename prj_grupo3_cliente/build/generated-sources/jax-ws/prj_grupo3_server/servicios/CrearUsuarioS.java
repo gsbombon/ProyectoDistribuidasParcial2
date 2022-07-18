@@ -7,21 +7,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para crearUsuarioS complex type.
+ * <p>Java class for crearUsuarioS complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="crearUsuarioS"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="user" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pass" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="crearUsuarioS">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="user" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="pass" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -37,7 +37,7 @@ public class CrearUsuarioS {
     protected String pass;
 
     /**
-     * Obtiene el valor de la propiedad user.
+     * Gets the value of the user property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class CrearUsuarioS {
     }
 
     /**
-     * Define el valor de la propiedad user.
+     * Sets the value of the user property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class CrearUsuarioS {
     }
 
     /**
-     * Obtiene el valor de la propiedad pass.
+     * Gets the value of the pass property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class CrearUsuarioS {
     }
 
     /**
-     * Define el valor de la propiedad pass.
+     * Sets the value of the pass property.
      * 
      * @param value
      *     allowed object is
