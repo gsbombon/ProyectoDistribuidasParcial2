@@ -28,8 +28,8 @@
     </target>
     <target name="wsimport-client-servicio_web_servidor" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor" destdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor/wsdl/localhost_8083/prj_grupo3_server/servicio_web_servidor.wsdl" catalog="catalog.xml"  extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8083/prj_grupo3_server/servicio_web_servidor?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor/wsdl/localhost_8083/prj_grupo3_server/servicio_web_servidor.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor" destdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor/wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/prj_grupo3_server/servicio_web_servidor?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor/wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
@@ -42,5 +42,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/prj_grupo3_server/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-servicio_web_servidor"/>
+    <target name="wsimport-client-servicio_web_servidor_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1" destdir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor_1/wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/prj_grupo3_server/servicio_web_servidor?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/servicio_web_servidor_1/wsdl/localhost_8080/prj_grupo3_server/servicio_web_servidor.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-servicio_web_servidor_1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/prj_grupo3_server/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/servicio_web_servidor_1"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-servicio_web_servidor, wsimport-client-servicio_web_servidor_1"/>
 </project>

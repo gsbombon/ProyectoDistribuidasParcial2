@@ -16,10 +16,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="codigo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="stock" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,17 +30,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "articulo", propOrder = {
+    "cantidad",
     "codigo",
     "nombre",
-    "precio",
-    "stock"
+    "precio"
 })
 public class Articulo {
 
+    protected String cantidad;
     protected String codigo;
     protected String nombre;
     protected String precio;
-    protected int stock;
+
+    /**
+     * Gets the value of the cantidad property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * Sets the value of the cantidad property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCantidad(String value) {
+        this.cantidad = value;
+    }
 
     /**
      * Gets the value of the codigo property.
@@ -112,22 +136,6 @@ public class Articulo {
      */
     public void setPrecio(String value) {
         this.precio = value;
-    }
-
-    /**
-     * Gets the value of the stock property.
-     * 
-     */
-    public int getStock() {
-        return stock;
-    }
-
-    /**
-     * Sets the value of the stock property.
-     * 
-     */
-    public void setStock(int value) {
-        this.stock = value;
     }
 
 }

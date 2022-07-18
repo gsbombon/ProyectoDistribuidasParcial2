@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package prj_grupo3_server.Modelo;
 
 import java.io.Serializable;
@@ -19,51 +15,48 @@ public class Articulo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String codigo;
-    private String nombre;
-    private String precio;
-    private int stock;
-
-    public Articulo(String codigo, String nombre, String precio, int stock) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
+    private String Codigo_Articulo;
+    private String Nombre_Articulo;
+    private String Precio_Articulo;
+    private String Stock_Articulo;
 
     public Articulo() {
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCodigo_Articulo() {
+        return Codigo_Articulo;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigo_Articulo(String Codigo_Articulo) {
+        this.Codigo_Articulo = Codigo_Articulo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_Articulo() {
+        return Nombre_Articulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_Articulo(String Nombre_Articulo) {
+        this.Nombre_Articulo = Nombre_Articulo;
     }
 
-    public String getPrecio() {
-        return precio;
+    public String getPrecio_Articulo() {
+        return Precio_Articulo;
     }
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public void setPrecio_Articulo(String Precio_Articulo) {
+        this.Precio_Articulo = Precio_Articulo;
     }
+
+    public String getStock_Articulo() {
+        return Stock_Articulo;
+    }
+
+    public void setStock_Articulo(String Stock_Articulo) {
+        this.Stock_Articulo = Stock_Articulo;
+    }
+
+  
+
+    
 
 }
