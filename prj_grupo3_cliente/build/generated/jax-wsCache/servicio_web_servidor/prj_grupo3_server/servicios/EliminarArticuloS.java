@@ -3,6 +3,7 @@ package prj_grupo3_server.servicios;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="codigo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="Codigo_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,34 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "eliminarArticuloS", propOrder = {
-    "codigo"
+    "codigoArticulo"
 })
 public class EliminarArticuloS {
 
-    protected String codigo;
+    @XmlElement(name = "Codigo_Articulo")
+    protected String codigoArticulo;
 
     /**
-     * Obtiene el valor de la propiedad codigo.
+     * Obtiene el valor de la propiedad codigoArticulo.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCodigo() {
-        return codigo;
+    public String getCodigoArticulo() {
+        return codigoArticulo;
     }
 
     /**
-     * Define el valor de la propiedad codigo.
+     * Define el valor de la propiedad codigoArticulo.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCodigo(String value) {
-        this.codigo = value;
+    public void setCodigoArticulo(String value) {
+        this.codigoArticulo = value;
     }
 
 }

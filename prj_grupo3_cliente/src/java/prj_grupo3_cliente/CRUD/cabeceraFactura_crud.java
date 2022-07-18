@@ -56,8 +56,8 @@ public class cabeceraFactura_crud {
     public boolean validaCantidadItem() {
         boolean res = false;
         for (Articulo a : articulos) {
-            if (a.getNombre().equals(this.nombreItem)) {
-                int cantidadDB = Integer.parseInt(a.getCantidad()) ;
+            if (a.getNombreArticulo().equals(this.nombreItem)) {
+                int cantidadDB = Integer.parseInt(a.getStockArticulo()) ;
                 int cantidadSelec = Integer.parseInt(this.cantidadItem) ;
                 if (cantidadSelec > cantidadDB) {
                     res = false;
@@ -89,8 +89,8 @@ public class cabeceraFactura_crud {
         int result = 0;
         String resultString = "0";
         for (Articulo a : articulos) {
-            if (a.getNombre().equals(this.nombreItem)) {
-                int cantidadDB = Integer.parseInt(a.getPrecio());
+            if (a.getNombreArticulo().equals(this.nombreItem)) {
+                int cantidadDB = Integer.parseInt(a.getPrecioArticulo());
                 int cantidadSelec = Integer.parseInt(this.cantidadItem);
                 result = cantidadDB - cantidadSelec;
             }
@@ -98,7 +98,7 @@ public class cabeceraFactura_crud {
         resultString = String.valueOf(result);
         return resultString;
     }
-
+/*
     public void actualizarArticulo() {
         try {
             port.actualizarStockArticuloS(nombreItem, this.nuevaCantidadItem());
@@ -106,6 +106,7 @@ public class cabeceraFactura_crud {
             System.out.println("Error");
         }
     }
+*/
 
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
@@ -135,8 +136,8 @@ public class cabeceraFactura_crud {
     public double obtenerPrecioItem() {
         double result = 0;
         for (Articulo a : articulos) {
-            if (a.getNombre().equals(this.nombreItem)) {
-                result = Double.parseDouble(a.getPrecio());
+            if (a.getNombreArticulo().equals(this.nombreItem)) {
+                result = Double.parseDouble(a.getPrecioArticulo());
             }
         }
         return result;
