@@ -159,7 +159,7 @@ public interface ServicioServer {
 
     /**
      * 
-     * @param codigo
+     * @param codigoArticulo
      * @return
      *     returns prj_grupo3_server.servicios.Articulo
      */
@@ -169,8 +169,8 @@ public interface ServicioServer {
     @ResponseWrapper(localName = "buscarArticuloSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.BuscarArticuloSResponse")
     @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSResponse")
     public Articulo buscarArticuloS(
-        @WebParam(name = "codigo", targetNamespace = "")
-        String codigo);
+        @WebParam(name = "Codigo_Articulo", targetNamespace = "")
+        String codigoArticulo);
 
     /**
      * 
@@ -261,7 +261,7 @@ public interface ServicioServer {
 
     /**
      * 
-     * @param nombre
+     * @param nombreArticulo
      * @return
      *     returns prj_grupo3_server.servicios.Articulo
      */
@@ -271,8 +271,8 @@ public interface ServicioServer {
     @ResponseWrapper(localName = "buscarArticuloSNResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.BuscarArticuloSNResponse")
     @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSNRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSNResponse")
     public Articulo buscarArticuloSN(
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre);
+        @WebParam(name = "Nombre_Articulo", targetNamespace = "")
+        String nombreArticulo);
 
     /**
      * 
@@ -552,7 +552,7 @@ public interface ServicioServer {
 
     /**
      * 
-     * @param codigo
+     * @param codigoArticulo
      * @return
      *     returns int
      */
@@ -562,8 +562,8 @@ public interface ServicioServer {
     @ResponseWrapper(localName = "eliminarArticuloSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.EliminarArticuloSResponse")
     @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSResponse")
     public int eliminarArticuloS(
-        @WebParam(name = "codigo", targetNamespace = "")
-        String codigo);
+        @WebParam(name = "Codigo_Articulo", targetNamespace = "")
+        String codigoArticulo);
 
     /**
      * 
@@ -684,10 +684,10 @@ public interface ServicioServer {
 
     /**
      * 
-     * @param codigo
-     * @param precio
-     * @param cantidad
-     * @param nombre
+     * @param stockArticulo
+     * @param codigoArticulo
+     * @param precioArticulo
+     * @param nombreArticulo
      * @return
      *     returns int
      */
@@ -697,14 +697,14 @@ public interface ServicioServer {
     @ResponseWrapper(localName = "insertarArticuloSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.InsertarArticuloSResponse")
     @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSResponse")
     public int insertarArticuloS(
-        @WebParam(name = "codigo", targetNamespace = "")
-        String codigo,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "precio", targetNamespace = "")
-        String precio,
-        @WebParam(name = "cantidad", targetNamespace = "")
-        String cantidad);
+        @WebParam(name = "Codigo_Articulo", targetNamespace = "")
+        String codigoArticulo,
+        @WebParam(name = "Nombre_Articulo", targetNamespace = "")
+        String nombreArticulo,
+        @WebParam(name = "Precio_Articulo", targetNamespace = "")
+        String precioArticulo,
+        @WebParam(name = "Stock_Articulo", targetNamespace = "")
+        String stockArticulo);
 
     /**
      * 
@@ -822,10 +822,10 @@ public interface ServicioServer {
 
     /**
      * 
-     * @param codigo
-     * @param precio
-     * @param cantidad
-     * @param nombre
+     * @param pStockArticulo
+     * @param codigoArticulo
+     * @param precioArticulo
+     * @param nombreArticulo
      * @return
      *     returns int
      */
@@ -835,14 +835,14 @@ public interface ServicioServer {
     @ResponseWrapper(localName = "actualizarArticuloSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.ActualizarArticuloSResponse")
     @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSResponse")
     public int actualizarArticuloS(
-        @WebParam(name = "codigo", targetNamespace = "")
-        String codigo,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "precio", targetNamespace = "")
-        String precio,
-        @WebParam(name = "cantidad", targetNamespace = "")
-        String cantidad);
+        @WebParam(name = "Codigo_Articulo", targetNamespace = "")
+        String codigoArticulo,
+        @WebParam(name = "Nombre_Articulo", targetNamespace = "")
+        String nombreArticulo,
+        @WebParam(name = "Precio_Articulo", targetNamespace = "")
+        String precioArticulo,
+        @WebParam(name = "PStock_Articulo", targetNamespace = "")
+        String pStockArticulo);
 
     /**
      * 

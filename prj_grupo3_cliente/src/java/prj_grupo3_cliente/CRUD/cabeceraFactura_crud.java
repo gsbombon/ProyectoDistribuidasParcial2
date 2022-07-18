@@ -110,7 +110,7 @@ public class cabeceraFactura_crud {
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
         this.articulos.forEach((cli) -> {
-            nombresArticulos.add(cli.getNombre());
+            nombresArticulos.add(cli.getNombreArticulo());
         });
         return nombresArticulos;
     }
