@@ -10,22 +10,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for detalleFacturacxc complex type.
+ * <p>Clase Java para detalleFacturacxc complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="detalleFacturacxc">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="itemsDetalle" type="{http://Servicios.prj_grupo3_server/}itemFacturacxc" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="numCabecera" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="precioTotal" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="detalleFacturacxc"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="itemsDetalle" type="{http://Servicios.prj_grupo3_server/}itemFacturacxc" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="numCabecera" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="precioTotal" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -73,7 +73,7 @@ public class DetalleFacturacxc {
     }
 
     /**
-     * Gets the value of the numCabecera property.
+     * Obtiene el valor de la propiedad numCabecera.
      * 
      * @return
      *     possible object is
@@ -85,7 +85,7 @@ public class DetalleFacturacxc {
     }
 
     /**
-     * Sets the value of the numCabecera property.
+     * Define el valor de la propiedad numCabecera.
      * 
      * @param value
      *     allowed object is
@@ -97,7 +97,7 @@ public class DetalleFacturacxc {
     }
 
     /**
-     * Gets the value of the precioTotal property.
+     * Obtiene el valor de la propiedad precioTotal.
      * 
      */
     public double getPrecioTotal() {
@@ -105,7 +105,7 @@ public class DetalleFacturacxc {
     }
 
     /**
-     * Sets the value of the precioTotal property.
+     * Define el valor de la propiedad precioTotal.
      * 
      */
     public void setPrecioTotal(double value) {

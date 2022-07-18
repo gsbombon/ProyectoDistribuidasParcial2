@@ -53,23 +53,22 @@ public class cabeceraFactura_crud {
         articulos = (ArrayList<Articulo>) port.listarArticuloS();
     }
 
-    /*
     public boolean validaCantidadItem() {
         boolean res = false;
         for (Articulo a : articulos) {
-            if(a.getNombre().equals(this.nombreItem)){
-                int cantidadDB = a.getStock();
-                int cantidadSelec = this.cantidadItem;
-                if(cantidadSelec > cantidadDB){
-                    res=false;
-                }else{
-                    res=true;
+            if (a.getNombre().equals(this.nombreItem)) {
+                int cantidadDB = Integer.parseInt(a.getCantidad()) ;
+                int cantidadSelec = Integer.parseInt(this.cantidadItem) ;
+                if (cantidadSelec > cantidadDB) {
+                    res = false;
+                } else {
+                    res = true;
                 }
             }
         }
         return res;
     }
-*/
+
     public void crearFactura() {
         int resultado;
         try {
@@ -86,6 +85,28 @@ public class cabeceraFactura_crud {
         }
     }
 
+    public String nuevaCantidadItem() {
+        int result = 0;
+        String resultString = "0";
+        for (Articulo a : articulos) {
+            if (a.getNombre().equals(this.nombreItem)) {
+                int cantidadDB = Integer.parseInt(a.getPrecio());
+                int cantidadSelec = Integer.parseInt(this.cantidadItem);
+                result = cantidadDB - cantidadSelec;
+            }
+        }
+        resultString = String.valueOf(result);
+        return resultString;
+    }
+
+    public void actualizarArticulo() {
+        try {
+            port.actualizarStockArticuloS(nombreItem, this.nuevaCantidadItem());
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+    }
+
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
         this.articulos.forEach((cli) -> {
@@ -99,7 +120,7 @@ public class cabeceraFactura_crud {
         try {
             precioItem = String.valueOf(this.obtenerPrecioItem());
             precioTotalItem = String.valueOf(this.ObtenerPrecioTotalItem());
-            
+
             resultado = port.agregarProductoS(numCabecera, nombreItem, cantidadItem, precioItem, precioTotalItem);
             if (resultado == 1) {
                 mensajeItem = "Articulo insertado correctamente";
