@@ -23,7 +23,7 @@ and open the template in the editor.
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-5">Valores recaudados por cobrador</h1>
-                <p class="lead">Reportes de ventas por articulo basando en el cliente </p>
+                <p class="lead">Reportes de Valores recaudados por cobrador </p>
                 <hr class=""></hr>
             </div>
         </div>
@@ -44,15 +44,15 @@ and open the template in the editor.
                         <thead class="thead-dark">
                             <tr>
                                 <th>Productos</th>
-                                <c:forEach var="clientes" items="#{factura_crud.cob_crud.listarCobrador()}">
-                                    <th>#{cob_crud.Nombre_Cobrador}</th>
+                                <c:forEach var="cobradores" items="#{hreporte2_crud.cobradores}">
+                                    <th>#{cobradores.nombreCobrador}</th>
                                 </c:forEach>
                             </tr>
                         </thead>
-                        <c:forEach var="articulos" items="#{factura_crud.formapagos}">    
-                            <tr> <td> #{formapagos.nombre} </td>
-                                <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
-                                    <td></td>
+                        <c:forEach var="formapago" items="#{hreporte2_crud.formapago}">    
+                            <tr> <td> #{formapago.nombreFP} </td>
+                                <c:forEach var="clientes" items="#{hreporte2_crud.cobradores}">
+                                    <td>#{hreporte2_crud.precioArticuloCliente(formapago.nombreFP, cobradores.nombreCobrador)}</td>
                                 </c:forEach>
                             </tr>
                         </c:forEach>

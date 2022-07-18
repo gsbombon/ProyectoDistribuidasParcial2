@@ -50,9 +50,9 @@ and open the template in the editor.
                             </tr>
                         </thead>
                         <c:forEach var="articulos" items="#{reporte2_crud.articulos}">    
-                            <tr> <td> #{articulos.nombre} </td>
+                            <tr> <td> #{articulos.nombreArticulo} </td>
                                 <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
-                                    <td>#{reporte2_crud.precioArticuloCliente(articulos.nombre, clientes.nombreCliente)}</td>
+                                    <td>#{reporte2_crud.precioArticuloCliente(articulos.nombreArticulo, clientes.nombreCliente)}</td>
                                 </c:forEach>
                             </tr>
                         </c:forEach>
