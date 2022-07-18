@@ -65,19 +65,19 @@
                     <h:dataTable value="#{articulo_crud.articulos}" var="datos" class="table table-striped mt-4" >
                     <h:column>
                         <f:facet name="header">Codigo</f:facet>
-                            #{datos.codigo}
+                            #{datos.codigoArticulo}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Nombre</f:facet>
-                            #{datos.nombre}
+                            #{datos.nombreArticulo}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Precio</f:facet>
-                            #{datos.precio}
+                            #{datos.precioArticulo}
                     </h:column> 
                     <h:column>
                         <f:facet name="header">Cantidad</f:facet>
-                            #{datos.cantidad}
+                            #{datos.stockArticulo}
                     </h:column>    
                         
                     </h:dataTable>
