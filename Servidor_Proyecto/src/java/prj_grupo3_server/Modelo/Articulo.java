@@ -22,6 +22,22 @@ public class Articulo implements Serializable {
     private String codigo;
     private String nombre;
     private String precio;
+    private int stock;
+
+    public Articulo(String codigo, String nombre, String precio, int stock) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
     public Articulo() {
     }
@@ -49,6 +65,5 @@ public class Articulo implements Serializable {
     public void setPrecio(String precio) {
         this.precio = precio;
     }
-    
 
 }

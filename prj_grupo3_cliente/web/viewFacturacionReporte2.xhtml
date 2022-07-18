@@ -34,44 +34,33 @@ and open the template in the editor.
             <h:form>
                 <div class="row my-3">
                     <br></br>
-                    <h3 class="form-label text-center my-3"> Rango de Fechas </h3>
-                    <div class="row my-2">
-                        <div class="col">
-                            <label class="form-label"> Fecha Inicio </label>
-                            <input type="date" id="start" name="trip-start"
-                                   value="2018-07-22"
-                                   min="2018-07-22" max="2022-07-16" class="form-control"></input>
-                        </div>
-                        <div class="col">
-                            <label class="form-label"> Fecha Fin </label>
-                            <input type="date" id="start" name="trip-start"
-                                   value="2018-07-22"
-                                   min="2018-07-22" max="2022-07-16" class="form-control"></input>
-                        </div>
-                    </div>
+
                     <h:commandButton id="genReporte2" value="Generar Reporte" action="#" class="btn btn-primary my-4">
                     </h:commandButton>
                 </div>
 
-
-                <div class="row">
-                    <hr class="my-3"></hr>
-                    <h2 class="form-label text-left"> Matriz </h2>
-
-                    <h:dataTable value="#{reporte2_crud.articulos}" var="articulos" class="table table-striped mt-4" >
-                        <h:column>    
-                            <f:facet name="header">Productos</f:facet>
-                                #{articulos.nombre}
-                        </h:column>
-                        <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
-                            <h:column>    
-                                <f:facet name="header">#{clientes.nombreCliente}</f:facet>
-                                    #{reporte2_crud.precioGastadoArticuloCliente(clientes.nombreCliente)}
-                                    #{reporte2_crud.precioResultString}
-                            </h:column>
-                        </c:forEach>     
-                    </h:dataTable>    
+                <div class="row my-3">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Productos</th>
+                                <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
+                                    <th>#{clientes.nombreCliente}</th>
+                                </c:forEach>
+                            </tr>
+                        </thead>
+                        <c:forEach var="articulos" items="#{reporte2_crud.articulos}">    
+                            <tr> <td> #{articulos.nombre} </td>
+                                <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
+                                    <td>#{reporte2_crud.precioArticuloCliente(articulos.nombre, clientes.nombreCliente)}</td>
+                                </c:forEach>
+                            </tr>
+                        </c:forEach>
+                    </table>
                 </div>
+
+
+
             </h:form>
         </div>
 

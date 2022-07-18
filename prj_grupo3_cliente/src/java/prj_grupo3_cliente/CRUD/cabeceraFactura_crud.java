@@ -53,6 +53,23 @@ public class cabeceraFactura_crud {
         articulos = (ArrayList<Articulo>) port.listarArticuloS();
     }
 
+    /*
+    public boolean validaCantidadItem() {
+        boolean res = false;
+        for (Articulo a : articulos) {
+            if(a.getNombre().equals(this.nombreItem)){
+                int cantidadDB = a.getStock();
+                int cantidadSelec = this.cantidadItem;
+                if(cantidadSelec > cantidadDB){
+                    res=false;
+                }else{
+                    res=true;
+                }
+            }
+        }
+        return res;
+    }
+*/
     public void crearFactura() {
         int resultado;
         try {
@@ -82,6 +99,7 @@ public class cabeceraFactura_crud {
         try {
             precioItem = String.valueOf(this.obtenerPrecioItem());
             precioTotalItem = String.valueOf(this.ObtenerPrecioTotalItem());
+            
             resultado = port.agregarProductoS(numCabecera, nombreItem, cantidadItem, precioItem, precioTotalItem);
             if (resultado == 1) {
                 mensajeItem = "Articulo insertado correctamente";

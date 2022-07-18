@@ -4,35 +4,77 @@
 <xsd:import namespace="http://Servicios.prj_grupo3_server/" schemaLocation="http://localhost:8080/prj_grupo3_server/servicio_web_servidor?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="loginS">
-<part name="parameters" element="tns:loginS"/>
+<message name="insertarCobradorS">
+<part name="parameters" element="tns:insertarCobradorS"/>
 </message>
-<message name="loginSResponse">
-<part name="parameters" element="tns:loginSResponse"/>
+<message name="insertarCobradorSResponse">
+<part name="parameters" element="tns:insertarCobradorSResponse"/>
 </message>
-<message name="actualizarCabeceraFacturaS">
-<part name="parameters" element="tns:actualizarCabeceraFacturaS"/>
+<message name="eliminarArticuloS">
+<part name="parameters" element="tns:eliminarArticuloS"/>
 </message>
-<message name="actualizarCabeceraFacturaSResponse">
-<part name="parameters" element="tns:actualizarCabeceraFacturaSResponse"/>
+<message name="eliminarArticuloSResponse">
+<part name="parameters" element="tns:eliminarArticuloSResponse"/>
 </message>
-<message name="eliminarCabeceraFacturaS">
-<part name="parameters" element="tns:eliminarCabeceraFacturaS"/>
+<message name="actualizarClienteS">
+<part name="parameters" element="tns:actualizarClienteS"/>
 </message>
-<message name="eliminarCabeceraFacturaSResponse">
-<part name="parameters" element="tns:eliminarCabeceraFacturaSResponse"/>
+<message name="actualizarClienteSResponse">
+<part name="parameters" element="tns:actualizarClienteSResponse"/>
 </message>
-<message name="eliminarDetalleFacturaS">
-<part name="parameters" element="tns:eliminarDetalleFacturaS"/>
+<message name="actualizarCiudadS">
+<part name="parameters" element="tns:actualizarCiudadS"/>
 </message>
-<message name="eliminarDetalleFacturaSResponse">
-<part name="parameters" element="tns:eliminarDetalleFacturaSResponse"/>
+<message name="actualizarCiudadSResponse">
+<part name="parameters" element="tns:actualizarCiudadSResponse"/>
 </message>
-<message name="buscarCabeceraFacturaS">
-<part name="parameters" element="tns:buscarCabeceraFacturaS"/>
+<message name="insertarArticuloS">
+<part name="parameters" element="tns:insertarArticuloS"/>
 </message>
-<message name="buscarCabeceraFacturaSResponse">
-<part name="parameters" element="tns:buscarCabeceraFacturaSResponse"/>
+<message name="insertarArticuloSResponse">
+<part name="parameters" element="tns:insertarArticuloSResponse"/>
+</message>
+<message name="actualizarArticuloS">
+<part name="parameters" element="tns:actualizarArticuloS"/>
+</message>
+<message name="actualizarArticuloSResponse">
+<part name="parameters" element="tns:actualizarArticuloSResponse"/>
+</message>
+<message name="actualizarCobradorS">
+<part name="parameters" element="tns:actualizarCobradorS"/>
+</message>
+<message name="actualizarCobradorSResponse">
+<part name="parameters" element="tns:actualizarCobradorSResponse"/>
+</message>
+<message name="eliminarCobradorS">
+<part name="parameters" element="tns:eliminarCobradorS"/>
+</message>
+<message name="eliminarCobradorSResponse">
+<part name="parameters" element="tns:eliminarCobradorSResponse"/>
+</message>
+<message name="eliminarCiudadS">
+<part name="parameters" element="tns:eliminarCiudadS"/>
+</message>
+<message name="eliminarCiudadSResponse">
+<part name="parameters" element="tns:eliminarCiudadSResponse"/>
+</message>
+<message name="eliminarClienteS">
+<part name="parameters" element="tns:eliminarClienteS"/>
+</message>
+<message name="eliminarClienteSResponse">
+<part name="parameters" element="tns:eliminarClienteSResponse"/>
+</message>
+<message name="listarCobradorS">
+<part name="parameters" element="tns:listarCobradorS"/>
+</message>
+<message name="listarCobradorSResponse">
+<part name="parameters" element="tns:listarCobradorSResponse"/>
+</message>
+<message name="buscarCabeceraFacturaPorRucS">
+<part name="parameters" element="tns:buscarCabeceraFacturaPorRucS"/>
+</message>
+<message name="buscarCabeceraFacturaPorRucSResponse">
+<part name="parameters" element="tns:buscarCabeceraFacturaPorRucSResponse"/>
 </message>
 <message name="buscarDetalleFacturaS">
 <part name="parameters" element="tns:buscarDetalleFacturaS"/>
@@ -40,17 +82,11 @@
 <message name="buscarDetalleFacturaSResponse">
 <part name="parameters" element="tns:buscarDetalleFacturaSResponse"/>
 </message>
-<message name="crearDetalleFacturaS">
-<part name="parameters" element="tns:crearDetalleFacturaS"/>
+<message name="buscarCabeceraFacturaS">
+<part name="parameters" element="tns:buscarCabeceraFacturaS"/>
 </message>
-<message name="crearDetalleFacturaSResponse">
-<part name="parameters" element="tns:crearDetalleFacturaSResponse"/>
-</message>
-<message name="crearCabeceraFacturaS">
-<part name="parameters" element="tns:crearCabeceraFacturaS"/>
-</message>
-<message name="crearCabeceraFacturaSResponse">
-<part name="parameters" element="tns:crearCabeceraFacturaSResponse"/>
+<message name="buscarCabeceraFacturaSResponse">
+<part name="parameters" element="tns:buscarCabeceraFacturaSResponse"/>
 </message>
 <message name="insertarFormaPagoS">
 <part name="parameters" element="tns:insertarFormaPagoS"/>
@@ -64,11 +100,47 @@
 <message name="eliminarFormaPagoSResponse">
 <part name="parameters" element="tns:eliminarFormaPagoSResponse"/>
 </message>
+<message name="eliminarDetalleFacturaS">
+<part name="parameters" element="tns:eliminarDetalleFacturaS"/>
+</message>
+<message name="eliminarDetalleFacturaSResponse">
+<part name="parameters" element="tns:eliminarDetalleFacturaSResponse"/>
+</message>
 <message name="actualizarFormaPagoS">
 <part name="parameters" element="tns:actualizarFormaPagoS"/>
 </message>
 <message name="actualizarFormaPagoSResponse">
 <part name="parameters" element="tns:actualizarFormaPagoSResponse"/>
+</message>
+<message name="eliminarCabeceraFacturaS">
+<part name="parameters" element="tns:eliminarCabeceraFacturaS"/>
+</message>
+<message name="eliminarCabeceraFacturaSResponse">
+<part name="parameters" element="tns:eliminarCabeceraFacturaSResponse"/>
+</message>
+<message name="actualizarCabeceraFacturaS">
+<part name="parameters" element="tns:actualizarCabeceraFacturaS"/>
+</message>
+<message name="actualizarCabeceraFacturaSResponse">
+<part name="parameters" element="tns:actualizarCabeceraFacturaSResponse"/>
+</message>
+<message name="crearDetalleFacturaS">
+<part name="parameters" element="tns:crearDetalleFacturaS"/>
+</message>
+<message name="crearDetalleFacturaSResponse">
+<part name="parameters" element="tns:crearDetalleFacturaSResponse"/>
+</message>
+<message name="crearCabeceraFacturaS">
+<part name="parameters" element="tns:crearCabeceraFacturaS"/>
+</message>
+<message name="crearCabeceraFacturaSResponse">
+<part name="parameters" element="tns:crearCabeceraFacturaSResponse"/>
+</message>
+<message name="loginS">
+<part name="parameters" element="tns:loginS"/>
+</message>
+<message name="loginSResponse">
+<part name="parameters" element="tns:loginSResponse"/>
 </message>
 <message name="insertarCiudadS">
 <part name="parameters" element="tns:insertarCiudadS"/>
@@ -82,71 +154,23 @@
 <message name="insertarClienteSResponse">
 <part name="parameters" element="tns:insertarClienteSResponse"/>
 </message>
-<message name="eliminarClienteS">
-<part name="parameters" element="tns:eliminarClienteS"/>
+<message name="listarFacturasS">
+<part name="parameters" element="tns:listarFacturasS"/>
 </message>
-<message name="eliminarClienteSResponse">
-<part name="parameters" element="tns:eliminarClienteSResponse"/>
+<message name="listarFacturasSResponse">
+<part name="parameters" element="tns:listarFacturasSResponse"/>
 </message>
-<message name="buscarArticuloS">
-<part name="parameters" element="tns:buscarArticuloS"/>
+<message name="crearUsuarioS">
+<part name="parameters" element="tns:crearUsuarioS"/>
 </message>
-<message name="buscarArticuloSResponse">
-<part name="parameters" element="tns:buscarArticuloSResponse"/>
+<message name="crearUsuarioSResponse">
+<part name="parameters" element="tns:crearUsuarioSResponse"/>
 </message>
-<message name="buscarClienteS">
-<part name="parameters" element="tns:buscarClienteS"/>
+<message name="buscarFormaPagoS">
+<part name="parameters" element="tns:buscarFormaPagoS"/>
 </message>
-<message name="buscarClienteSResponse">
-<part name="parameters" element="tns:buscarClienteSResponse"/>
-</message>
-<message name="buscarCobradorS">
-<part name="parameters" element="tns:buscarCobradorS"/>
-</message>
-<message name="buscarCobradorSResponse">
-<part name="parameters" element="tns:buscarCobradorSResponse"/>
-</message>
-<message name="buscarCiudadS">
-<part name="parameters" element="tns:buscarCiudadS"/>
-</message>
-<message name="buscarCiudadSResponse">
-<part name="parameters" element="tns:buscarCiudadSResponse"/>
-</message>
-<message name="listarCobradorS">
-<part name="parameters" element="tns:listarCobradorS"/>
-</message>
-<message name="listarCobradorSResponse">
-<part name="parameters" element="tns:listarCobradorSResponse"/>
-</message>
-<message name="listarArticuloS">
-<part name="parameters" element="tns:listarArticuloS"/>
-</message>
-<message name="listarArticuloSResponse">
-<part name="parameters" element="tns:listarArticuloSResponse"/>
-</message>
-<message name="eliminarCiudadS">
-<part name="parameters" element="tns:eliminarCiudadS"/>
-</message>
-<message name="eliminarCiudadSResponse">
-<part name="parameters" element="tns:eliminarCiudadSResponse"/>
-</message>
-<message name="listarCiudadS">
-<part name="parameters" element="tns:listarCiudadS"/>
-</message>
-<message name="listarCiudadSResponse">
-<part name="parameters" element="tns:listarCiudadSResponse"/>
-</message>
-<message name="listarClienteS">
-<part name="parameters" element="tns:listarClienteS"/>
-</message>
-<message name="listarClienteSResponse">
-<part name="parameters" element="tns:listarClienteSResponse"/>
-</message>
-<message name="buscarCabeceraFacturaPorRucS">
-<part name="parameters" element="tns:buscarCabeceraFacturaPorRucS"/>
-</message>
-<message name="buscarCabeceraFacturaPorRucSResponse">
-<part name="parameters" element="tns:buscarCabeceraFacturaPorRucSResponse"/>
+<message name="buscarFormaPagoSResponse">
+<part name="parameters" element="tns:buscarFormaPagoSResponse"/>
 </message>
 <message name="SingIn">
 <part name="parameters" element="tns:SingIn"/>
@@ -172,104 +196,104 @@
 <message name="agregarProductoSResponse">
 <part name="parameters" element="tns:agregarProductoSResponse"/>
 </message>
-<message name="crearUsuarioS">
-<part name="parameters" element="tns:crearUsuarioS"/>
+<message name="buscarCobradorS">
+<part name="parameters" element="tns:buscarCobradorS"/>
 </message>
-<message name="crearUsuarioSResponse">
-<part name="parameters" element="tns:crearUsuarioSResponse"/>
+<message name="buscarCobradorSResponse">
+<part name="parameters" element="tns:buscarCobradorSResponse"/>
 </message>
-<message name="listarFacturasS">
-<part name="parameters" element="tns:listarFacturasS"/>
+<message name="buscarCiudadS">
+<part name="parameters" element="tns:buscarCiudadS"/>
 </message>
-<message name="listarFacturasSResponse">
-<part name="parameters" element="tns:listarFacturasSResponse"/>
+<message name="buscarCiudadSResponse">
+<part name="parameters" element="tns:buscarCiudadSResponse"/>
 </message>
-<message name="buscarFormaPagoS">
-<part name="parameters" element="tns:buscarFormaPagoS"/>
+<message name="buscarClienteS">
+<part name="parameters" element="tns:buscarClienteS"/>
 </message>
-<message name="buscarFormaPagoSResponse">
-<part name="parameters" element="tns:buscarFormaPagoSResponse"/>
+<message name="buscarClienteSResponse">
+<part name="parameters" element="tns:buscarClienteSResponse"/>
 </message>
-<message name="insertarArticuloS">
-<part name="parameters" element="tns:insertarArticuloS"/>
+<message name="buscarArticuloS">
+<part name="parameters" element="tns:buscarArticuloS"/>
 </message>
-<message name="insertarArticuloSResponse">
-<part name="parameters" element="tns:insertarArticuloSResponse"/>
+<message name="buscarArticuloSResponse">
+<part name="parameters" element="tns:buscarArticuloSResponse"/>
 </message>
-<message name="actualizarCobradorS">
-<part name="parameters" element="tns:actualizarCobradorS"/>
+<message name="listarCiudadS">
+<part name="parameters" element="tns:listarCiudadS"/>
 </message>
-<message name="actualizarCobradorSResponse">
-<part name="parameters" element="tns:actualizarCobradorSResponse"/>
+<message name="listarCiudadSResponse">
+<part name="parameters" element="tns:listarCiudadSResponse"/>
 </message>
-<message name="actualizarCiudadS">
-<part name="parameters" element="tns:actualizarCiudadS"/>
+<message name="listarClienteS">
+<part name="parameters" element="tns:listarClienteS"/>
 </message>
-<message name="actualizarCiudadSResponse">
-<part name="parameters" element="tns:actualizarCiudadSResponse"/>
+<message name="listarClienteSResponse">
+<part name="parameters" element="tns:listarClienteSResponse"/>
 </message>
-<message name="eliminarArticuloS">
-<part name="parameters" element="tns:eliminarArticuloS"/>
+<message name="listarArticuloS">
+<part name="parameters" element="tns:listarArticuloS"/>
 </message>
-<message name="eliminarArticuloSResponse">
-<part name="parameters" element="tns:eliminarArticuloSResponse"/>
-</message>
-<message name="insertarCobradorS">
-<part name="parameters" element="tns:insertarCobradorS"/>
-</message>
-<message name="insertarCobradorSResponse">
-<part name="parameters" element="tns:insertarCobradorSResponse"/>
-</message>
-<message name="eliminarCobradorS">
-<part name="parameters" element="tns:eliminarCobradorS"/>
-</message>
-<message name="eliminarCobradorSResponse">
-<part name="parameters" element="tns:eliminarCobradorSResponse"/>
-</message>
-<message name="actualizarArticuloS">
-<part name="parameters" element="tns:actualizarArticuloS"/>
-</message>
-<message name="actualizarArticuloSResponse">
-<part name="parameters" element="tns:actualizarArticuloSResponse"/>
-</message>
-<message name="actualizarClienteS">
-<part name="parameters" element="tns:actualizarClienteS"/>
-</message>
-<message name="actualizarClienteSResponse">
-<part name="parameters" element="tns:actualizarClienteSResponse"/>
+<message name="listarArticuloSResponse">
+<part name="parameters" element="tns:listarArticuloSResponse"/>
 </message>
 <portType name="ServicioServer">
-<operation name="loginS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/loginSRequest" message="tns:loginS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/loginSResponse" message="tns:loginSResponse"/>
+<operation name="insertarCobradorS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarCobradorSRequest" message="tns:insertarCobradorS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarCobradorSResponse" message="tns:insertarCobradorSResponse"/>
 </operation>
-<operation name="actualizarCabeceraFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCabeceraFacturaSRequest" message="tns:actualizarCabeceraFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCabeceraFacturaSResponse" message="tns:actualizarCabeceraFacturaSResponse"/>
+<operation name="eliminarArticuloS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSRequest" message="tns:eliminarArticuloS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSResponse" message="tns:eliminarArticuloSResponse"/>
 </operation>
-<operation name="eliminarCabeceraFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCabeceraFacturaSRequest" message="tns:eliminarCabeceraFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCabeceraFacturaSResponse" message="tns:eliminarCabeceraFacturaSResponse"/>
+<operation name="actualizarClienteS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSRequest" message="tns:actualizarClienteS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSResponse" message="tns:actualizarClienteSResponse"/>
 </operation>
-<operation name="eliminarDetalleFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarDetalleFacturaSRequest" message="tns:eliminarDetalleFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarDetalleFacturaSResponse" message="tns:eliminarDetalleFacturaSResponse"/>
+<operation name="actualizarCiudadS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCiudadSRequest" message="tns:actualizarCiudadS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCiudadSResponse" message="tns:actualizarCiudadSResponse"/>
 </operation>
-<operation name="buscarCabeceraFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaSRequest" message="tns:buscarCabeceraFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaSResponse" message="tns:buscarCabeceraFacturaSResponse"/>
+<operation name="insertarArticuloS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSRequest" message="tns:insertarArticuloS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSResponse" message="tns:insertarArticuloSResponse"/>
+</operation>
+<operation name="actualizarArticuloS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSRequest" message="tns:actualizarArticuloS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSResponse" message="tns:actualizarArticuloSResponse"/>
+</operation>
+<operation name="actualizarCobradorS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCobradorSRequest" message="tns:actualizarCobradorS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCobradorSResponse" message="tns:actualizarCobradorSResponse"/>
+</operation>
+<operation name="eliminarCobradorS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCobradorSRequest" message="tns:eliminarCobradorS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCobradorSResponse" message="tns:eliminarCobradorSResponse"/>
+</operation>
+<operation name="eliminarCiudadS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCiudadSRequest" message="tns:eliminarCiudadS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCiudadSResponse" message="tns:eliminarCiudadSResponse"/>
+</operation>
+<operation name="eliminarClienteS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarClienteSRequest" message="tns:eliminarClienteS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarClienteSResponse" message="tns:eliminarClienteSResponse"/>
+</operation>
+<operation name="listarCobradorS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCobradorSRequest" message="tns:listarCobradorS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCobradorSResponse" message="tns:listarCobradorSResponse"/>
+</operation>
+<operation name="buscarCabeceraFacturaPorRucS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaPorRucSRequest" message="tns:buscarCabeceraFacturaPorRucS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaPorRucSResponse" message="tns:buscarCabeceraFacturaPorRucSResponse"/>
 </operation>
 <operation name="buscarDetalleFacturaS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarDetalleFacturaSRequest" message="tns:buscarDetalleFacturaS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarDetalleFacturaSResponse" message="tns:buscarDetalleFacturaSResponse"/>
 </operation>
-<operation name="crearDetalleFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturaSRequest" message="tns:crearDetalleFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturaSResponse" message="tns:crearDetalleFacturaSResponse"/>
-</operation>
-<operation name="crearCabeceraFacturaS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearCabeceraFacturaSRequest" message="tns:crearCabeceraFacturaS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearCabeceraFacturaSResponse" message="tns:crearCabeceraFacturaSResponse"/>
+<operation name="buscarCabeceraFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaSRequest" message="tns:buscarCabeceraFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaSResponse" message="tns:buscarCabeceraFacturaSResponse"/>
 </operation>
 <operation name="insertarFormaPagoS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarFormaPagoSRequest" message="tns:insertarFormaPagoS"/>
@@ -279,9 +303,33 @@
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarFormaPagoSRequest" message="tns:eliminarFormaPagoS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarFormaPagoSResponse" message="tns:eliminarFormaPagoSResponse"/>
 </operation>
+<operation name="eliminarDetalleFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarDetalleFacturaSRequest" message="tns:eliminarDetalleFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarDetalleFacturaSResponse" message="tns:eliminarDetalleFacturaSResponse"/>
+</operation>
 <operation name="actualizarFormaPagoS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarFormaPagoSRequest" message="tns:actualizarFormaPagoS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarFormaPagoSResponse" message="tns:actualizarFormaPagoSResponse"/>
+</operation>
+<operation name="eliminarCabeceraFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCabeceraFacturaSRequest" message="tns:eliminarCabeceraFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCabeceraFacturaSResponse" message="tns:eliminarCabeceraFacturaSResponse"/>
+</operation>
+<operation name="actualizarCabeceraFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCabeceraFacturaSRequest" message="tns:actualizarCabeceraFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCabeceraFacturaSResponse" message="tns:actualizarCabeceraFacturaSResponse"/>
+</operation>
+<operation name="crearDetalleFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturaSRequest" message="tns:crearDetalleFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturaSResponse" message="tns:crearDetalleFacturaSResponse"/>
+</operation>
+<operation name="crearCabeceraFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearCabeceraFacturaSRequest" message="tns:crearCabeceraFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearCabeceraFacturaSResponse" message="tns:crearCabeceraFacturaSResponse"/>
+</operation>
+<operation name="loginS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/loginSRequest" message="tns:loginS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/loginSResponse" message="tns:loginSResponse"/>
 </operation>
 <operation name="insertarCiudadS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarCiudadSRequest" message="tns:insertarCiudadS"/>
@@ -291,49 +339,17 @@
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarClienteSRequest" message="tns:insertarClienteS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarClienteSResponse" message="tns:insertarClienteSResponse"/>
 </operation>
-<operation name="eliminarClienteS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarClienteSRequest" message="tns:eliminarClienteS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarClienteSResponse" message="tns:eliminarClienteSResponse"/>
+<operation name="listarFacturasS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarFacturasSRequest" message="tns:listarFacturasS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarFacturasSResponse" message="tns:listarFacturasSResponse"/>
 </operation>
-<operation name="buscarArticuloS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSRequest" message="tns:buscarArticuloS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSResponse" message="tns:buscarArticuloSResponse"/>
+<operation name="crearUsuarioS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearUsuarioSRequest" message="tns:crearUsuarioS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearUsuarioSResponse" message="tns:crearUsuarioSResponse"/>
 </operation>
-<operation name="buscarClienteS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarClienteSRequest" message="tns:buscarClienteS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarClienteSResponse" message="tns:buscarClienteSResponse"/>
-</operation>
-<operation name="buscarCobradorS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCobradorSRequest" message="tns:buscarCobradorS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCobradorSResponse" message="tns:buscarCobradorSResponse"/>
-</operation>
-<operation name="buscarCiudadS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCiudadSRequest" message="tns:buscarCiudadS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCiudadSResponse" message="tns:buscarCiudadSResponse"/>
-</operation>
-<operation name="listarCobradorS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCobradorSRequest" message="tns:listarCobradorS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCobradorSResponse" message="tns:listarCobradorSResponse"/>
-</operation>
-<operation name="listarArticuloS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarArticuloSRequest" message="tns:listarArticuloS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarArticuloSResponse" message="tns:listarArticuloSResponse"/>
-</operation>
-<operation name="eliminarCiudadS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCiudadSRequest" message="tns:eliminarCiudadS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCiudadSResponse" message="tns:eliminarCiudadSResponse"/>
-</operation>
-<operation name="listarCiudadS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCiudadSRequest" message="tns:listarCiudadS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCiudadSResponse" message="tns:listarCiudadSResponse"/>
-</operation>
-<operation name="listarClienteS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarClienteSRequest" message="tns:listarClienteS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarClienteSResponse" message="tns:listarClienteSResponse"/>
-</operation>
-<operation name="buscarCabeceraFacturaPorRucS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaPorRucSRequest" message="tns:buscarCabeceraFacturaPorRucS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCabeceraFacturaPorRucSResponse" message="tns:buscarCabeceraFacturaPorRucSResponse"/>
+<operation name="buscarFormaPagoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFormaPagoSRequest" message="tns:buscarFormaPagoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFormaPagoSResponse" message="tns:buscarFormaPagoSResponse"/>
 </operation>
 <operation name="SingIn">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/SingInRequest" message="tns:SingIn"/>
@@ -351,54 +367,38 @@
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarProductoSRequest" message="tns:agregarProductoS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarProductoSResponse" message="tns:agregarProductoSResponse"/>
 </operation>
-<operation name="crearUsuarioS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearUsuarioSRequest" message="tns:crearUsuarioS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearUsuarioSResponse" message="tns:crearUsuarioSResponse"/>
+<operation name="buscarCobradorS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCobradorSRequest" message="tns:buscarCobradorS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCobradorSResponse" message="tns:buscarCobradorSResponse"/>
 </operation>
-<operation name="listarFacturasS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarFacturasSRequest" message="tns:listarFacturasS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarFacturasSResponse" message="tns:listarFacturasSResponse"/>
+<operation name="buscarCiudadS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCiudadSRequest" message="tns:buscarCiudadS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarCiudadSResponse" message="tns:buscarCiudadSResponse"/>
 </operation>
-<operation name="buscarFormaPagoS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFormaPagoSRequest" message="tns:buscarFormaPagoS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFormaPagoSResponse" message="tns:buscarFormaPagoSResponse"/>
+<operation name="buscarClienteS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarClienteSRequest" message="tns:buscarClienteS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarClienteSResponse" message="tns:buscarClienteSResponse"/>
 </operation>
-<operation name="insertarArticuloS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSRequest" message="tns:insertarArticuloS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarArticuloSResponse" message="tns:insertarArticuloSResponse"/>
+<operation name="buscarArticuloS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSRequest" message="tns:buscarArticuloS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSResponse" message="tns:buscarArticuloSResponse"/>
 </operation>
-<operation name="actualizarCobradorS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCobradorSRequest" message="tns:actualizarCobradorS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCobradorSResponse" message="tns:actualizarCobradorSResponse"/>
+<operation name="listarCiudadS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCiudadSRequest" message="tns:listarCiudadS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarCiudadSResponse" message="tns:listarCiudadSResponse"/>
 </operation>
-<operation name="actualizarCiudadS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCiudadSRequest" message="tns:actualizarCiudadS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarCiudadSResponse" message="tns:actualizarCiudadSResponse"/>
+<operation name="listarClienteS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarClienteSRequest" message="tns:listarClienteS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarClienteSResponse" message="tns:listarClienteSResponse"/>
 </operation>
-<operation name="eliminarArticuloS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSRequest" message="tns:eliminarArticuloS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarArticuloSResponse" message="tns:eliminarArticuloSResponse"/>
-</operation>
-<operation name="insertarCobradorS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarCobradorSRequest" message="tns:insertarCobradorS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarCobradorSResponse" message="tns:insertarCobradorSResponse"/>
-</operation>
-<operation name="eliminarCobradorS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCobradorSRequest" message="tns:eliminarCobradorS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarCobradorSResponse" message="tns:eliminarCobradorSResponse"/>
-</operation>
-<operation name="actualizarArticuloS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSRequest" message="tns:actualizarArticuloS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarArticuloSResponse" message="tns:actualizarArticuloSResponse"/>
-</operation>
-<operation name="actualizarClienteS">
-<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSRequest" message="tns:actualizarClienteS"/>
-<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSResponse" message="tns:actualizarClienteSResponse"/>
+<operation name="listarArticuloS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarArticuloSRequest" message="tns:listarArticuloS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarArticuloSResponse" message="tns:listarArticuloSResponse"/>
 </operation>
 </portType>
 <binding name="ServicioServerPortBinding" type="tns:ServicioServer">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="loginS">
+<operation name="insertarCobradorS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -407,7 +407,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="actualizarCabeceraFacturaS">
+<operation name="eliminarArticuloS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -416,7 +416,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminarCabeceraFacturaS">
+<operation name="actualizarClienteS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -425,7 +425,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminarDetalleFacturaS">
+<operation name="actualizarCiudadS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -434,7 +434,70 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarCabeceraFacturaS">
+<operation name="insertarArticuloS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="actualizarArticuloS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="actualizarCobradorS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarCobradorS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarCiudadS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarClienteS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarCobradorS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarCabeceraFacturaPorRucS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -452,16 +515,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="crearDetalleFacturaS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="crearCabeceraFacturaS">
+<operation name="buscarCabeceraFacturaS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -488,7 +542,61 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="eliminarDetalleFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="actualizarFormaPagoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarCabeceraFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="actualizarCabeceraFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="crearDetalleFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="crearCabeceraFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="loginS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -515,7 +623,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminarClienteS">
+<operation name="listarFacturasS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -524,7 +632,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarArticuloS">
+<operation name="crearUsuarioS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -533,79 +641,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarClienteS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarCobradorS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarCiudadS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarCobradorS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarArticuloS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="eliminarCiudadS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarCiudadS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarClienteS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarCabeceraFacturaPorRucS">
+<operation name="buscarFormaPagoS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -650,7 +686,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="crearUsuarioS">
+<operation name="buscarCobradorS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -659,7 +695,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listarFacturasS">
+<operation name="buscarCiudadS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -668,7 +704,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarFormaPagoS">
+<operation name="buscarClienteS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -677,7 +713,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="insertarArticuloS">
+<operation name="buscarArticuloS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -686,7 +722,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="actualizarCobradorS">
+<operation name="listarCiudadS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -695,7 +731,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="actualizarCiudadS">
+<operation name="listarClienteS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -704,43 +740,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminarArticuloS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="insertarCobradorS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="eliminarCobradorS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="actualizarArticuloS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="actualizarClienteS">
+<operation name="listarArticuloS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

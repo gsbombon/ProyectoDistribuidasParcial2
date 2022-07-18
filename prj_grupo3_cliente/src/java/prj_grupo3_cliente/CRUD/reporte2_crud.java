@@ -87,7 +87,6 @@ public class reporte2_crud {
         }
         //return resultArray;
     } */
-
     public void precioGastadoArticuloCliente(String nomCliente) {
         ArrayList<String> resultArray = new ArrayList<>();
         String result = "0";
@@ -103,12 +102,12 @@ public class reporte2_crud {
                         PrecioReporte pr = new PrecioReporte();
                         System.out.println("BUSCADO :" + art.getNombre());
                         System.out.println("TRAIDO: " + id.getNombreItem());
-                        result = id.getPrecioTotalItem();               
+                        result = id.getPrecioTotalItem();
                         //pr.setPrecio(result);
                         System.out.println("RESULT: " + result);
                         //resultArray.add(pr);
                         resultArray.add(result);
-                        
+
                     } else {
                         result = "0";
                     }
@@ -117,13 +116,47 @@ public class reporte2_crud {
         } catch (Exception e) {
             System.out.println("null");
             result = "0";
-            
+
         }
         //this.precioResult = resultArray;
         this.precioResultString = resultArray;
         for (String p : this.precioResultString) {
             System.out.println("" + p);
         }
+    }
+
+    public String precioArticuloCliente(String nomArticulo, String nomCliente) {
+        //ArrayList<String> resultArray = new ArrayList<>();
+        String result = "0";
+        String rucCliente = this.obtenerRucCliente(nomCliente);
+        //System.out.println("RUC CLIENTE: " + rucCliente);
+        String numFactura = this.obtenerNumFactura(rucCliente);
+        //System.out.println("Num Factura: " + numFactura);
+        try {
+            this.buscarDetalleFactura(numFactura);
+            for (ItemFactura id : this.df_crud.itemsDetalle) {
+                if (id.getNombreItem().equals(nomArticulo)) {
+                    //PrecioReporte pr = new PrecioReporte();
+                    System.out.println("BUSCADO :" + nomArticulo);
+                    System.out.println("TRAIDO: " + id.getNombreItem());
+                    result = id.getPrecioTotalItem()+"  ";
+                    //pr.setPrecio(result);
+                    System.out.println("RESULT: " + result);
+                    break;
+                    //resultArray.add(pr);
+                    //resultArray.add(result);
+
+                } else {
+                    result = "0";
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("null");
+            result = "0";
+
+        }
+        return result;
     }
 
     public ArrayList<String> getPrecioResultString() {

@@ -294,6 +294,7 @@
 <xs:element name="codigo" type="xs:string" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
 <xs:element name="precio" type="xs:string" minOccurs="0"/>
+<xs:element name="stock" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -422,18 +423,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="buscarCobradorS">
-<xs:sequence>
-<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarCobradorSResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:cobrador" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="actualizarCiudadS">
 <xs:sequence>
 <xs:element name="Codigo_Ciudad" type="xs:string" minOccurs="0"/>
@@ -444,6 +433,18 @@
 <xs:complexType name="actualizarCiudadSResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCobradorS">
+<xs:sequence>
+<xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cobrador" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -534,18 +535,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="eliminarClienteS">
-<xs:sequence>
-<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="eliminarClienteSResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="eliminarCobradorS">
 <xs:sequence>
 <xs:element name="Cedula_Cobrador" type="xs:string" minOccurs="0"/>
@@ -553,6 +542,18 @@
 </xs:complexType>
 
 <xs:complexType name="eliminarCobradorSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarClienteS">
+<xs:sequence>
+<xs:element name="Ruc_Cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarClienteSResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
@@ -621,18 +622,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="buscarFormaPagoS">
-<xs:sequence>
-<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarFormaPagoSResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:formaPago" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="eliminarArticuloS">
 <xs:sequence>
 <xs:element name="codigo" type="xs:string" minOccurs="0"/>
@@ -642,6 +631,18 @@
 <xs:complexType name="eliminarArticuloSResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarFormaPagoS">
+<xs:sequence>
+<xs:element name="Codigo_FP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarFormaPagoSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:formaPago" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -693,16 +694,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarClienteS">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarClienteSResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="listarFacturasS">
 <xs:sequence/>
 </xs:complexType>
@@ -721,6 +712,16 @@
 <xs:element name="rucCliente" type="xs:string" minOccurs="0"/>
 <xs:element name="tipoPago" type="xs:string" minOccurs="0"/>
 <xs:element name="totalFactura" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarClienteS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarClienteSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
