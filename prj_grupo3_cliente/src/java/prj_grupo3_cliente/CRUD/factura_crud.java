@@ -304,9 +304,18 @@ public class factura_crud {
  public double precioTotalFactura(ArrayList<ItemFacturacxc> items) {
         double sum = 0;
         for (ItemFacturacxc i : items) {
-            sum += Double.parseDouble(i.getValorpagarItem());
+           
+                sum += Double.parseDouble(i.getCobradorItem());
+            
+           
         }
         return sum;
+    }
+ 
+ public double valorPagar() {
+        double total= 0;
+        total=Double.parseDouble(totalFactura)-df_crud.precioTotal;
+        return total;
     }
     public factura_crud() {
          this.listarCobrador();

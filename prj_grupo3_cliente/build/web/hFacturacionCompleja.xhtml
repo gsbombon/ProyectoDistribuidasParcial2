@@ -132,10 +132,13 @@
 
                             <div class="row">
                                 <div class="col text-center">
-                                    <h4> PRECIO TOTAL </h4>
+                                    <h5> Precio Total: #{factura_crud.totalFactura}</h5>
                                 </div>
                                 <div class="col text-center ">
-                                    <h3> #{factura_crud.df_crud.precioTotal} </h3>
+                                    <h5> Valos a pagar: #{factura_crud.df_crud.precioTotal} </h5>
+                                </div>
+                                <div class="col text-center ">
+                                    <h5> Falta Pagar #{factura_crud.valorPagar()} </h5>
                                 </div>
                             </div>
                             <div class="row mt-5">
