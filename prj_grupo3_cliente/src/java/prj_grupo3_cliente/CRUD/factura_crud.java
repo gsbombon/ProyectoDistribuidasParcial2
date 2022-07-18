@@ -26,6 +26,7 @@ public class factura_crud {
     public String nomCiudad = "";
     public String fecha = "";
     public String totalFactura = "";
+   
     public String mensaje = "";
     public String mensajeItem = "Esperando...";
     public String mensajeCabecera = "";
@@ -172,12 +173,12 @@ public class factura_crud {
     public cobrador_crud cob_crud = new cobrador_crud();
     public formapago_crud fp_crud = new formapago_crud();
     
-    private String formapagoItem;
-    private String cobradorItem;
-    private String valorpagarItem;
-    private String fechapagoItem;
+    private String formapagoItem="";
+    private String cobradorItem="";
+    private String valorpagarItem="";
+    private String fechapagoItem="";
    
-    
+ 
      public void listarCobrador() {
          cob_crud.cobrador = (ArrayList<Cobrador>) port.listarCobradorS();
       
@@ -294,12 +295,14 @@ public class factura_crud {
             System.out.println("ERROR NULL");
         }
     }
+     
+       public Double valorapagar = 0.0;
       public void buscarDetalleFactura(String numFactura) {
         detalleFactura = port.buscarDetalleFacturacxcS(numFactura);
         df_crud.numCabecera = numFactura;
         df_crud.itemsDetalle = (ArrayList<ItemFacturacxc>) detalleFactura.getItemsDetalle();
         df_crud.precioTotal = this.precioTotalFactura(df_crud.itemsDetalle);
-        
+        this.valorapagar=this.valorPagar();
     }
  public double precioTotalFactura(ArrayList<ItemFacturacxc> items) {
         double sum = 0;
@@ -310,6 +313,14 @@ public class factura_crud {
            
         }
         return sum;
+    }
+
+    public Double getValorapagar() {
+        return valorapagar;
+    }
+
+    public void setValorapagar(Double valorapagar) {
+        this.valorapagar = valorapagar;
     }
  
  public double valorPagar() {
