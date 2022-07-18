@@ -27,9 +27,11 @@ import prj_grupo3_server.Modelo.Ciudad;
 import prj_grupo3_server.Modelo.Cliente;
 import prj_grupo3_server.Modelo.Cobrador;
 import prj_grupo3_server.Modelo.DetalleFactura;
+import prj_grupo3_server.Modelo.DetalleFacturacxc;
 import prj_grupo3_server.Modelo.Factura;
 import prj_grupo3_server.Modelo.FormaPago;
 import prj_grupo3_server.Modelo.ItemFactura;
+import prj_grupo3_server.Modelo.ItemFacturacxc;
 
 public class Conexion {
 
@@ -449,10 +451,25 @@ public class Conexion {
         cabFactura.put("Precio_Total_Cabecera", "0");
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
-
+   /// CREAR NUEVA DETALLE FACTURA cxc
+    public static void crearDetalleFacturacxc(String numCabecera) throws JSONException {
+        col = db.getCollection("DetalleFacturacxc");
+        String it[] = {};
+        JSONObject cabFactura = new JSONObject();
+        cabFactura.put("Numero_Cabecera", numCabecera);
+        cabFactura.put("Items_Detalle", it);
+        cabFactura.put("Precio_Total_Cabecera", "0");
+        col.insert((DBObject) JSON.parse(cabFactura.toString()));
+    }
     // ELIMINAR CABECERA DETALLE FACTURA
     public static void eliminarDetalleFactura(String numCabecera) {
         col = db.getCollection("DetalleFactura");
+        col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
+        // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
+    }
+     // ELIMINAR CABECERA DETALLE FACTURA cxc
+    public static void eliminarDetalleFacturacxc(String numCabecera) {
+        col = db.getCollection("DetalleFacturacxc");
         col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
         // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
     }
@@ -478,6 +495,43 @@ public class Conexion {
             for (Iterator< Object> it = items.iterator(); it.hasNext();) {
                 BasicDBObject dbo = (BasicDBObject) it.next();
                 ItemFactura item = new ItemFactura();
+                item.makePojoFromBson(dbo);
+                itemsArray.add(item);
+                System.out.println(item.toString());
+            }
+            precioTotalDetalle = "" + cur.curr().get("Precio_Total_Detalle");
+        }
+
+        detalleFac.setNumCabecera(numFactura);
+        detalleFac.setItemsDetalle(itemsArray);
+        if(precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")){
+            precioTotalDetalle="0";
+        } 
+        detalleFac.setPrecioTotal(Double.parseDouble(precioTotalDetalle));
+
+        return detalleFac;
+    }
+     // BUSCAR DETALLE DE LA FACTURA cxc
+    public static DetalleFacturacxc buscarDetalleFacturacxc(String numFactura) {
+
+        DetalleFacturacxc detalleFac = new DetalleFacturacxc();
+        ItemFacturacxc itFac = new ItemFacturacxc();
+        ArrayList<ItemFacturacxc> itemsArray = new ArrayList<>();
+        //String items;
+        col = db.getCollection("DetalleFacturacxc");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Numero_Cabecera", numFactura);
+        DBCursor cur = col.find(filtro);
+        BasicDBObject account = null;
+
+        String precioTotalDetalle = "";
+        while (cur.hasNext()) {
+            account = (BasicDBObject) cur.next();
+            BasicDBList items = (BasicDBList) account.get("Items_Detalle");
+
+            for (Iterator< Object> it = items.iterator(); it.hasNext();) {
+                BasicDBObject dbo = (BasicDBObject) it.next();
+                ItemFacturacxc item = new ItemFacturacxc();
                 item.makePojoFromBson(dbo);
                 itemsArray.add(item);
                 System.out.println(item.toString());
@@ -620,6 +674,23 @@ public class Conexion {
 
         BasicDBObject update = new BasicDBObject();
         update.put("$push", new BasicDBObject("Items_Detalle", itemSpec));
+
+        col.update(match, update);
+    }
+    // AGREGAR PRODUCTO AL DETALLE cxc
+    public static void agregarPaga(String numCabecera, ItemFacturacxc item) {
+        col = db.getCollection("DetalleFacturacxc");
+        BasicDBObject match = new BasicDBObject();
+        match.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject itemSpec = new BasicDBObject();
+        itemSpec.put("Cobrador_Item", item.getCobradorItem());
+        itemSpec.put("Fechapago_Item", item.getFechapagoItem());
+        itemSpec.put("Formapago_Item", item.getFormapagoItem());
+        itemSpec.put("Valorpaga_Item", item.getValorpagarItem());
+
+        BasicDBObject update = new BasicDBObject();
+        update.put("$push", new BasicDBObject("Items_Detallecxc", itemSpec));
 
         col.update(match, update);
     }

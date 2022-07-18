@@ -8,21 +8,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para loginS complex type.
+ * <p>Java class for loginS complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="loginS"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="Usuario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="Contrasena" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="loginS">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="Usuario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Contrasena" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -40,7 +40,7 @@ public class LoginS {
     protected String contrasena;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Gets the value of the usuario property.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class LoginS {
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Sets the value of the usuario property.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class LoginS {
     }
 
     /**
-     * Obtiene el valor de la propiedad contrasena.
+     * Gets the value of the contrasena property.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class LoginS {
     }
 
     /**
-     * Define el valor de la propiedad contrasena.
+     * Sets the value of the contrasena property.
      * 
      * @param value
      *     allowed object is

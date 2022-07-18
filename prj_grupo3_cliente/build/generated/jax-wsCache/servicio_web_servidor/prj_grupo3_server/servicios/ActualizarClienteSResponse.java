@@ -8,20 +8,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para actualizarClienteSResponse complex type.
+ * <p>Java class for actualizarClienteSResponse complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="actualizarClienteSResponse"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="actualizarClienteSResponse">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -36,7 +36,7 @@ public class ActualizarClienteSResponse {
     protected int _return;
 
     /**
-     * Obtiene el valor de la propiedad return.
+     * Gets the value of the return property.
      * 
      */
     public int getReturn() {
@@ -44,7 +44,7 @@ public class ActualizarClienteSResponse {
     }
 
     /**
-     * Define el valor de la propiedad return.
+     * Sets the value of the return property.
      * 
      */
     public void setReturn(int value) {
