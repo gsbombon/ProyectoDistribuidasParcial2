@@ -527,7 +527,7 @@ public class Conexion {
         String precioTotalDetalle = "";
         while (cur.hasNext()) {
             account = (BasicDBObject) cur.next();
-            BasicDBList items = (BasicDBList) account.get("Items_Detalle");
+            BasicDBList items = (BasicDBList) account.get("Items_Detallecxc");
 
             for (Iterator< Object> it = items.iterator(); it.hasNext();) {
                 BasicDBObject dbo = (BasicDBObject) it.next();
@@ -644,7 +644,27 @@ public class Conexion {
         col = db.getCollection("Factura");
         col.remove(new BasicDBObject().append("Codigo_Factura", numCabecera));
     }
+ /// BUSCAR FACTURA 
+    public static Factura buscarFactura(String numFactura) {
+        Factura Fac = new Factura();
+        col = db.getCollection("Factura");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Codigo_Factura", numFactura);
+        DBCursor cur = col.find(filtro);
+        while (cur.hasNext()) {
+            String totalpago = cur.next().get("Total_Factura") + "";
+            String rCliente = cur.curr().get("Cliente_Factura") + "";
+            String Ciudad  = cur.curr().get("Ciudad_Factura") + "";
+            String fecha= cur.curr().get("Fecha_Factura") + "";
 
+            Fac.setTotalFactura(Double.parseDouble(totalpago));
+            Fac.setFecha(fecha);
+            Fac.setRucCliente(rCliente);
+            Fac.setNomCiudad(Ciudad);
+          ;
+        }
+        return Fac;
+    }
     // AGREGAR PRODUCTO AL DETALLE
     public static void agregarProducto2(String numCabecera, ItemFactura item) {
         col = db.getCollection("DetalleFactura");

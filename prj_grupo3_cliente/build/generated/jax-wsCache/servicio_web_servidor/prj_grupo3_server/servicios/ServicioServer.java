@@ -423,6 +423,21 @@ public interface ServicioServer {
 
     /**
      * 
+     * @param numCabecera
+     * @return
+     *     returns prj_grupo3_server.servicios.Factura
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarFacturaS", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.BuscarFacturaS")
+    @ResponseWrapper(localName = "buscarFacturaSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.BuscarFacturaSResponse")
+    @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSResponse")
+    public Factura buscarFacturaS(
+        @WebParam(name = "numCabecera", targetNamespace = "")
+        String numCabecera);
+
+    /**
+     * 
      * @param numFactura
      * @return
      *     returns int
@@ -735,5 +750,32 @@ public interface ServicioServer {
         String precioItem,
         @WebParam(name = "precioTotalItem", targetNamespace = "")
         String precioTotalItem);
+
+    /**
+     * 
+     * @param formapagoItem
+     * @param cobradorItem
+     * @param valorpagarItem
+     * @param numFactura
+     * @param fechapagoItem
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "agregarPagaS", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.AgregarPagaS")
+    @ResponseWrapper(localName = "agregarPagaSResponse", targetNamespace = "http://Servicios.prj_grupo3_server/", className = "prj_grupo3_server.servicios.AgregarPagaSResponse")
+    @Action(input = "http://Servicios.prj_grupo3_server/ServicioServer/agregarPagaSRequest", output = "http://Servicios.prj_grupo3_server/ServicioServer/agregarPagaSResponse")
+    public int agregarPagaS(
+        @WebParam(name = "numFactura", targetNamespace = "")
+        String numFactura,
+        @WebParam(name = "fechapagoItem", targetNamespace = "")
+        String fechapagoItem,
+        @WebParam(name = "formapagoItem", targetNamespace = "")
+        String formapagoItem,
+        @WebParam(name = "valorpagarItem", targetNamespace = "")
+        String valorpagarItem,
+        @WebParam(name = "cobradorItem", targetNamespace = "")
+        String cobradorItem);
 
 }

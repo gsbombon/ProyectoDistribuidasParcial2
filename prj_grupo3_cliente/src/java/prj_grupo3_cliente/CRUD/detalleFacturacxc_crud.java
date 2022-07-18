@@ -28,6 +28,9 @@ public class detalleFacturacxc_crud {
     public double precioTotal = 0;
     public DetalleFacturacxc detalleFactura;
 
+    detalleFacturacxc_crud() {
+       }
+
      public void buscarDetalleFacturacxc(String numFactura) {
         detalleFactura = port.buscarDetalleFacturacxcS(numFactura);
         this.itemsDetalle = (ArrayList<ItemFacturacxc>) detalleFactura.getItemsDetalle();

@@ -142,6 +142,12 @@
 <message name="actualizarClienteSResponse">
 <part name="parameters" element="tns:actualizarClienteSResponse"/>
 </message>
+<message name="buscarFacturaS">
+<part name="parameters" element="tns:buscarFacturaS"/>
+</message>
+<message name="buscarFacturaSResponse">
+<part name="parameters" element="tns:buscarFacturaSResponse"/>
+</message>
 <message name="crearDetalleFacturacxcS">
 <part name="parameters" element="tns:crearDetalleFacturacxcS"/>
 </message>
@@ -256,6 +262,12 @@
 <message name="agregarProductoSResponse">
 <part name="parameters" element="tns:agregarProductoSResponse"/>
 </message>
+<message name="agregarPagaS">
+<part name="parameters" element="tns:agregarPagaS"/>
+</message>
+<message name="agregarPagaSResponse">
+<part name="parameters" element="tns:agregarPagaSResponse"/>
+</message>
 <portType name="ServicioServer">
 <operation name="buscarFormaPagoS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFormaPagoSRequest" message="tns:buscarFormaPagoS"/>
@@ -349,6 +361,10 @@
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSRequest" message="tns:actualizarClienteS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSResponse" message="tns:actualizarClienteSResponse"/>
 </operation>
+<operation name="buscarFacturaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSRequest" message="tns:buscarFacturaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSResponse" message="tns:buscarFacturaSResponse"/>
+</operation>
 <operation name="crearDetalleFacturacxcS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturacxcSRequest" message="tns:crearDetalleFacturacxcS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturacxcSResponse" message="tns:crearDetalleFacturacxcSResponse"/>
@@ -424,6 +440,10 @@
 <operation name="agregarProductoS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarProductoSRequest" message="tns:agregarProductoS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarProductoSResponse" message="tns:agregarProductoSResponse"/>
+</operation>
+<operation name="agregarPagaS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarPagaSRequest" message="tns:agregarPagaS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/agregarPagaSResponse" message="tns:agregarPagaSResponse"/>
 </operation>
 </portType>
 <binding name="ServicioServerPortBinding" type="tns:ServicioServer">
@@ -635,6 +655,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="buscarFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="crearDetalleFacturacxcS">
 <soap:operation soapAction=""/>
 <input>
@@ -798,6 +827,15 @@
 </output>
 </operation>
 <operation name="agregarProductoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="agregarPagaS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

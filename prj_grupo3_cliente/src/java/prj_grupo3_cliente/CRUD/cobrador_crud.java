@@ -28,6 +28,9 @@ public class cobrador_crud {
     private String Direccion_Cobrador = "";
     public String mensaje = "";
     public ArrayList<Cobrador> cobrador = (ArrayList<Cobrador>) port.listarCobradorS();
+    public ArrayList<String> listaRucCobrador = (ArrayList<String>)this.cmbRucCobrador();
+    public ArrayList<String> listaNombreCobrador = (ArrayList<String>)this.cmbNombreCobrador();
+   
     public Cobrador cobradores;
 
     public ArrayList<Cobrador> getCobrador() {
@@ -133,5 +136,19 @@ public class cobrador_crud {
         Nombre_Cobrador = cobradores.getNombreCobrador();
         Direccion_Cobrador = cobradores.getDireccionCobrador();
     }
+ public ArrayList<String> cmbNombreCobrador() {
+        ArrayList<String> nombresCobrador = new ArrayList<>();
+        this.cobrador.forEach((cli) -> {
+            nombresCobrador.add(cli.getNombreCobrador());
+        });
+        return nombresCobrador;
+    }
 
+    public ArrayList<String> cmbRucCobrador() {
+        ArrayList<String> rucCobrador = new ArrayList<>();
+        this.cobrador.forEach((cli) -> {
+            rucCobrador.add(cli.getCedulaCobrador());
+        });
+        return rucCobrador;
+    }
 }

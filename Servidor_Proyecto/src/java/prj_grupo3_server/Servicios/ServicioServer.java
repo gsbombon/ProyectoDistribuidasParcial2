@@ -32,12 +32,14 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.actualizarCabeceraFactura;
+import static prj_grupo3_server.Conexion.Conexion.agregarPaga;
 import static prj_grupo3_server.Conexion.Conexion.agregarProducto;
 import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.buscarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.buscarCabeceraFacturaPorRuc;
 import static prj_grupo3_server.Conexion.Conexion.buscarDetalleFactura;
 import static prj_grupo3_server.Conexion.Conexion.buscarDetalleFacturacxc;
+import static prj_grupo3_server.Conexion.Conexion.buscarFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearDetalleFactura;
 import static prj_grupo3_server.Conexion.Conexion.crearDetalleFacturacxc;
@@ -59,6 +61,7 @@ import prj_grupo3_server.Modelo.DetalleFactura;
 import prj_grupo3_server.Modelo.DetalleFacturacxc;
 import prj_grupo3_server.Modelo.Factura;
 import prj_grupo3_server.Modelo.ItemFactura;
+import prj_grupo3_server.Modelo.ItemFacturacxc;
 
 @WebService(serviceName = "servicio_web_servidor")
 public class ServicioServer {
@@ -440,6 +443,15 @@ public class ServicioServer {
         return cf;
     }
     
+    @WebMethod(operationName = "buscarFacturaS")
+    public Factura buscarFacturaS(@WebParam(name = "numCabecera") String numCabecera) {
+        Conectar();
+        Factura cf = new Factura();
+        cf = buscarFactura(numCabecera);
+        return cf;
+    }
+    
+    
     @WebMethod(operationName = "buscarCabeceraFacturaPorRucS")
     public CabeceraFactura buscarCabeceraFacturaPorRucS(@WebParam(name = "rucCliente") String rucCliente) {
         Conectar();
@@ -492,6 +504,23 @@ public class ServicioServer {
             return 2;
         }
     }
+    
+    @WebMethod(operationName = "agregarPagaS")
+    public int agregarPagaS(@WebParam(name = "numFactura") String numFactura,
+            @WebParam(name = "fechapagoItem") String fechapagoItem,
+            @WebParam(name = "formapagoItem") String formapagoItem,
+            @WebParam(name = "valorpagarItem") String valorpagarItem,
+            @WebParam(name = "cobradorItem") String cobradorItem) {
+        try {
+            Conectar();
+            ItemFacturacxc item = new ItemFacturacxc(formapagoItem, cobradorItem, valorpagarItem, fechapagoItem);
+            agregarPaga(numFactura, item);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+    
 
     @WebMethod(operationName = "loginS")
     public int loginS(@WebParam(name = "Usuario") String Usuario, @WebParam(name = "Contrasena") String Contrasena) {

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-          
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Facturacion</title>
         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
@@ -18,16 +15,150 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </h:head>
     <h:body>
-        <ui:include src="header.xhtml" />
+        <h:body>
+            <ui:include src="header.xhtml" />
 
-  <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-5">Facturacion</h1>
-                <p class="lead">Pagina compleja para realizar compras dentro de la tienda. </p>
-                <hr class=""></hr>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-5">Facturacion Cuentas por cobrar</h1>
+                    <p class="lead">Pagina compleja para realizar pago de la tienda. </p>
+                    <hr class=""></hr>
+                </div>
             </div>
-        </div>
-        
+
+            <div id="content" class="container my-5">
+                <h:form>
+                    <h1 class="form-label text-center"> Facturas CXC </h1>
+                    <div class="row">
+                        <div class="col">
+
+                            <h2 class="form-label text-center"> Cabecera </h2>
+                            <br></br>
+
+                            <label class="form-label"> Factura # </label>
+                            <h:selectOneMenu id="codFactura" value="#{factura_crud.codFactura}" class="form-control">
+                                <f:selectItems value="#{factura_crud.listaNombreFactura}" />
+                            </h:selectOneMenu>
+                            <br></br>
+                            <label class="form-label"> Ruc Cliente </label>
+                            <h:inputText id="rucCliente" value="#{factura_crud.rucCliente}" class="form-control"  disabled="true" />
+                              <br></br>
+                            <label class="form-label"> Ciudad de entrega </label>
+                            <h:inputText id="nomCiudad" value="#{factura_crud.nomCiudad}" class="form-control"  disabled="true" />
+                                    <br></br>
+                            <label class="form-label"> Fecha de Facturacion </label>
+                            <h:inputText class="form-control" p:placeholder="DD/MM/YYYY" value="#{factura_crud.fecha}" id="fecha" size="9" ></h:inputText>  
+                             <br></br>
+                            <label class="form-label"> Valor a pagar </label>
+                            <h:inputText class="form-control"  value="#{factura_crud.totalFactura}" id="totalFactura" size="9"  disabled="true" ></h:inputText>  
+
+                            <br></br><br></br>
+                            <h:commandButton id="insertarCabeceraFactura" value="Crear" action="#{factura_crud.crearDetalleFacturacxc}" class="btn btn-primary mx-3" >
+                            </h:commandButton>
+                            <h:commandButton id="elminarCabeceraFactura" value="Eliminar" action="#{cabeceraFactura_crud.eliminarCabeceraFactura}" class="btn btn-danger mx-3">
+                            </h:commandButton>
+                            <h:commandButton id="actualizarCabeceraFactura" value="Actualizar" action="#{cabeceraFactura_crud.actualizarCabeceraFactura}" class="btn btn-success mx-3">
+                            </h:commandButton>
+                            <h:commandButton id="buscarCabeceraFactura" value="Buscar" action="#{factura_crud.buscarFactura}" class="btn btn-info mx-3">
+                            </h:commandButton>
+                            <h:commandButton id="reset" value="Reset" action="#{cabeceraFactura_crud.limpiarForm()}" class="btn btn-dark text-white mx-3">
+                            </h:commandButton>
+                            <div class="row mt-4" >
+                                <h4>#{cabeceraFactura_crud.mensajeCabecera}</h4>
+                            </div>
+                        </div>
+
+                        <div class="col mx-3">
+                            <h2 class="form-label text-center"> Detalle </h2>
+                            <div>
+
+                                <div class="row my-3">
+                                    <div class="row my-3 mx-4">
+                                        <label class="form-label"> Factura # </label>
+                                        <h:inputText id="numCabeceraDetalle" value="#{factura_crud.codFactura}" class="form-control"  disabled="true" />
+                                    </div>
+                                    <div class="col" >
+                                        <label class="form-label"> Seleccione cobrador </label>
+                                        <h:selectOneMenu id="cobradorItem1" value="#{factura_crud.cobradorItem}" class="form-control">
+                                            <f:selectItems value="#{factura_crud.listaNombreCobradores}" />
+                                        </h:selectOneMenu>
+                                    </div> 
+                                     <div class="col" >
+                                        <label class="form-label"> Seleccione forma de pago </label>
+                                        <h:selectOneMenu id="formapagoItem1" value="#{factura_crud.formapagoItem}" class="form-control">
+                                            <f:selectItems value="#{factura_crud.listaNombreFormaPago}" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                
+                                     </div>
+                                  
+                                           <div class="col" >
+                                        <label class="form-label"> Valor </label>
+                                        <h:inputText id="valorpagarItem" value="#{factura_crud.valorpagarItem}" class="form-control" />
+                                    </div>
+                                    <div class="col" >
+                                        <label class="form-label"> Fecha </label>
+                                        <h:inputText id="fechapagoItem" value="#{factura_crud.fechapagoItem}" class="form-control" />
+                                    </div>
+                              
+                                 <div class="row my-3">
+                                    <div class="col" >
+                                        <h:commandButton id="agregarItem" value="Agregar Pago" action="#{factura_crud.agregarItem()}" class="btn btn-primary mx-3" >
+                                        </h:commandButton>
+                                    </div>
+                                    <div class="col" >
+                                        <p>#{factura_crud.mensajeItem}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:dataTable value="#{factura_crud.df_crud.itemsDetalle}" var="items" class="table table-striped mt-4" >
+                                <h:column>
+                                    <f:facet name="header">Fecha Pago</f:facet>
+                                        #{items.fechapagoItem}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Forma de pago</f:facet>  
+                                        #{items.formapagoItem}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Valor</f:facet>  
+                                        #{items.valorpagarItem}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Cobrador</f:facet>
+                                        #{items.cobradorItem}
+                                </h:column>
+                            </h:dataTable>    
+
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h4> PRECIO TOTAL </h4>
+                                </div>
+                                <div class="col text-center ">
+                                    <h3> #{factura_crud.df_crud.precioTotal} </h3>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col text-center">
+                                    <p> Su factura esta lista ? </p>
+                                </div>
+                                <div class="col text-center">
+                                    <h:commandButton id="crearFactura" value="Crear Factura" action="#{cabeceraFactura_crud.crearFactura}" class="btn btn-primary mx-3 form-control " >
+                                    </h:commandButton>
+                                </div>
+                                <div class="row" >
+                                    <h4>#{factura_crud.mensajeFactura}</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </h:form>
+            </div>
+
+
+        </h:body>
+
     </h:body>
-  
+
 </html>
