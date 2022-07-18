@@ -22,8 +22,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Inventario</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/Articulo.xhtml">Articulo</a></li>
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/Movimiento.xhtml">Tipo Movimiento</a></li>
+                                    <li><a class="dropdown-item" href="#">Articulo</a></li>
+                                    <li><a class="dropdown-item" href="#">Tipo Movimiento</a></li>
                                     <li><a class="dropdown-item" href="#">Compleja </a></li>
                                     <li><a class="dropdown-item" href="#">Reporte 1 </a></li>
                                     <li><a class="dropdown-item" href="#">Reporte Cruzado </a></li>
@@ -67,17 +67,13 @@
                     <h:form id="form" >
                         <h4 class="form-label text-center"> FORMULARIO</h4>
                         <label class="form-label">Codigo</label>
-                        <h:inputText id="cedula" value="#{articulo_crud.codigo}" class="form-control" />
+                        <h:inputText id="ruc" value="#{articulo_crud.codigo}" class="form-control" />
                         <br></br>
                         <label class="form-label">Nombre</label>
                         <h:inputText id="nombre" value="#{articulo_crud.nombre}" class="form-control"/>
                         <br></br>
                         <label class="form-label">Precio</label>
-                        <h:inputText id="precio" value="#{articulo_crud.precio}" class="form-control"/>
-                        <br></br>
-                        <label class="form-label">Cantidad</label>
-                        <h:inputText id="cantidad" value="#{articulo_crud.cantidad}" class="form-control"/>
-                        
+                        <h:inputText id="direccion" value="#{articulo_crud.precio}" class="form-control"/>
                         <br></br><br></br>
                         <h:commandButton id="insertarArticulo" value="Insertar" action="#{articulo_crud.insertarArticulo}" class="btn btn-primary mx-3" >
                         </h:commandButton>
@@ -89,50 +85,22 @@
                         </h:commandButton>
                     </h:form>   
                 </div>
-
+                
                 <div class="col">
-                    <!--<h:form>
-                        <label class="form-label">Buscar</label>
-                        <h:inputText id="nombre" value="{articulo_crud.nombre}" class="form-control" />    
-                        <br></br>
-                        <h:commandButton id="buscarArticuloN" value="Buscar" action="//*{articulo_crud.buscarArticuloN}" class="btn btn-info mx-3">
-                        </h:commandButton>
-                    </h:form>-->
                     <h4 class="form-label text-center"> LISTA DE REGISTRADOS </h4>
-                    
-                    <!-- <h:dataTable value="" var="datos" class="table table-striped mt-4" >
+                    <h:dataTable value="#{articulo_crud.articulos}" var="datos" class="table table-striped mt-4" >
                         <h:column>
                             <f:facet name="header">Codigo</f:facet>
-                                {articulo_crud.codigo}
+                                #{datos.codigo}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Nombre</f:facet>
-                                {articulo_crud.nombre}
+                                #{datos.nombre}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Precio</f:facet>
-                                {articulo_crud.precio}
+                                #{datos.precio}
                         </h:column>
-                    </h:dataTable>-->
-                    
-                    <h:dataTable value="#{articulo_crud.articulos}" var="datos" class="table table-striped mt-4" >
-                    <h:column>
-                        <f:facet name="header">Codigo</f:facet>
-                            #{datos.codigo}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Nombre</f:facet>
-                            #{datos.nombre}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Precio</f:facet>
-                            #{datos.precio}
-                    </h:column> 
-                    <h:column>
-                        <f:facet name="header">Cantidad</f:facet>
-                            #{datos.cantidad}
-                    </h:column>    
-                        
                     </h:dataTable>
                 </div>
             </div>

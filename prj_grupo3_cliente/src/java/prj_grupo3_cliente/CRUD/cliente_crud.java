@@ -104,9 +104,9 @@ public class cliente_crud {
         try {
             resultado = port.insertarClienteS(ruc, nombre, direccion);
             if (resultado == 1) {
-                mensaje = "Se insertó satisfactoriamente";
                 this.listarCliente();
                 this.limpiarFormulario();
+                mensaje = "Se insertó satisfactoriamente";
             } else {
                 mensaje = "No se pudo insertar";
             }

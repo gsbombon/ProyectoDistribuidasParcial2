@@ -16,16 +16,26 @@ public class Factura implements Serializable {
     private String nomCiudad;
     private String fecha;
     private Double totalFactura;
+    private String tipoPago;
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        this.tipoPago = tipoPago;
+    }
 
     public Factura() {
     }
 
-    public Factura(String codFactura, String rucCliente, String nomCiudad, String fecha, Double totalFactura) {
+    public Factura(String codFactura, String rucCliente, String nomCiudad, String fecha, Double totalFactura, String tipoPago) {
         this.codFactura = codFactura;
         this.rucCliente = rucCliente;
         this.nomCiudad = nomCiudad;
         this.fecha = fecha;
         this.totalFactura = totalFactura;
+        this.tipoPago = tipoPago;
     }
 
     public Double getTotalFactura() {

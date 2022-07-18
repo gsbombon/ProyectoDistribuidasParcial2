@@ -22,15 +22,15 @@ and open the template in the editor.
         <ui:include src="header.xhtml" />
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-5">Ventas por Ciudad</h1>
-                <p class="lead">Reportes de ventas por cada Ciudad </p>
+                <h1 class="display-5">Ventas entre articulos y clientes</h1>
+                <p class="lead">Reportes de ventas por articulo basando en el cliente </p>
                 <hr class=""></hr>
             </div>
         </div>
 
 
         <div id="content" class="container my-5">
-            <h1 class="form-label text-center"> Reporte </h1>
+            <h1 class="form-label text-center"> Reporte Complejo </h1>
             <h:form>
                 <div class="row my-3">
                     <br></br>
@@ -49,31 +49,49 @@ and open the template in the editor.
                                    min="2018-07-22" max="2022-07-16" class="form-control"></input>
                         </div>
                     </div>
-                    <h:commandButton id="genReporte1" value="Generar Reporte" action="#" class="btn btn-primary my-4">
+                    <h:commandButton id="genReporte2" value="Generar Reporte" action="#" class="btn btn-primary my-4">
                     </h:commandButton>
                 </div>
 
-            </h:form>
-            <div class="row">
-                <hr class="my-3"></hr>
-                <h2 class="form-label text-left"> Matriz </h2>
 
-                <h:dataTable value="#{articulo_crud.articulos}" var="productos" class="table table-striped mt-4" >
-                    <h:column>    
-                        <f:facet name="header">Productos</f:facet>
-                            #{productos.nombre}
-                    </h:column>
-                    <c:forEach var="clientes" items="#{cliente_crud.clientes}">
+                <div class="row">
+                    <hr class="my-3"></hr>
+                    <h2 class="form-label text-left"> Matriz </h2>
+
+                    <h:dataTable value="#{reporte2_crud.articulos}" var="articulos" class="table table-striped mt-4" >
                         <h:column>    
-                            <f:facet name="header">#{clientes.nombreCliente}</f:facet>
+                            <f:facet name="header">Productos</f:facet>
+                                #{articulos.nombre}
                         </h:column>
+                        <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
+                            <h:column>    
+                                <f:facet name="header">#{clientes.nombreCliente}</f:facet>
+                                    #{reporte2_crud.precioGastadoArticuloCliente(clientes.nombreCliente)}
+                                    #{reporte2_crud.precioResultString}
+                            </h:column>
+                        </c:forEach>     
+                    </h:dataTable>    
+                </div>
 
-                    </c:forEach>     
+                <div class="row">
+                    <hr class="my-3"></hr>
+                    <h2 class="form-label text-left"> Matriz </h2>
 
-                </h:dataTable>    
+                    <h:dataTable value="#{reporte2_crud.articulos}" var="articulos" class="table table-striped mt-4" >
+                        <h:column>    
+                            <f:facet name="header">Productos</f:facet>
+                                #{articulos.nombre}
+                        </h:column>
+                        <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
+                            <h:column>    
+                                <f:facet name="header">#{clientes.nombreCliente}</f:facet>
+                                    #{reporte2_crud.precioGastadoArticuloCliente(clientes.nombreCliente)}
+                            </h:column>
+                        </c:forEach>     
+                    </h:dataTable>    
+                </div>
 
-            </div>
-
+            </h:form>
         </div>
 
     </h:body>

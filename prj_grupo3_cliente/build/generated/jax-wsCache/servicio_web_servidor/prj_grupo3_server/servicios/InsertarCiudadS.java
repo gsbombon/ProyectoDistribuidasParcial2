@@ -8,21 +8,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for insertarCiudadS complex type.
+ * <p>Clase Java para insertarCiudadS complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="insertarCiudadS">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Codigo_Ciudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Nombre_Ciudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="insertarCiudadS"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Codigo_Ciudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="Nombre_Ciudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -40,7 +40,7 @@ public class InsertarCiudadS {
     protected String nombreCiudad;
 
     /**
-     * Gets the value of the codigoCiudad property.
+     * Obtiene el valor de la propiedad codigoCiudad.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class InsertarCiudadS {
     }
 
     /**
-     * Sets the value of the codigoCiudad property.
+     * Define el valor de la propiedad codigoCiudad.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class InsertarCiudadS {
     }
 
     /**
-     * Gets the value of the nombreCiudad property.
+     * Obtiene el valor de la propiedad nombreCiudad.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class InsertarCiudadS {
     }
 
     /**
-     * Sets the value of the nombreCiudad property.
+     * Define el valor de la propiedad nombreCiudad.
      * 
      * @param value
      *     allowed object is

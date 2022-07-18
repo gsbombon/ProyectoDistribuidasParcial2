@@ -1,7 +1,10 @@
 package prj_grupo3_cliente.CRUD;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import prj_grupo3_server.servicios.Articulo;
+import prj_grupo3_server.servicios.Factura;
 import prj_grupo3_server.servicios.ItemFactura;
 import prj_grupo3_server.servicios.ServicioServer;
 import prj_grupo3_server.servicios.ServicioWebServidor;
@@ -19,6 +22,8 @@ public class factura_crud {
     public String fecha = "";
     public String totalFactura = "";
     public String mensaje = "";
+    public String tipoPago = "";
+    public ArrayList<Factura> facturas = (ArrayList<Factura>)port.listarFacturasS();
 
     public void crearFactura() {
         int resultado;
@@ -38,6 +43,9 @@ public class factura_crud {
             mensaje = "No se pudo insertar";
         }
     }
+    
+    
+    
 
     public factura_crud() {
     }

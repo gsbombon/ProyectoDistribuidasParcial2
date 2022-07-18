@@ -1,22 +1,35 @@
 package prj_grupo3_server.Conexion;
 
+import com.mongodb.BasicDBList;
 import java.util.ArrayList;
 import java.util.Scanner;
 import com.mongodb.BasicDBObject;
+import com.mongodb.Block;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import org.bson.Document;
 import org.json.*;
 import prj_grupo3_server.Modelo.Articulo;
 import prj_grupo3_server.Modelo.CabeceraFactura;
 import prj_grupo3_server.Modelo.Ciudad;
 import prj_grupo3_server.Modelo.Cliente;
 import prj_grupo3_server.Modelo.Cobrador;
+import prj_grupo3_server.Modelo.DetalleFactura;
+import prj_grupo3_server.Modelo.Factura;
 import prj_grupo3_server.Modelo.FormaPago;
-import prj_grupo3_server.Modelo.Movimiento;
+import prj_grupo3_server.Modelo.ItemFactura;
 
 public class Conexion {
 
@@ -350,9 +363,10 @@ public class Conexion {
         return FP;
     }
 
-         /* **********ARTICULO***********/
-     
-    public static void insertarArticulo(String codigo, String nombre, String precio, String cantidad) throws JSONException {
+    /**
+     * **********ARTICULO***********
+     */
+    public static void insertarArticulo(String codigo, String nombre, String precio) throws JSONException {
         col = db.getCollection("articulo");
 
         JSONObject articulo;
@@ -361,12 +375,11 @@ public class Conexion {
         articulo.put("codigo", codigo);
         articulo.put("nombre", nombre);
         articulo.put("precio", precio);
-        articulo.put("cantidad", cantidad);
         col.insert((DBObject) JSON.parse(articulo.toString()));
 
     }
 
-    public static void actualizarArticulo(String codigo, String nombre, String precio, String cantidad) {
+    public static void actualizarArticulo(String codigo, String nombre, String precio) {
 
         BasicDBObject query = new BasicDBObject();
         query.put("codigo", codigo);
@@ -374,7 +387,6 @@ public class Conexion {
         BasicDBObject newDocument = new BasicDBObject();
         newDocument.put("nombre", nombre); // (2)
         newDocument.put("precio", precio); // (2)
-        newDocument.put("cantidad", cantidad); 
 
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", newDocument); // (3)
@@ -396,216 +408,126 @@ public class Conexion {
             String n1 = "";
             String n2 = "";
             String n3 = "";
-            String n4 = "";
             n1 = cur.next().get("codigo") + "";
             n2 = cur.curr().get("nombre") + "";
             n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
             art.setCodigo(n1);
             art.setNombre(n2);
             art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
-        }
-        return art;
-    }
-    
-    public static Articulo buscarArticuloN(String nombre) {
-        Articulo art = new Articulo();
-        col = db.getCollection("articulo");
-        BasicDBObject filtro = new BasicDBObject();
-        filtro.put("nombre", nombre);
-        DBCursor cur = col.find(filtro);
-        while (cur.hasNext()) {
-            String n1 = "";
-            String n2 = "";
-            String n3 = "";
-            String n4 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
-            art.setCodigo(n1);
-            art.setNombre(n2);
-            art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
+            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio());
         }
         return art;
     }
 
     public static ArrayList<Articulo> listarArticulo() {
         ArrayList<Articulo> articulo = new ArrayList<>();
-        col = db.getCollection("articulo");
+        col = db.getCollection("Articulo");
         DBCursor cur = col.find();
         while (cur.hasNext()) {
-            
             String n1 = "";
             String n2 = "";
             String n3 = "";
-            String n4 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
+            n1 = cur.next().get("Precio_Articulo") + "";
+            n2 = cur.curr().get("Nombre_Articulo") + "";
+            n3 = cur.curr().get("Precio_Articulo") + "";
             Articulo art = new Articulo();
             art.setCodigo(n1);
             art.setNombre(n2);
             art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
             articulo.add(art);
         }
         return articulo;
     }
-    
-    /************TipoMovimiento**********/
-     public static void insertarMovimiento(String codigo, String nombre, String signo) throws JSONException {
-        col = db.getCollection("movimiento");
 
-        JSONObject movimiento;
-
-        movimiento = new JSONObject();
-        movimiento.put("codigo", codigo);
-        movimiento.put("nombre", nombre);
-        movimiento.put("signo", signo);
-        col.insert((DBObject) JSON.parse(movimiento.toString()));
-
-    }
-
-    public static void actualizarMovimiento(String codigo, String nombre, String signo) {
-
-        BasicDBObject query = new BasicDBObject();
-        query.put("codigo", codigo);
-
-        BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("nombre", nombre); // (2)
-        newDocument.put("signo", signo); // (2)
-
-        BasicDBObject updateObject = new BasicDBObject();
-        updateObject.put("$set", newDocument); // (3)
-        db.getCollection("movimiento").update(query, updateObject);
-    }
-
-    public static void eliminarMovimiento(String codigo) {
-        col = db.getCollection("movimiento");
-        col.remove(new BasicDBObject().append("codigo", codigo));
-    }
-
-    public static Movimiento buscarMovimiento(String codigo) {
-        Movimiento mov = new Movimiento();
-        col = db.getCollection("movimiento");
-        BasicDBObject filtro = new BasicDBObject();
-        filtro.put("codigo", codigo);
-        DBCursor cur = col.find(filtro);
-        while (cur.hasNext()) {
-            String n1 = "";
-            String n2 = "";
-            String n3 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("signo") + "";
-            mov.setCodigo(n1);
-            mov.setNombre(n2);
-            mov.setSigno(n3);
-            System.out.println(mov.getCodigo() + "-" + mov.getNombre() + "-" + mov.getSigno());
-        }
-        return mov;
-    }
-    
-   
-    public static Movimiento buscarMovimientoN(String nombre) {
-        Movimiento mov = new Movimiento();
-        col = db.getCollection("movimiento");
-        BasicDBObject filtro = new BasicDBObject();
-        filtro.put("nombre", nombre);
-        DBCursor cur = col.find(filtro);
-        while (cur.hasNext()) {
-            String n1 = "";
-            String n2 = "";
-            String n3 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("signo") + "";
-            mov.setCodigo(n1);
-            mov.setNombre(n2);
-            mov.setSigno(n3);
-            System.out.println(mov.getCodigo() + "-" + mov.getNombre() + "-" + mov.getSigno());
-        }
-        return mov;
-    }
-
-    public static ArrayList<Movimiento> listarMovimiento() {
-        ArrayList<Movimiento> movimiento = new ArrayList<>();
-        col = db.getCollection("movimiento");
-        DBCursor cur = col.find();
-        while (cur.hasNext()) {
-            
-            String n1 = "";
-            String n2 = "";
-            String n3 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("signo") + "";
-            Movimiento mov = new Movimiento();
-            mov.setCodigo(n1);
-            mov.setNombre(n2);
-            mov.setSigno(n3);
-            System.out.println(mov.getCodigo() + "-" + mov.getNombre() + "-" + mov.getSigno());
-            movimiento.add(mov);
-        }
-        return movimiento;
-    }
-    
     /// CREAR NUEVA DETALLE FACTURA 
     public static void crearDetalleFactura(String numCabecera) throws JSONException {
         col = db.getCollection("DetalleFactura");
+        String it[] = {};
         JSONObject cabFactura = new JSONObject();
-        cabFactura.put("Numero_Cabecera",numCabecera);
+        cabFactura.put("Numero_Cabecera", numCabecera);
+        cabFactura.put("Items_Detalle", it);
+        cabFactura.put("Precio_Total_Cabecera", "0");
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
-    
+
     // ELIMINAR CABECERA DETALLE FACTURA
     public static void eliminarDetalleFactura(String numCabecera) {
         col = db.getCollection("DetalleFactura");
         col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
         // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
     }
-    
-    /// CREAR NUEVA FACTURA 
-    public static void crearCabeceraFactura(String numCabecera, String rucCliente, String codCiudad,String fecha) throws JSONException {
+
+    // BUSCAR DETALLE DE LA FACTURA
+    public static DetalleFactura buscarDetalleFactura(String numFactura) {
+
+        DetalleFactura detalleFac = new DetalleFactura();
+        ItemFactura itFac = new ItemFactura();
+        ArrayList<ItemFactura> itemsArray = new ArrayList<>();
+        //String items;
+        col = db.getCollection("DetalleFactura");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Numero_Cabecera", numFactura);
+        DBCursor cur = col.find(filtro);
+        BasicDBObject account = null;
+
+        String precioTotalDetalle = "";
+        while (cur.hasNext()) {
+            account = (BasicDBObject) cur.next();
+            BasicDBList items = (BasicDBList) account.get("Items_Detalle");
+
+            for (Iterator< Object> it = items.iterator(); it.hasNext();) {
+                BasicDBObject dbo = (BasicDBObject) it.next();
+                ItemFactura item = new ItemFactura();
+                item.makePojoFromBson(dbo);
+                itemsArray.add(item);
+                System.out.println(item.toString());
+            }
+            precioTotalDetalle = "" + cur.curr().get("Precio_Total_Detalle");
+        }
+
+        detalleFac.setNumCabecera(numFactura);
+        detalleFac.setItemsDetalle(itemsArray);
+        if(precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")){
+            precioTotalDetalle="0";
+        } 
+        detalleFac.setPrecioTotal(Double.parseDouble(precioTotalDetalle));
+
+        return detalleFac;
+    }
+
+    /// CREAR NUEVA CABECERA FACTURA 
+    public static void crearCabeceraFactura(String numCabecera, String rucCliente, String nomCiudad, String fecha) throws JSONException {
         col = db.getCollection("CabeceraFactura");
         JSONObject cabFactura = new JSONObject();
-        cabFactura.put("Numero_Cabecera",numCabecera);
-        cabFactura.put("Ruc_Cliente", rucCliente );
-        cabFactura.put("Fecha_Cabecera", fecha );
-        cabFactura.put("Codigo_Ciudad", codCiudad);
+        cabFactura.put("Numero_Cabecera", numCabecera);
+        cabFactura.put("Ruc_Cliente", rucCliente);
+        cabFactura.put("Fecha_Cabecera", fecha);
+        cabFactura.put("Nombre_Ciudad", nomCiudad);
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
-    
+
     // ACTUALIZAR CABECERA FACTURA
-    public static void actualizarCabeceraFactura(String numCabecera, String rucCliente, String codCiudad,String fecha) throws JSONException {
+    public static void actualizarCabeceraFactura(String numCabecera, String rucCliente, String nomCiudad, String fecha) throws JSONException {
         BasicDBObject query = new BasicDBObject();
         query.put("Numero_Cabecera", numCabecera);
 
         BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("Ruc_Cliente", rucCliente); // (2)
-        newDocument.put("Codigo_Ciudad", codCiudad); // (2)
-        newDocument.put("Fecha_Cabecera",fecha);
-        
+        newDocument.put("Ruc_Cliente", rucCliente);
+        newDocument.put("Nombre_Ciudad", nomCiudad);
+        newDocument.put("Fecha_Cabecera", fecha);
+
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", newDocument); // (3)
         db.getCollection("CabeceraFactura").update(query, updateObject);
     }
-    
-    
+
     // ELIMINAR CABECERA FACTURA
     public static void eliminarCabeceraFactura(String numCabecera) {
         col = db.getCollection("CabeceraFactura");
         col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
         // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
     }
-    
+
     /// BUSCAR FACTURA 
     public static CabeceraFactura buscarCabeceraFactura(String numFactura) {
         CabeceraFactura cabFac = new CabeceraFactura();
@@ -614,11 +536,11 @@ public class Conexion {
         filtro.put("Numero_Cabecera", numFactura);
         DBCursor cur = col.find(filtro);
         while (cur.hasNext()) {
-            String nFactura = cur.next().get("Numero_Factura")+"";
-            String rCliente = cur.curr().get("Ruc_Cliente")+"";
-            String fecha = cur.curr().get("Fecha_Cabecera")+"";
-            String cCiudad  = cur.curr().get("Codigo_Ciudad")+"";
-            
+            String nFactura = cur.next().get("Numero_Factura") + "";
+            String rCliente = cur.curr().get("Ruc_Cliente") + "";
+            String fecha = cur.curr().get("Fecha_Cabecera") + "";
+            String cCiudad = cur.curr().get("Nombre_Ciudad") + "";
+
             cabFac.setCodCiudad(cCiudad);
             cabFac.setRucCliente(rCliente);
             cabFac.setFecha(fecha);
@@ -627,6 +549,156 @@ public class Conexion {
         return cabFac;
     }
     
+    // BUSCAR CABECERA DE FACTURA POR NOMBRE RUC
+    public static CabeceraFactura buscarCabeceraFacturaPorRuc(String rucCliente) {
+        CabeceraFactura cabFac = new CabeceraFactura();
+        col = db.getCollection("CabeceraFactura");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Ruc_Cliente", rucCliente);
+        DBCursor cur = col.find(filtro);
+        while (cur.hasNext()) {
+            String nFactura = cur.next().get("Numero_Cabecera") + "";
+            String rCliente = cur.curr().get("Ruc_Cliente") + "";
+            String fecha = cur.curr().get("Fecha_Cabecera") + "";
+            String cCiudad = cur.curr().get("Nombre_Ciudad") + "";
+            
+            cabFac.setNumCabecera(nFactura);
+            cabFac.setCodCiudad(cCiudad);
+            cabFac.setRucCliente(rCliente);
+            cabFac.setFecha(fecha);
+            cabFac.setCodCiudad(cCiudad);
+        }
+        return cabFac;
+    }
+
+    // --- CRUD FACTURAS ----- 
+    /// CREAR NUEVA FACTURA 
+    public static void crearFactura(String numCabecera, String rucCliente,
+            String nomCiudad, String fecha, String precioFinal) throws JSONException {
+        col = db.getCollection("Factura");
+        JSONObject cabFactura = new JSONObject();
+        cabFactura.put("Codigo_Factura", numCabecera);
+        cabFactura.put("Cliente_Factura", rucCliente);
+        cabFactura.put("Fecha_Factura", fecha);
+        cabFactura.put("Total_Factura", precioFinal);
+        cabFactura.put("Ciudad_Factura", nomCiudad);
+        col.insert((DBObject) JSON.parse(cabFactura.toString()));
+    }
     
-    
+    //ELIMINAR FACTURAS
+    public static void eliminarFactura(String numCabecera) {
+        col = db.getCollection("Factura");
+        col.remove(new BasicDBObject().append("Codigo_Factura", numCabecera));
+    }
+
+    // AGREGAR PRODUCTO AL DETALLE
+    public static void agregarProducto2(String numCabecera, ItemFactura item) {
+        col = db.getCollection("DetalleFactura");
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject newItem = new BasicDBObject();
+        newItem.put("Items_Detalle", item);
+
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newItem);
+        db.getCollection("DetalleFactura").update(query, updateObject);
+    }
+
+    // AGREGAR PRODUCTO AL DETALLE
+    public static void agregarProducto(String numCabecera, ItemFactura item) {
+        col = db.getCollection("DetalleFactura");
+        BasicDBObject match = new BasicDBObject();
+        match.put("Numero_Cabecera", numCabecera);
+
+        BasicDBObject itemSpec = new BasicDBObject();
+        itemSpec.put("Nombre_Item", item.getNombreItem());
+        itemSpec.put("Cantidad_Item", item.getCantidadItem());
+        itemSpec.put("Precio_Item", item.getPrecioItem());
+        itemSpec.put("Precio_Total_Item", item.getPrecioTotalItem());
+
+        BasicDBObject update = new BasicDBObject();
+        update.put("$push", new BasicDBObject("Items_Detalle", itemSpec));
+
+        col.update(match, update);
+    }
+
+    // FUNCIONES PARA LOGIN
+    public static void insertarUsuario(String nombre, String password) throws JSONException {
+        col = db.getCollection("Usuario");
+        JSONObject persona;
+        persona = new JSONObject();
+        persona.put("Nombre_Usuario", nombre);
+        persona.put("Password_Usuario", password);
+        col.insert((DBObject) JSON.parse(persona.toString()));
+    }
+
+    public static int login(String usuario, String contrasena) {
+        col = db.getCollection("Usuario");
+        int i = 0;
+        DBCursor cur = col.find();
+        while (cur.hasNext()) {
+            String n1 = "";
+            String n2 = "";
+            n1 = cur.next().get("Nombre_Usuario") + "";
+            n2 = cur.curr().get("Password_Usuario") + "";
+            if (n1.equals(usuario) && n2.equals(contrasena)) {
+                i++;
+            }
+        }
+        if (i > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+    public static void actualizarStockArticulo(String articulo, String cantidad) {
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("Nombre_Articulo", articulo);
+
+        BasicDBObject newDocument = new BasicDBObject();
+        newDocument.put("Stock_Articulo", cantidad); // (2)
+
+        BasicDBObject updateObject = new BasicDBObject();
+        updateObject.put("$set", newDocument); // (3)
+        db.getCollection("Articulo").update(query, updateObject);
+    }
+
+    public static ArrayList<Factura> listarFactura() {
+        ArrayList<Factura> facturas = new ArrayList<>();
+        col = db.getCollection("Factura");
+        DBCursor cur = col.find();
+        while (cur.hasNext()) {
+            String total =  "";
+            String cliente = "";
+            String ciudad ="";
+            String fecha = "";
+            String codigo = "";
+            String tipoPago = "";
+            
+            total =  cur.next().get("Total_Factura") + "";
+            cliente = cur.curr().get("Cliente_Factura") + "";
+            ciudad = cur.curr().get("Ciudad_Factura") + "";
+            fecha = cur.curr().get("Fecha_Factura") + "";
+            codigo = cur.curr().get("Codigo_Factura") + "";
+            tipoPago = cur.curr().get("Tipo_Pago_Factura") + "";
+            
+            double totalFac = Double.parseDouble(total);
+            Factura fac = new Factura();
+            fac.setCodFactura(codigo);
+            fac.setFecha(fecha);
+            fac.setNomCiudad(ciudad);
+            fac.setRucCliente(cliente);
+            fac.setTipoPago(tipoPago);
+            fac.setTotalFactura(totalFac);
+            
+            facturas.add(fac);
+        }
+        return facturas;
+    }
+
 }

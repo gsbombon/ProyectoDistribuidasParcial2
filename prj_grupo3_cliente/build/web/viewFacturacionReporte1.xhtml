@@ -22,13 +22,12 @@ and open the template in the editor.
         <ui:include src="header.xhtml" />
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-5">Ventas por Ciudad</h1>
+                <h1 class="display-5">Ventas por Ciudad </h1>
                 <p class="lead">Reportes de ventas por cada Ciudad </p>
                 <hr class=""></hr>
             </div>
         </div>
-
-
+ 
         <div id="content" class="container my-5">
             <h1 class="form-label text-center"> Reporte </h1>
             <h:form>
@@ -36,12 +35,12 @@ and open the template in the editor.
                     <br></br>
                     <label class="form-label"> Seleccione Ciudad </label>
                     <br></br>
-                    <label class="form-label"> Ciudad de entrega </label>
-                    <h:selectOneMenu id="ciudad" value="#{cabeceraFactura_crud.cfCiudad}" class="form-control">
-                        <f:selectItems value="#{ciudad_crud.listaNombreCiudades}" />
-                    </h:selectOneMenu>
+                    <h:selectOneMenu value="#{reporte1_crud.nomCiudad}">
+                        <f:selectItems value="#{reporte1_crud.listaNombreCiudades}" ></f:selectItems>
+                    </h:selectOneMenu>                    
                     <br></br>
                     <br></br>
+                    <!--
                     <h3 class="form-label text-center my-3"> Rango de Fechas </h3>
                     <div class="row my-2">
                         <div class="col">
@@ -57,7 +56,10 @@ and open the template in the editor.
                                    min="2018-07-22" max="2022-07-16" class="form-control"></input>
                         </div>
                     </div>
-                    <h:commandButton id="genReporte1" value="Generar Reporte" action="#" class="btn btn-primary my-4">
+                    -->
+                    <h:commandButton id="genReporte1" value="Generar Reporte" action="#{reporte1_crud.precioTotalReporte}" class="btn btn-primary mt-4">
+                    </h:commandButton>
+                    <h:commandButton id="limpiar" value="Limpiar Reporte" action="#{reporte1_crud.limpiarForm}" class="btn btn-success my-2">
                     </h:commandButton>
                 </div>
 
@@ -68,13 +70,14 @@ and open the template in the editor.
                 <h:dataTable value="" var="" class="table table-striped mt-4" >
                     <h:column>
                         <f:facet name="header">Ciudad</f:facet>
-                        QUITO
+                            #{reporte1_crud.nomCiudad}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Precio Vendido Total</f:facet>
-                        1
+                            #{reporte1_crud.precioReporte}
                     </h:column>
                 </h:dataTable>    
+
 
             </div>
 

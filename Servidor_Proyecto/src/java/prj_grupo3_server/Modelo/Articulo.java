@@ -22,7 +22,6 @@ public class Articulo implements Serializable {
     private String codigo;
     private String nombre;
     private String precio;
-    private String cantidad;
 
     public Articulo() {
     }
@@ -50,15 +49,6 @@ public class Articulo implements Serializable {
     public void setPrecio(String precio) {
         this.precio = precio;
     }
-
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
-
     
 
 }
