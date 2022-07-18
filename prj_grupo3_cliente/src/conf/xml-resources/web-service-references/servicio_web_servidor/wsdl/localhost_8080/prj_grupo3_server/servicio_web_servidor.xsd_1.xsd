@@ -32,6 +32,10 @@
 
 <xs:element name="actualizarMovimientoSResponse" type="tns:actualizarMovimientoSResponse"/>
 
+<xs:element name="actualizarStockArticuloS" type="tns:actualizarStockArticuloS"/>
+
+<xs:element name="actualizarStockArticuloSResponse" type="tns:actualizarStockArticuloSResponse"/>
+
 <xs:element name="agregarPagaS" type="tns:agregarPagaS"/>
 
 <xs:element name="agregarPagaSResponse" type="tns:agregarPagaSResponse"/>
@@ -472,6 +476,19 @@
 </xs:complexType>
 
 <xs:complexType name="actualizarMovimientoSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarStockArticuloS">
+<xs:sequence>
+<xs:element name="nomArticulo" type="xs:string" minOccurs="0"/>
+<xs:element name="nuevoStock" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarStockArticuloSResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>

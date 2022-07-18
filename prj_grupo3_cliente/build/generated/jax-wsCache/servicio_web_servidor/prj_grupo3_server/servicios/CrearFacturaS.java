@@ -7,24 +7,24 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for crearFacturaS complex type.
+ * <p>Clase Java para crearFacturaS complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="crearFacturaS">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="numFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="rucCliente" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="codCiudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="precioFinal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="crearFacturaS"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="numFactura" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="rucCliente" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="codCiudad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="precioFinal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -46,7 +46,7 @@ public class CrearFacturaS {
     protected String precioFinal;
 
     /**
-     * Gets the value of the numFactura property.
+     * Obtiene el valor de la propiedad numFactura.
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Sets the value of the numFactura property.
+     * Define el valor de la propiedad numFactura.
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Gets the value of the rucCliente property.
+     * Obtiene el valor de la propiedad rucCliente.
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Sets the value of the rucCliente property.
+     * Define el valor de la propiedad rucCliente.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Gets the value of the fecha property.
+     * Obtiene el valor de la propiedad fecha.
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Sets the value of the fecha property.
+     * Define el valor de la propiedad fecha.
      * 
      * @param value
      *     allowed object is
@@ -118,7 +118,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Gets the value of the codCiudad property.
+     * Obtiene el valor de la propiedad codCiudad.
      * 
      * @return
      *     possible object is
@@ -130,7 +130,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Sets the value of the codCiudad property.
+     * Define el valor de la propiedad codCiudad.
      * 
      * @param value
      *     allowed object is
@@ -142,7 +142,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Gets the value of the precioFinal property.
+     * Obtiene el valor de la propiedad precioFinal.
      * 
      * @return
      *     possible object is
@@ -154,7 +154,7 @@ public class CrearFacturaS {
     }
 
     /**
-     * Sets the value of the precioFinal property.
+     * Define el valor de la propiedad precioFinal.
      * 
      * @param value
      *     allowed object is
