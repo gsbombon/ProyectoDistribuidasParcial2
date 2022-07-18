@@ -114,8 +114,8 @@ public class cabeceraFactura_crud {
     public double obtenerPrecioItem() {
         double result = 0;
         for (Articulo a : articulos) {
-            if (a.getNombre().equals(this.nombreItem)) {
-                result = Double.parseDouble(a.getPrecio());
+            if (a.getNombreArticulo().equals(this.nombreItem)) {
+                result = Double.parseDouble(a.getPrecioArticulo());
             }
         }
         return result;

@@ -29,7 +29,7 @@ public class reporte2_crud {
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
         this.articulos.forEach((cli) -> {
-            nombresArticulos.add(cli.getNombre());
+            nombresArticulos.add(cli.getNombreArticulo());
         });
         return nombresArticulos;
     }
@@ -98,9 +98,9 @@ public class reporte2_crud {
             this.buscarDetalleFactura(numFactura);
             for (Articulo art : this.articulos) {
                 for (ItemFactura id : this.df_crud.itemsDetalle) {
-                    if (id.getNombreItem().equals(art.getNombre())) {
+                    if (id.getNombreItem().equals(art.getNombreArticulo())) {
                         PrecioReporte pr = new PrecioReporte();
-                        System.out.println("BUSCADO :" + art.getNombre());
+                        System.out.println("BUSCADO :" + art.getNombreArticulo());
                         System.out.println("TRAIDO: " + id.getNombreItem());
                         result = id.getPrecioTotalItem();
                         //pr.setPrecio(result);

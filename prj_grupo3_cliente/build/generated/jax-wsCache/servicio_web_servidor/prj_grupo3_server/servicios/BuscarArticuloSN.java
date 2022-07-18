@@ -3,6 +3,7 @@ package prj_grupo3_server.servicios;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Nombre_Articulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,34 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "buscarArticuloSN", propOrder = {
-    "nombre"
+    "nombreArticulo"
 })
 public class BuscarArticuloSN {
 
-    protected String nombre;
+    @XmlElement(name = "Nombre_Articulo")
+    protected String nombreArticulo;
 
     /**
-     * Gets the value of the nombre property.
+     * Gets the value of the nombreArticulo property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNombre() {
-        return nombre;
+    public String getNombreArticulo() {
+        return nombreArticulo;
     }
 
     /**
-     * Sets the value of the nombre property.
+     * Sets the value of the nombreArticulo property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNombre(String value) {
-        this.nombre = value;
+    public void setNombreArticulo(String value) {
+        this.nombreArticulo = value;
     }
 
 }
