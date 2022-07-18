@@ -142,11 +142,53 @@
 <message name="actualizarClienteSResponse">
 <part name="parameters" element="tns:actualizarClienteSResponse"/>
 </message>
+<message name="actualizarMovimientoS">
+<part name="parameters" element="tns:actualizarMovimientoS"/>
+</message>
+<message name="actualizarMovimientoSResponse">
+<part name="parameters" element="tns:actualizarMovimientoSResponse"/>
+</message>
+<message name="insertarMovimientoS">
+<part name="parameters" element="tns:insertarMovimientoS"/>
+</message>
+<message name="insertarMovimientoSResponse">
+<part name="parameters" element="tns:insertarMovimientoSResponse"/>
+</message>
+<message name="buscarMovimientoSN">
+<part name="parameters" element="tns:buscarMovimientoSN"/>
+</message>
+<message name="buscarMovimientoSNResponse">
+<part name="parameters" element="tns:buscarMovimientoSNResponse"/>
+</message>
+<message name="eliminarMovimientoS">
+<part name="parameters" element="tns:eliminarMovimientoS"/>
+</message>
+<message name="eliminarMovimientoSResponse">
+<part name="parameters" element="tns:eliminarMovimientoSResponse"/>
+</message>
+<message name="listarMovimientoS">
+<part name="parameters" element="tns:listarMovimientoS"/>
+</message>
+<message name="listarMovimientoSResponse">
+<part name="parameters" element="tns:listarMovimientoSResponse"/>
+</message>
+<message name="buscarMovimientoS">
+<part name="parameters" element="tns:buscarMovimientoS"/>
+</message>
+<message name="buscarMovimientoSResponse">
+<part name="parameters" element="tns:buscarMovimientoSResponse"/>
+</message>
 <message name="buscarFacturaS">
 <part name="parameters" element="tns:buscarFacturaS"/>
 </message>
 <message name="buscarFacturaSResponse">
 <part name="parameters" element="tns:buscarFacturaSResponse"/>
+</message>
+<message name="buscarArticuloSN">
+<part name="parameters" element="tns:buscarArticuloSN"/>
+</message>
+<message name="buscarArticuloSNResponse">
+<part name="parameters" element="tns:buscarArticuloSNResponse"/>
 </message>
 <message name="crearDetalleFacturacxcS">
 <part name="parameters" element="tns:crearDetalleFacturacxcS"/>
@@ -361,9 +403,37 @@
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSRequest" message="tns:actualizarClienteS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarClienteSResponse" message="tns:actualizarClienteSResponse"/>
 </operation>
+<operation name="actualizarMovimientoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarMovimientoSRequest" message="tns:actualizarMovimientoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/actualizarMovimientoSResponse" message="tns:actualizarMovimientoSResponse"/>
+</operation>
+<operation name="insertarMovimientoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarMovimientoSRequest" message="tns:insertarMovimientoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/insertarMovimientoSResponse" message="tns:insertarMovimientoSResponse"/>
+</operation>
+<operation name="buscarMovimientoSN">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarMovimientoSNRequest" message="tns:buscarMovimientoSN"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarMovimientoSNResponse" message="tns:buscarMovimientoSNResponse"/>
+</operation>
+<operation name="eliminarMovimientoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarMovimientoSRequest" message="tns:eliminarMovimientoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/eliminarMovimientoSResponse" message="tns:eliminarMovimientoSResponse"/>
+</operation>
+<operation name="listarMovimientoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarMovimientoSRequest" message="tns:listarMovimientoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/listarMovimientoSResponse" message="tns:listarMovimientoSResponse"/>
+</operation>
+<operation name="buscarMovimientoS">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarMovimientoSRequest" message="tns:buscarMovimientoS"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarMovimientoSResponse" message="tns:buscarMovimientoSResponse"/>
+</operation>
 <operation name="buscarFacturaS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSRequest" message="tns:buscarFacturaS"/>
 <output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarFacturaSResponse" message="tns:buscarFacturaSResponse"/>
+</operation>
+<operation name="buscarArticuloSN">
+<input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSNRequest" message="tns:buscarArticuloSN"/>
+<output wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/buscarArticuloSNResponse" message="tns:buscarArticuloSNResponse"/>
 </operation>
 <operation name="crearDetalleFacturacxcS">
 <input wsam:Action="http://Servicios.prj_grupo3_server/ServicioServer/crearDetalleFacturacxcSRequest" message="tns:crearDetalleFacturacxcS"/>
@@ -655,7 +725,70 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="actualizarMovimientoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarMovimientoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarMovimientoSN">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarMovimientoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarMovimientoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarMovimientoS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="buscarFacturaS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarArticuloSN">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

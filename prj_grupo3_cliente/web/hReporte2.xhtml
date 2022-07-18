@@ -8,10 +8,11 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-          
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facturacion</title>
+        <title>Reporte Cruzado</title>
         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -19,15 +20,50 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:include src="header.xhtml" />
-
-  <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-5">Facturacion</h1>
-                <p class="lead">Pagina compleja para realizar compras dentro de la tienda. </p>
+                <h1 class="display-5">Valores recaudados por cobrador</h1>
+                <p class="lead">Reportes de ventas por articulo basando en el cliente </p>
                 <hr class=""></hr>
             </div>
         </div>
-        
+
+
+        <div id="content" class="container my-5">
+            <h1 class="form-label text-center"> Reporte Complejo </h1>
+            <h:form>
+                <div class="row my-3">
+                    <br></br>
+
+                    <h:commandButton id="genReporte2" value="Generar Reporte" action="#" class="btn btn-primary my-4">
+                    </h:commandButton>
+                </div>
+
+                <div class="row my-3">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Productos</th>
+                                <c:forEach var="clientes" items="#{factura_crud.cob_crud.listarCobrador()}">
+                                    <th>#{cob_crud.Nombre_Cobrador}</th>
+                                </c:forEach>
+                            </tr>
+                        </thead>
+                        <c:forEach var="articulos" items="#{factura_crud.formapagos}">    
+                            <tr> <td> #{formapagos.nombre} </td>
+                                <c:forEach var="clientes" items="#{reporte2_crud.clientes}">
+                                    <td></td>
+                                </c:forEach>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+
+
+
+            </h:form>
+        </div>
+
     </h:body>
-  
+
 </html>
