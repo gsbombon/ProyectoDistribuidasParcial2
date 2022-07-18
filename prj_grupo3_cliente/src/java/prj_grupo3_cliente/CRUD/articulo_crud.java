@@ -155,22 +155,22 @@ public class articulo_crud {
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
         this.articulos.forEach((cli) -> {
-            nombresArticulos.add(cli.getNombre());
+            nombresArticulos.add(cli.getNombreArticulo());
         });
         return nombresArticulos;
     }
 
     public void buscarArticulo() {
         articulo = port.buscarArticuloS(codigo);
-        nombre = articulo.getNombre();
-        precio =articulo.getPrecio();
-        cantidad = articulo.getCantidad();
+        nombre = articulo.getNombreArticulo();
+        precio =articulo.getPrecioArticulo();
+        cantidad = articulo.getStockArticulo();
     }
     public void buscarArticuloN()      
     {
         articulo = port.buscarArticuloSN(nombre);
-        codigo = articulo.getCodigo();
-        precio =articulo.getPrecio();
-        cantidad = articulo.getCantidad();
+        nombre = articulo.getNombreArticulo();
+        precio =articulo.getPrecioArticulo();
+        cantidad = articulo.getStockArticulo();
     }
 }

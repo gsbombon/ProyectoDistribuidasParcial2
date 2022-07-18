@@ -368,107 +368,107 @@ public class Conexion {
 
                 /* **********ARTICULO***********/
      
-    public static void insertarArticulo(String codigo, String nombre, String precio, String cantidad) throws JSONException {
-        col = db.getCollection("articulo");
+    public static void insertarArticulo(String codigo, String nombre, String precio, String Stock_Articulo) throws JSONException {
+        col = db.getCollection("Articulo");
 
         JSONObject articulo;
 
         articulo = new JSONObject();
-        articulo.put("codigo", codigo);
-        articulo.put("nombre", nombre);
-        articulo.put("precio", precio);
-        articulo.put("cantidad", cantidad);
+        articulo.put("Codigo_Articulo", codigo);
+        articulo.put("Nombre_Articulo", nombre);
+        articulo.put("Precio_Articulo", precio);
+        articulo.put("Stock_Articulo", Stock_Articulo);
         col.insert((DBObject) JSON.parse(articulo.toString()));
 
     }
 
-    public static void actualizarArticulo(String codigo, String nombre, String precio, String cantidad) {
+    public static void actualizarArticulo(String codigo, String nombre, String precio, String Stock_Articulo) {
 
         BasicDBObject query = new BasicDBObject();
-        query.put("codigo", codigo);
+        query.put("Codigo_Articulo", codigo);
 
         BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("nombre", nombre); // (2)
-        newDocument.put("precio", precio); // (2)
-        newDocument.put("cantidad", cantidad); 
+        newDocument.put("Nombre_Articulo", nombre); // (2)
+        newDocument.put("Precio_Articulo", precio); // (2)
+        newDocument.put("Stock_Articulo", Stock_Articulo); 
 
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", newDocument); // (3)
-        db.getCollection("articulo").update(query, updateObject);
+        db.getCollection("Articulo").update(query, updateObject);
     }
 
     public static void eliminarArticulo(String codigo) {
-        col = db.getCollection("articulo");
-        col.remove(new BasicDBObject().append("codigo", codigo));
+        col = db.getCollection("Articulo");
+        col.remove(new BasicDBObject().append("Codigo_Articulo", codigo));
     }
 
     public static Articulo buscarArticulo(String codigo) {
         Articulo art = new Articulo();
-        col = db.getCollection("articulo");
+        col = db.getCollection("Articulo");
         BasicDBObject filtro = new BasicDBObject();
-        filtro.put("codigo", codigo);
+        filtro.put("Codigo_Articulo", codigo);
         DBCursor cur = col.find(filtro);
         while (cur.hasNext()) {
             String n1 = "";
             String n2 = "";
             String n3 = "";
             String n4 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
-            art.setCodigo(n1);
-            art.setNombre(n2);
-            art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
+            n1 = cur.next().get("Codigo_Articulo") + "";
+            n2 = cur.curr().get("Nombre_Articulo") + "";
+            n3 = cur.curr().get("Precio_Articulo") + "";
+            n4 = cur.curr().get("Stock_Articulo") + "";
+            art.setCodigo_Articulo(n1);
+            art.setNombre_Articulo(n2);
+            art.setPrecio_Articulo(n3);
+            art.setStock_Articulo(n4);
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
         }
         return art;
     }
     
     public static Articulo buscarArticuloN(String nombre) {
         Articulo art = new Articulo();
-        col = db.getCollection("articulo");
+        col = db.getCollection("Articulo");
         BasicDBObject filtro = new BasicDBObject();
-        filtro.put("nombre", nombre);
+        filtro.put("Nombre_Articulo", nombre);
         DBCursor cur = col.find(filtro);
         while (cur.hasNext()) {
             String n1 = "";
             String n2 = "";
             String n3 = "";
             String n4 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
-            art.setCodigo(n1);
-            art.setNombre(n2);
-            art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
+            n1 = cur.next().get("Codigo_Articulo") + "";
+            n2 = cur.curr().get("Nombre_Articulo") + "";
+            n3 = cur.curr().get("Precio_Articulo") + "";
+            n4 = cur.curr().get("Stock_Articulo") + "";
+            art.setCodigo_Articulo(n1);
+            art.setNombre_Articulo(n2);
+            art.setPrecio_Articulo(n3);
+            art.setStock_Articulo(n4);
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
         }
         return art;
     }
 
     public static ArrayList<Articulo> listarArticulo() {
         ArrayList<Articulo> articulo = new ArrayList<>();
-        col = db.getCollection("articulo");
+        col = db.getCollection("Articulo");
         DBCursor cur = col.find();
         while (cur.hasNext()) {
             String n1 = "";
             String n2 = "";
             String n3 = "";
             String n4 = "";
-            n1 = cur.next().get("codigo") + "";
-            n2 = cur.curr().get("nombre") + "";
-            n3 = cur.curr().get("precio") + "";
-            n4 = cur.curr().get("cantidad") + "";
+            n1 = cur.next().get("Codigo_Articulo") + "";
+            n2 = cur.curr().get("Nombre_Articulo") + "";
+            n3 = cur.curr().get("Precio_Articulo") + "";
+            n4 = cur.curr().get("Stock_Articulo") + "";
             Articulo art = new Articulo();
-            art.setCodigo(n1);
-            art.setNombre(n2);
-            art.setPrecio(n3);
-            art.setCantidad(n4);
-            System.out.println(art.getCodigo() + "-" + art.getNombre() + "-" + art.getPrecio()+ "-" + art.getCantidad());
+            art.setCodigo_Articulo(n1);
+            art.setNombre_Articulo(n2);
+            art.setPrecio_Articulo(n3);
+            art.setStock_Articulo(n4);
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
             articulo.add(art);
         }
         return articulo;

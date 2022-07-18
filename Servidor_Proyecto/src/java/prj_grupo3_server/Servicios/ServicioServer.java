@@ -310,7 +310,7 @@ public class ServicioServer {
 
          /*----------CRUD ARTICULOS------------*/
     @WebMethod(operationName = "insertarArticuloS")
-    public int insertarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio, @WebParam(name = "cantidad") String cantidad) {
+    public int insertarArticuloS(@WebParam(name = "Codigo_Articulo") String codigo, @WebParam(name = "Nombre_Articulo") String nombre, @WebParam(name = "Precio_Articulo") String precio, @WebParam(name = "Stock_Articulo") String cantidad) {
         System.out.println("1");
         try {
             Conectar();
@@ -323,7 +323,7 @@ public class ServicioServer {
     }
 
     @WebMethod(operationName = "actualizarArticuloS")
-    public int actualizarArticuloS(@WebParam(name = "codigo") String codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") String precio, @WebParam(name = "cantidad") String cantidad) {
+    public int actualizarArticuloS(@WebParam(name = "Codigo_Articulo") String codigo, @WebParam(name = "Nombre_Articulo") String nombre, @WebParam(name = "Precio_Articulo") String precio, @WebParam(name = "PStock_Articulo") String cantidad){
         try {
             Conectar();
             actualizarArticulo(codigo, nombre, precio, cantidad);
@@ -335,7 +335,7 @@ public class ServicioServer {
     }
 
     @WebMethod(operationName = "eliminarArticuloS")
-    public int eliminarArticuloS(@WebParam(name = "codigo") String codigo) {
+    public int eliminarArticuloS(@WebParam(name = "Codigo_Articulo") String codigo) {
         try {
             Conectar();
             eliminarArticulo(codigo);
@@ -355,7 +355,7 @@ public class ServicioServer {
     }
 
     @WebMethod(operationName = "buscarArticuloS")
-    public Articulo buscarArticuloS(@WebParam(name = "codigo") String codigo) {
+    public Articulo buscarArticuloS(@WebParam(name = "Codigo_Articulo") String codigo) {
 
         Conectar();
         Articulo art = new Articulo();
@@ -364,7 +364,7 @@ public class ServicioServer {
     }
     
     @WebMethod(operationName = "buscarArticuloSN")
-    public Articulo buscarArticuloSN(@WebParam(name = "nombre") String nombre) {
+    public Articulo buscarArticuloSN(@WebParam(name = "Nombre_Articulo") String nombre) {
 
         Conectar();
         Articulo art = new Articulo();
