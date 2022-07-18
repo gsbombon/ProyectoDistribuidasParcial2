@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Movimiento Simple</title>
+        <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </h:head>
+    <h:body>
+         <ui:include src="header.xhtml" />
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">TIPOS DE MOVIMIENTOS</h1>
+                <p class="lead">Pagina simple para creacion, actualización y eliminacion de Tipos de Movimientos. </p>
+                <hr class=""></hr>
+            </div>
+        </div>
+        <div id="content" class="container my-5">
+            <div class="row m-2">
+                <div class="col">
+                    <h:form id="form" >
+                        <h4 class="form-label text-center"> FORMULARIO</h4>
+                        <label class="form-label">Codigo</label>
+                        <h:inputText id="cedula" value="#{movimiento_crud.codigo}" class="form-control" />
+                        <br></br>
+                        <label class="form-label">Nombre</label>
+                        <h:inputText id="nombre" value="#{movimiento_crud.nombre}" class="form-control"/>
+                        <br></br>
+                        <label class="form-label">Signo</label>
+                        <h:inputText id="signo" value="#{movimiento_crud.signo}" class="form-control"/>
+                        <br></br><br></br>
+                        <h:commandButton id="insertarMovimiento" value="Insertar" action="#{movimiento_crud.insertarMovimiento}" class="btn btn-primary mx-3" >
+                        </h:commandButton>
+                        <h:commandButton id="eliminarMovimiento" value="Eliminar" action="#{movimiento_crud.eliminarMovimiento}" class="btn btn-danger mx-3">
+                        </h:commandButton>
+                        <h:commandButton id="actualizarMovimiento" value="Actualizar" action="#{movimiento_crud.actualizarMovimiento}" class="btn btn-success mx-3">
+                        </h:commandButton>
+                        <h:commandButton id="buscarMovimiento" value="Buscar" action="#{movimiento_crud.buscarMovimiento}" class="btn btn-info mx-3">
+                        </h:commandButton>
+                    </h:form>   
+                </div>
+
+                <div class="col">
+                  <!--<h:form>
+                        <label class="form-label">Buscar</label>
+                        <h:inputText id="nombre" value="{movimiento_crud.nombre}" class="form-control" />    
+                        <br></br>
+                        <h:commandButton id="buscarMovimientoN" value="Buscar" action="{movimiento_crud.buscarMovimientoN}" class="btn btn-info mx-3">
+                        </h:commandButton>
+                    </h:form>-->
+                    <h4 class="form-label text-center"> LISTA DE MOVIMIENTOS REGISTRADOS </h4>
+                    
+                     <!--<h:dataTable value="" var="datos" class="table table-striped mt-4" >
+                        <h:column>
+                            <f:facet name="header">Codigo</f:facet>
+                                {movimiento_crud.codigo}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Nombre</f:facet>
+                                {movimiento_crud.nombre}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Signo</f:facet>
+                                {movimiento_crud.signo}
+                        </h:column>
+                    </h:dataTable>-->
+                    
+                    <h:dataTable value="#{movimiento_crud.movimientos}" var="datos" class="table table-striped mt-4" >
+                    <h:column>
+                        <f:facet name="header">Codigo</f:facet>
+                            #{datos.codigo}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>
+                            #{datos.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Signo</f:facet>
+                            #{datos.signo}
+                    </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      >
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Articulos Simple</title>
         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
@@ -13,47 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </h:head>
     <h:body>
-        <div id="menu">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="http://localhost:8080/prj_grupo3_cliente/">STORE</a>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Inventario</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Articulo</a></li>
-                                    <li><a class="dropdown-item" href="#">Tipo Movimiento</a></li>
-                                    <li><a class="dropdown-item" href="#">Compleja </a></li>
-                                    <li><a class="dropdown-item" href="#">Reporte 1 </a></li>
-                                    <li><a class="dropdown-item" href="#">Reporte Cruzado </a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Facturacion</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/viewClienteSimple.xhtml">Cliente</a></li>
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/viewCiudadSimple.xhtml">Ciudad</a></li>
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/viewFacturacionCompleja.xhtml">Facturacion </a></li>
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/viewFacturacionReporte1.xhtml">Reporte Ventas </a></li>
-                                    <li><a class="dropdown-item" href="http://localhost:8080/prj_grupo3_cliente/faces/viewFacturacionReporte2.xhtml">Reporte Cruzado </a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuentas por Cobrar</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Cobrador</a></li>
-                                    <li><a class="dropdown-item" href="#">Forma de Pago</a></li>
-                                    <li><a class="dropdown-item" href="#">Compleja </a></li>
-                                    <li><a class="dropdown-item" href="#">Reporte 1 </a></li>
-                                    <li><a class="dropdown-item" href="#">Reporte Cruzado </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+         <ui:include src="header.xhtml" />
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-5">ARTICULOS</h1>
@@ -67,13 +28,17 @@
                     <h:form id="form" >
                         <h4 class="form-label text-center"> FORMULARIO</h4>
                         <label class="form-label">Codigo</label>
-                        <h:inputText id="ruc" value="#{articulo_crud.codigo}" class="form-control" />
+                        <h:inputText id="cedula" value="#{articulo_crud.codigo}" class="form-control" />
                         <br></br>
                         <label class="form-label">Nombre</label>
                         <h:inputText id="nombre" value="#{articulo_crud.nombre}" class="form-control"/>
                         <br></br>
                         <label class="form-label">Precio</label>
-                        <h:inputText id="direccion" value="#{articulo_crud.precio}" class="form-control"/>
+                        <h:inputText id="precio" value="#{articulo_crud.precio}" class="form-control"/>
+                        <br></br>
+                        <label class="form-label">Cantidad</label>
+                        <h:inputText id="cantidad" value="#{articulo_crud.cantidad}" class="form-control"/>
+                        
                         <br></br><br></br>
                         <h:commandButton id="insertarArticulo" value="Insertar" action="#{articulo_crud.insertarArticulo}" class="btn btn-primary mx-3" >
                         </h:commandButton>
@@ -85,22 +50,36 @@
                         </h:commandButton>
                     </h:form>   
                 </div>
-                
+
                 <div class="col">
+                    <!--<h:form>
+                        <label class="form-label">Buscar</label>
+                        <h:inputText id="nombre" value="{articulo_crud.nombre}" class="form-control" />    
+                        <br></br>
+                        <h:commandButton id="buscarArticuloN" value="Buscar" action="//*{articulo_crud.buscarArticuloN}" class="btn btn-info mx-3">
+                        </h:commandButton>
+                    </h:form>-->
                     <h4 class="form-label text-center"> LISTA DE REGISTRADOS </h4>
+                    
+                    
                     <h:dataTable value="#{articulo_crud.articulos}" var="datos" class="table table-striped mt-4" >
-                        <h:column>
-                            <f:facet name="header">Codigo</f:facet>
-                                #{datos.codigo}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Nombre</f:facet>
-                                #{datos.nombre}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Precio</f:facet>
-                                #{datos.precio}
-                        </h:column>
+                    <h:column>
+                        <f:facet name="header">Codigo</f:facet>
+                            #{datos.codigo}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>
+                            #{datos.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Precio</f:facet>
+                            #{datos.precio}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Cantidad</f:facet>
+                            #{datos.cantidad}
+                    </h:column>    
+                        
                     </h:dataTable>
                 </div>
             </div>
