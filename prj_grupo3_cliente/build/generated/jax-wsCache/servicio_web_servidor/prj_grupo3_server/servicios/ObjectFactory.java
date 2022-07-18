@@ -33,6 +33,7 @@ public class ObjectFactory {
     private final static QName _EliminarDetalleFacturaSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarDetalleFacturaSResponse");
     private final static QName _EliminarArticuloSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarArticuloSResponse");
     private final static QName _ListarCiudadSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarCiudadSResponse");
+    private final static QName _EliminarDetalleFacturacxcS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarDetalleFacturacxcS");
     private final static QName _EliminarCiudadSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarCiudadSResponse");
     private final static QName _EliminarFormaPagoS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarFormaPagoS");
     private final static QName _ActualizarCiudadSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "actualizarCiudadSResponse");
@@ -42,13 +43,16 @@ public class ObjectFactory {
     private final static QName _BuscarCiudadS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarCiudadS");
     private final static QName _CrearDetalleFacturaSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearDetalleFacturaSResponse");
     private final static QName _EliminarCabeceraFacturaS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarCabeceraFacturaS");
+    private final static QName _CrearDetalleFacturacxcS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearDetalleFacturacxcS");
     private final static QName _EliminarCobradorSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarCobradorSResponse");
+    private final static QName _BuscarDetalleFacturacxcS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarDetalleFacturacxcS");
     private final static QName _EliminarCiudadS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarCiudadS");
     private final static QName _InsertarCiudadSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "insertarCiudadSResponse");
     private final static QName _CrearUsuarioS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearUsuarioS");
     private final static QName _AgregarProductoSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "agregarProductoSResponse");
     private final static QName _ListarClienteS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarClienteS");
     private final static QName _BuscarDetalleFacturaSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarDetalleFacturaSResponse");
+    private final static QName _EliminarDetalleFacturacxcSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "eliminarDetalleFacturacxcSResponse");
     private final static QName _ActualizarFormaPagoSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "actualizarFormaPagoSResponse");
     private final static QName _BuscarFormaPagoS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarFormaPagoS");
     private final static QName _CrearUsuarioSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearUsuarioSResponse");
@@ -80,12 +84,14 @@ public class ObjectFactory {
     private final static QName _BuscarArticuloS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarArticuloS");
     private final static QName _BuscarCobradorSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarCobradorSResponse");
     private final static QName _InsertarCobradorSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "insertarCobradorSResponse");
+    private final static QName _CrearDetalleFacturacxcSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearDetalleFacturacxcSResponse");
     private final static QName _CrearCabeceraFacturaS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearCabeceraFacturaS");
     private final static QName _ActualizarClienteSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "actualizarClienteSResponse");
     private final static QName _ListarClienteSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarClienteSResponse");
     private final static QName _SingInResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "SingInResponse");
     private final static QName _ListarCobradorS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarCobradorS");
     private final static QName _CrearFacturaSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "crearFacturaSResponse");
+    private final static QName _BuscarDetalleFacturacxcSResponse_QNAME = new QName("http://Servicios.prj_grupo3_server/", "buscarDetalleFacturacxcSResponse");
     private final static QName _ListarFacturasS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarFacturasS");
     private final static QName _ListarCiudadS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarCiudadS");
     private final static QName _ListarArticuloS_QNAME = new QName("http://Servicios.prj_grupo3_server/", "listarArticuloS");
@@ -111,195 +117,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ActualizarClienteS }
+     * Create an instance of {@link ListarCiudadS }
      * 
      */
-    public ActualizarClienteS createActualizarClienteS() {
-        return new ActualizarClienteS();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarCobradorS }
-     * 
-     */
-    public ActualizarCobradorS createActualizarCobradorS() {
-        return new ActualizarCobradorS();
-    }
-
-    /**
-     * Create an instance of {@link InsertarFormaPagoS }
-     * 
-     */
-    public InsertarFormaPagoS createInsertarFormaPagoS() {
-        return new InsertarFormaPagoS();
-    }
-
-    /**
-     * Create an instance of {@link LoginS }
-     * 
-     */
-    public LoginS createLoginS() {
-        return new LoginS();
-    }
-
-    /**
-     * Create an instance of {@link InsertarArticuloS }
-     * 
-     */
-    public InsertarArticuloS createInsertarArticuloS() {
-        return new InsertarArticuloS();
-    }
-
-    /**
-     * Create an instance of {@link InsertarCobradorSResponse }
-     * 
-     */
-    public InsertarCobradorSResponse createInsertarCobradorSResponse() {
-        return new InsertarCobradorSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarDetalleFacturaSResponse }
-     * 
-     */
-    public BuscarDetalleFacturaSResponse createBuscarDetalleFacturaSResponse() {
-        return new BuscarDetalleFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link FormaPago }
-     * 
-     */
-    public FormaPago createFormaPago() {
-        return new FormaPago();
-    }
-
-    /**
-     * Create an instance of {@link BuscarArticuloSResponse }
-     * 
-     */
-    public BuscarArticuloSResponse createBuscarArticuloSResponse() {
-        return new BuscarArticuloSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListarCiudadSResponse }
-     * 
-     */
-    public ListarCiudadSResponse createListarCiudadSResponse() {
-        return new ListarCiudadSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListarFacturasSResponse }
-     * 
-     */
-    public ListarFacturasSResponse createListarFacturasSResponse() {
-        return new ListarFacturasSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarArticuloSResponse }
-     * 
-     */
-    public EliminarArticuloSResponse createEliminarArticuloSResponse() {
-        return new EliminarArticuloSResponse();
-    }
-
-    /**
-     * Create an instance of {@link CabeceraFactura }
-     * 
-     */
-    public CabeceraFactura createCabeceraFactura() {
-        return new CabeceraFactura();
-    }
-
-    /**
-     * Create an instance of {@link EliminarClienteSResponse }
-     * 
-     */
-    public EliminarClienteSResponse createEliminarClienteSResponse() {
-        return new EliminarClienteSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarClienteSResponse }
-     * 
-     */
-    public BuscarClienteSResponse createBuscarClienteSResponse() {
-        return new BuscarClienteSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListarCobradorSResponse }
-     * 
-     */
-    public ListarCobradorSResponse createListarCobradorSResponse() {
-        return new ListarCobradorSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarClienteS }
-     * 
-     */
-    public EliminarClienteS createEliminarClienteS() {
-        return new EliminarClienteS();
-    }
-
-    /**
-     * Create an instance of {@link ListarArticuloS }
-     * 
-     */
-    public ListarArticuloS createListarArticuloS() {
-        return new ListarArticuloS();
-    }
-
-    /**
-     * Create an instance of {@link ListarFormaPagoS }
-     * 
-     */
-    public ListarFormaPagoS createListarFormaPagoS() {
-        return new ListarFormaPagoS();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCabeceraFacturaSResponse }
-     * 
-     */
-    public EliminarCabeceraFacturaSResponse createEliminarCabeceraFacturaSResponse() {
-        return new EliminarCabeceraFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link CrearUsuarioSResponse }
-     * 
-     */
-    public CrearUsuarioSResponse createCrearUsuarioSResponse() {
-        return new CrearUsuarioSResponse();
-    }
-
-    /**
-     * Create an instance of {@link CrearCabeceraFacturaSResponse }
-     * 
-     */
-    public CrearCabeceraFacturaSResponse createCrearCabeceraFacturaSResponse() {
-        return new CrearCabeceraFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarFormaPagoS }
-     * 
-     */
-    public EliminarFormaPagoS createEliminarFormaPagoS() {
-        return new EliminarFormaPagoS();
-    }
-
-    /**
-     * Create an instance of {@link SingInResponse }
-     * 
-     */
-    public SingInResponse createSingInResponse() {
-        return new SingInResponse();
+    public ListarCiudadS createListarCiudadS() {
+        return new ListarCiudadS();
     }
 
     /**
@@ -311,291 +133,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DetalleFactura }
+     * Create an instance of {@link EliminarArticuloS }
      * 
      */
-    public DetalleFactura createDetalleFactura() {
-        return new DetalleFactura();
-    }
-
-    /**
-     * Create an instance of {@link InsertarArticuloSResponse }
-     * 
-     */
-    public InsertarArticuloSResponse createInsertarArticuloSResponse() {
-        return new InsertarArticuloSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCobradorS }
-     * 
-     */
-    public EliminarCobradorS createEliminarCobradorS() {
-        return new EliminarCobradorS();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCiudadSResponse }
-     * 
-     */
-    public EliminarCiudadSResponse createEliminarCiudadSResponse() {
-        return new EliminarCiudadSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCiudadS }
-     * 
-     */
-    public EliminarCiudadS createEliminarCiudadS() {
-        return new EliminarCiudadS();
-    }
-
-    /**
-     * Create an instance of {@link EliminarFormaPagoSResponse }
-     * 
-     */
-    public EliminarFormaPagoSResponse createEliminarFormaPagoSResponse() {
-        return new EliminarFormaPagoSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarCabeceraFacturaSResponse }
-     * 
-     */
-    public ActualizarCabeceraFacturaSResponse createActualizarCabeceraFacturaSResponse() {
-        return new ActualizarCabeceraFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ItemFactura }
-     * 
-     */
-    public ItemFactura createItemFactura() {
-        return new ItemFactura();
-    }
-
-    /**
-     * Create an instance of {@link Factura }
-     * 
-     */
-    public Factura createFactura() {
-        return new Factura();
-    }
-
-    /**
-     * Create an instance of {@link ListarFacturasS }
-     * 
-     */
-    public ListarFacturasS createListarFacturasS() {
-        return new ListarFacturasS();
-    }
-
-    /**
-     * Create an instance of {@link ListarClienteS }
-     * 
-     */
-    public ListarClienteS createListarClienteS() {
-        return new ListarClienteS();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarFormaPagoS }
-     * 
-     */
-    public ActualizarFormaPagoS createActualizarFormaPagoS() {
-        return new ActualizarFormaPagoS();
-    }
-
-    /**
-     * Create an instance of {@link CrearDetalleFacturaSResponse }
-     * 
-     */
-    public CrearDetalleFacturaSResponse createCrearDetalleFacturaSResponse() {
-        return new CrearDetalleFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertarCiudadS }
-     * 
-     */
-    public InsertarCiudadS createInsertarCiudadS() {
-        return new InsertarCiudadS();
-    }
-
-    /**
-     * Create an instance of {@link BuscarFormaPagoS }
-     * 
-     */
-    public BuscarFormaPagoS createBuscarFormaPagoS() {
-        return new BuscarFormaPagoS();
-    }
-
-    /**
-     * Create an instance of {@link InsertarCiudadSResponse }
-     * 
-     */
-    public InsertarCiudadSResponse createInsertarCiudadSResponse() {
-        return new InsertarCiudadSResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertarClienteS }
-     * 
-     */
-    public InsertarClienteS createInsertarClienteS() {
-        return new InsertarClienteS();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarFormaPagoSResponse }
-     * 
-     */
-    public ActualizarFormaPagoSResponse createActualizarFormaPagoSResponse() {
-        return new ActualizarFormaPagoSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCobradorSResponse }
-     * 
-     */
-    public EliminarCobradorSResponse createEliminarCobradorSResponse() {
-        return new EliminarCobradorSResponse();
-    }
-
-    /**
-     * Create an instance of {@link ListarCiudadS }
-     * 
-     */
-    public ListarCiudadS createListarCiudadS() {
-        return new ListarCiudadS();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarArticuloSResponse }
-     * 
-     */
-    public ActualizarArticuloSResponse createActualizarArticuloSResponse() {
-        return new ActualizarArticuloSResponse();
-    }
-
-    /**
-     * Create an instance of {@link Ciudad }
-     * 
-     */
-    public Ciudad createCiudad() {
-        return new Ciudad();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarCiudadSResponse }
-     * 
-     */
-    public ActualizarCiudadSResponse createActualizarCiudadSResponse() {
-        return new ActualizarCiudadSResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertarFormaPagoSResponse }
-     * 
-     */
-    public InsertarFormaPagoSResponse createInsertarFormaPagoSResponse() {
-        return new InsertarFormaPagoSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarClienteS }
-     * 
-     */
-    public BuscarClienteS createBuscarClienteS() {
-        return new BuscarClienteS();
-    }
-
-    /**
-     * Create an instance of {@link BuscarCabeceraFacturaSResponse }
-     * 
-     */
-    public BuscarCabeceraFacturaSResponse createBuscarCabeceraFacturaSResponse() {
-        return new BuscarCabeceraFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link SingIn }
-     * 
-     */
-    public SingIn createSingIn() {
-        return new SingIn();
-    }
-
-    /**
-     * Create an instance of {@link ListarArticuloSResponse }
-     * 
-     */
-    public ListarArticuloSResponse createListarArticuloSResponse() {
-        return new ListarArticuloSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarDetalleFacturaSResponse }
-     * 
-     */
-    public EliminarDetalleFacturaSResponse createEliminarDetalleFacturaSResponse() {
-        return new EliminarDetalleFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarFormaPagoSResponse }
-     * 
-     */
-    public BuscarFormaPagoSResponse createBuscarFormaPagoSResponse() {
-        return new BuscarFormaPagoSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarCabeceraFacturaPorRucS }
-     * 
-     */
-    public BuscarCabeceraFacturaPorRucS createBuscarCabeceraFacturaPorRucS() {
-        return new BuscarCabeceraFacturaPorRucS();
-    }
-
-    /**
-     * Create an instance of {@link Cliente }
-     * 
-     */
-    public Cliente createCliente() {
-        return new Cliente();
-    }
-
-    /**
-     * Create an instance of {@link EliminarCabeceraFacturaS }
-     * 
-     */
-    public EliminarCabeceraFacturaS createEliminarCabeceraFacturaS() {
-        return new EliminarCabeceraFacturaS();
-    }
-
-    /**
-     * Create an instance of {@link CrearUsuarioS }
-     * 
-     */
-    public CrearUsuarioS createCrearUsuarioS() {
-        return new CrearUsuarioS();
-    }
-
-    /**
-     * Create an instance of {@link CrearFacturaSResponse }
-     * 
-     */
-    public CrearFacturaSResponse createCrearFacturaSResponse() {
-        return new CrearFacturaSResponse();
-    }
-
-    /**
-     * Create an instance of {@link CrearDetalleFacturaS }
-     * 
-     */
-    public CrearDetalleFacturaS createCrearDetalleFacturaS() {
-        return new CrearDetalleFacturaS();
+    public EliminarArticuloS createEliminarArticuloS() {
+        return new EliminarArticuloS();
     }
 
     /**
@@ -607,6 +149,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CrearFacturaS }
+     * 
+     */
+    public CrearFacturaS createCrearFacturaS() {
+        return new CrearFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link CrearDetalleFacturacxcSResponse }
+     * 
+     */
+    public CrearDetalleFacturacxcSResponse createCrearDetalleFacturacxcSResponse() {
+        return new CrearDetalleFacturacxcSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarDetalleFacturacxcS }
+     * 
+     */
+    public BuscarDetalleFacturacxcS createBuscarDetalleFacturacxcS() {
+        return new BuscarDetalleFacturacxcS();
+    }
+
+    /**
      * Create an instance of {@link ActualizarClienteSResponse }
      * 
      */
@@ -615,83 +181,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EliminarArticuloS }
+     * Create an instance of {@link InsertarFormaPagoSResponse }
      * 
      */
-    public EliminarArticuloS createEliminarArticuloS() {
-        return new EliminarArticuloS();
-    }
-
-    /**
-     * Create an instance of {@link Articulo }
-     * 
-     */
-    public Articulo createArticulo() {
-        return new Articulo();
-    }
-
-    /**
-     * Create an instance of {@link AgregarProductoS }
-     * 
-     */
-    public AgregarProductoS createAgregarProductoS() {
-        return new AgregarProductoS();
-    }
-
-    /**
-     * Create an instance of {@link BuscarCabeceraFacturaPorRucSResponse }
-     * 
-     */
-    public BuscarCabeceraFacturaPorRucSResponse createBuscarCabeceraFacturaPorRucSResponse() {
-        return new BuscarCabeceraFacturaPorRucSResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertarClienteSResponse }
-     * 
-     */
-    public InsertarClienteSResponse createInsertarClienteSResponse() {
-        return new InsertarClienteSResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarCiudadS }
-     * 
-     */
-    public BuscarCiudadS createBuscarCiudadS() {
-        return new BuscarCiudadS();
-    }
-
-    /**
-     * Create an instance of {@link InsertarCobradorS }
-     * 
-     */
-    public InsertarCobradorS createInsertarCobradorS() {
-        return new InsertarCobradorS();
-    }
-
-    /**
-     * Create an instance of {@link BuscarCobradorS }
-     * 
-     */
-    public BuscarCobradorS createBuscarCobradorS() {
-        return new BuscarCobradorS();
-    }
-
-    /**
-     * Create an instance of {@link ActualizarCobradorSResponse }
-     * 
-     */
-    public ActualizarCobradorSResponse createActualizarCobradorSResponse() {
-        return new ActualizarCobradorSResponse();
-    }
-
-    /**
-     * Create an instance of {@link EliminarDetalleFacturaS }
-     * 
-     */
-    public EliminarDetalleFacturaS createEliminarDetalleFacturaS() {
-        return new EliminarDetalleFacturaS();
+    public InsertarFormaPagoSResponse createInsertarFormaPagoSResponse() {
+        return new InsertarFormaPagoSResponse();
     }
 
     /**
@@ -703,14 +197,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BuscarCiudadSResponse }
-     * 
-     */
-    public BuscarCiudadSResponse createBuscarCiudadSResponse() {
-        return new BuscarCiudadSResponse();
-    }
-
-    /**
      * Create an instance of {@link ActualizarCiudadS }
      * 
      */
@@ -719,75 +205,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CrearFacturaS }
+     * Create an instance of {@link CrearCabeceraFacturaSResponse }
      * 
      */
-    public CrearFacturaS createCrearFacturaS() {
-        return new CrearFacturaS();
+    public CrearCabeceraFacturaSResponse createCrearCabeceraFacturaSResponse() {
+        return new CrearCabeceraFacturaSResponse();
     }
 
     /**
-     * Create an instance of {@link BuscarCobradorSResponse }
+     * Create an instance of {@link ItemFactura }
      * 
      */
-    public BuscarCobradorSResponse createBuscarCobradorSResponse() {
-        return new BuscarCobradorSResponse();
+    public ItemFactura createItemFactura() {
+        return new ItemFactura();
     }
 
     /**
-     * Create an instance of {@link ActualizarCabeceraFacturaS }
+     * Create an instance of {@link BuscarFormaPagoSResponse }
      * 
      */
-    public ActualizarCabeceraFacturaS createActualizarCabeceraFacturaS() {
-        return new ActualizarCabeceraFacturaS();
+    public BuscarFormaPagoSResponse createBuscarFormaPagoSResponse() {
+        return new BuscarFormaPagoSResponse();
     }
 
     /**
-     * Create an instance of {@link ActualizarArticuloS }
+     * Create an instance of {@link CrearFacturaSResponse }
      * 
      */
-    public ActualizarArticuloS createActualizarArticuloS() {
-        return new ActualizarArticuloS();
+    public CrearFacturaSResponse createCrearFacturaSResponse() {
+        return new CrearFacturaSResponse();
     }
 
     /**
-     * Create an instance of {@link ListarFormaPagoSResponse }
+     * Create an instance of {@link EliminarDetalleFacturacxcS }
      * 
      */
-    public ListarFormaPagoSResponse createListarFormaPagoSResponse() {
-        return new ListarFormaPagoSResponse();
+    public EliminarDetalleFacturacxcS createEliminarDetalleFacturacxcS() {
+        return new EliminarDetalleFacturacxcS();
     }
 
     /**
-     * Create an instance of {@link BuscarArticuloS }
+     * Create an instance of {@link ActualizarFormaPagoSResponse }
      * 
      */
-    public BuscarArticuloS createBuscarArticuloS() {
-        return new BuscarArticuloS();
+    public ActualizarFormaPagoSResponse createActualizarFormaPagoSResponse() {
+        return new ActualizarFormaPagoSResponse();
     }
 
     /**
-     * Create an instance of {@link Cobrador }
+     * Create an instance of {@link ListarArticuloSResponse }
      * 
      */
-    public Cobrador createCobrador() {
-        return new Cobrador();
+    public ListarArticuloSResponse createListarArticuloSResponse() {
+        return new ListarArticuloSResponse();
     }
 
     /**
-     * Create an instance of {@link CrearCabeceraFacturaS }
+     * Create an instance of {@link EliminarFormaPagoS }
      * 
      */
-    public CrearCabeceraFacturaS createCrearCabeceraFacturaS() {
-        return new CrearCabeceraFacturaS();
-    }
-
-    /**
-     * Create an instance of {@link ListarClienteSResponse }
-     * 
-     */
-    public ListarClienteSResponse createListarClienteSResponse() {
-        return new ListarClienteSResponse();
+    public EliminarFormaPagoS createEliminarFormaPagoS() {
+        return new EliminarFormaPagoS();
     }
 
     /**
@@ -799,11 +277,603 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarArticuloS }
+     * 
+     */
+    public ListarArticuloS createListarArticuloS() {
+        return new ListarArticuloS();
+    }
+
+    /**
+     * Create an instance of {@link BuscarDetalleFacturaSResponse }
+     * 
+     */
+    public BuscarDetalleFacturaSResponse createBuscarDetalleFacturaSResponse() {
+        return new BuscarDetalleFacturaSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListarFacturasS }
+     * 
+     */
+    public ListarFacturasS createListarFacturasS() {
+        return new ListarFacturasS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarCobradorS }
+     * 
+     */
+    public InsertarCobradorS createInsertarCobradorS() {
+        return new InsertarCobradorS();
+    }
+
+    /**
+     * Create an instance of {@link ItemFacturacxc }
+     * 
+     */
+    public ItemFacturacxc createItemFacturacxc() {
+        return new ItemFacturacxc();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarClienteS }
+     * 
+     */
+    public ActualizarClienteS createActualizarClienteS() {
+        return new ActualizarClienteS();
+    }
+
+    /**
+     * Create an instance of {@link CrearUsuarioSResponse }
+     * 
+     */
+    public CrearUsuarioSResponse createCrearUsuarioSResponse() {
+        return new CrearUsuarioSResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarDetalleFacturaSResponse }
+     * 
+     */
+    public EliminarDetalleFacturaSResponse createEliminarDetalleFacturaSResponse() {
+        return new EliminarDetalleFacturaSResponse();
+    }
+
+    /**
+     * Create an instance of {@link CrearCabeceraFacturaS }
+     * 
+     */
+    public CrearCabeceraFacturaS createCrearCabeceraFacturaS() {
+        return new CrearCabeceraFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarCobradorSResponse }
+     * 
+     */
+    public InsertarCobradorSResponse createInsertarCobradorSResponse() {
+        return new InsertarCobradorSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarCabeceraFacturaS }
+     * 
+     */
+    public ActualizarCabeceraFacturaS createActualizarCabeceraFacturaS() {
+        return new ActualizarCabeceraFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link CrearDetalleFacturaS }
+     * 
+     */
+    public CrearDetalleFacturaS createCrearDetalleFacturaS() {
+        return new CrearDetalleFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link FormaPago }
+     * 
+     */
+    public FormaPago createFormaPago() {
+        return new FormaPago();
+    }
+
+    /**
+     * Create an instance of {@link BuscarArticuloS }
+     * 
+     */
+    public BuscarArticuloS createBuscarArticuloS() {
+        return new BuscarArticuloS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarClienteSResponse }
+     * 
+     */
+    public InsertarClienteSResponse createInsertarClienteSResponse() {
+        return new InsertarClienteSResponse();
+    }
+
+    /**
+     * Create an instance of {@link InsertarCiudadS }
+     * 
+     */
+    public InsertarCiudadS createInsertarCiudadS() {
+        return new InsertarCiudadS();
+    }
+
+    /**
+     * Create an instance of {@link CrearDetalleFacturacxcS }
+     * 
+     */
+    public CrearDetalleFacturacxcS createCrearDetalleFacturacxcS() {
+        return new CrearDetalleFacturacxcS();
+    }
+
+    /**
+     * Create an instance of {@link EliminarClienteSResponse }
+     * 
+     */
+    public EliminarClienteSResponse createEliminarClienteSResponse() {
+        return new EliminarClienteSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarCiudadSResponse }
+     * 
+     */
+    public ActualizarCiudadSResponse createActualizarCiudadSResponse() {
+        return new ActualizarCiudadSResponse();
+    }
+
+    /**
+     * Create an instance of {@link Factura }
+     * 
+     */
+    public Factura createFactura() {
+        return new Factura();
+    }
+
+    /**
+     * Create an instance of {@link Cliente }
+     * 
+     */
+    public Cliente createCliente() {
+        return new Cliente();
+    }
+
+    /**
+     * Create an instance of {@link ListarFormaPagoSResponse }
+     * 
+     */
+    public ListarFormaPagoSResponse createListarFormaPagoSResponse() {
+        return new ListarFormaPagoSResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCabeceraFacturaS }
+     * 
+     */
+    public EliminarCabeceraFacturaS createEliminarCabeceraFacturaS() {
+        return new EliminarCabeceraFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarArticuloSResponse }
+     * 
+     */
+    public InsertarArticuloSResponse createInsertarArticuloSResponse() {
+        return new InsertarArticuloSResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCiudadS }
+     * 
+     */
+    public EliminarCiudadS createEliminarCiudadS() {
+        return new EliminarCiudadS();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCobradorSResponse }
+     * 
+     */
+    public BuscarCobradorSResponse createBuscarCobradorSResponse() {
+        return new BuscarCobradorSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCabeceraFacturaPorRucS }
+     * 
+     */
+    public BuscarCabeceraFacturaPorRucS createBuscarCabeceraFacturaPorRucS() {
+        return new BuscarCabeceraFacturaPorRucS();
+    }
+
+    /**
+     * Create an instance of {@link EliminarFormaPagoSResponse }
+     * 
+     */
+    public EliminarFormaPagoSResponse createEliminarFormaPagoSResponse() {
+        return new EliminarFormaPagoSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListarClienteSResponse }
+     * 
+     */
+    public ListarClienteSResponse createListarClienteSResponse() {
+        return new ListarClienteSResponse();
+    }
+
+    /**
+     * Create an instance of {@link InsertarClienteS }
+     * 
+     */
+    public InsertarClienteS createInsertarClienteS() {
+        return new InsertarClienteS();
+    }
+
+    /**
+     * Create an instance of {@link EliminarArticuloSResponse }
+     * 
+     */
+    public EliminarArticuloSResponse createEliminarArticuloSResponse() {
+        return new EliminarArticuloSResponse();
+    }
+
+    /**
+     * Create an instance of {@link SingIn }
+     * 
+     */
+    public SingIn createSingIn() {
+        return new SingIn();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCabeceraFacturaSResponse }
+     * 
+     */
+    public EliminarCabeceraFacturaSResponse createEliminarCabeceraFacturaSResponse() {
+        return new EliminarCabeceraFacturaSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCabeceraFacturaSResponse }
+     * 
+     */
+    public BuscarCabeceraFacturaSResponse createBuscarCabeceraFacturaSResponse() {
+        return new BuscarCabeceraFacturaSResponse();
+    }
+
+    /**
+     * Create an instance of {@link CabeceraFactura }
+     * 
+     */
+    public CabeceraFactura createCabeceraFactura() {
+        return new CabeceraFactura();
+    }
+
+    /**
+     * Create an instance of {@link EliminarClienteS }
+     * 
+     */
+    public EliminarClienteS createEliminarClienteS() {
+        return new EliminarClienteS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarArticuloS }
+     * 
+     */
+    public InsertarArticuloS createInsertarArticuloS() {
+        return new InsertarArticuloS();
+    }
+
+    /**
+     * Create an instance of {@link CrearUsuarioS }
+     * 
+     */
+    public CrearUsuarioS createCrearUsuarioS() {
+        return new CrearUsuarioS();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCobradorS }
+     * 
+     */
+    public EliminarCobradorS createEliminarCobradorS() {
+        return new EliminarCobradorS();
+    }
+
+    /**
+     * Create an instance of {@link ListarClienteS }
+     * 
+     */
+    public ListarClienteS createListarClienteS() {
+        return new ListarClienteS();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarCobradorSResponse }
+     * 
+     */
+    public ActualizarCobradorSResponse createActualizarCobradorSResponse() {
+        return new ActualizarCobradorSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCabeceraFacturaPorRucSResponse }
+     * 
+     */
+    public BuscarCabeceraFacturaPorRucSResponse createBuscarCabeceraFacturaPorRucSResponse() {
+        return new BuscarCabeceraFacturaPorRucSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarCabeceraFacturaSResponse }
+     * 
+     */
+    public ActualizarCabeceraFacturaSResponse createActualizarCabeceraFacturaSResponse() {
+        return new ActualizarCabeceraFacturaSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarArticuloS }
+     * 
+     */
+    public ActualizarArticuloS createActualizarArticuloS() {
+        return new ActualizarArticuloS();
+    }
+
+    /**
+     * Create an instance of {@link Articulo }
+     * 
+     */
+    public Articulo createArticulo() {
+        return new Articulo();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCobradorSResponse }
+     * 
+     */
+    public EliminarCobradorSResponse createEliminarCobradorSResponse() {
+        return new EliminarCobradorSResponse();
+    }
+
+    /**
+     * Create an instance of {@link Ciudad }
+     * 
+     */
+    public Ciudad createCiudad() {
+        return new Ciudad();
+    }
+
+    /**
+     * Create an instance of {@link LoginS }
+     * 
+     */
+    public LoginS createLoginS() {
+        return new LoginS();
+    }
+
+    /**
+     * Create an instance of {@link ListarFormaPagoS }
+     * 
+     */
+    public ListarFormaPagoS createListarFormaPagoS() {
+        return new ListarFormaPagoS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarCiudadSResponse }
+     * 
+     */
+    public InsertarCiudadSResponse createInsertarCiudadSResponse() {
+        return new InsertarCiudadSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarClienteS }
+     * 
+     */
+    public BuscarClienteS createBuscarClienteS() {
+        return new BuscarClienteS();
+    }
+
+    /**
+     * Create an instance of {@link SingInResponse }
+     * 
+     */
+    public SingInResponse createSingInResponse() {
+        return new SingInResponse();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarCobradorS }
+     * 
+     */
+    public ActualizarCobradorS createActualizarCobradorS() {
+        return new ActualizarCobradorS();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarFormaPagoS }
+     * 
+     */
+    public ActualizarFormaPagoS createActualizarFormaPagoS() {
+        return new ActualizarFormaPagoS();
+    }
+
+    /**
+     * Create an instance of {@link ListarCobradorSResponse }
+     * 
+     */
+    public ListarCobradorSResponse createListarCobradorSResponse() {
+        return new ListarCobradorSResponse();
+    }
+
+    /**
+     * Create an instance of {@link EliminarDetalleFacturacxcSResponse }
+     * 
+     */
+    public EliminarDetalleFacturacxcSResponse createEliminarDetalleFacturacxcSResponse() {
+        return new EliminarDetalleFacturacxcSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCobradorS }
+     * 
+     */
+    public BuscarCobradorS createBuscarCobradorS() {
+        return new BuscarCobradorS();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarArticuloSResponse }
+     * 
+     */
+    public ActualizarArticuloSResponse createActualizarArticuloSResponse() {
+        return new ActualizarArticuloSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCiudadS }
+     * 
+     */
+    public BuscarCiudadS createBuscarCiudadS() {
+        return new BuscarCiudadS();
+    }
+
+    /**
+     * Create an instance of {@link BuscarCiudadSResponse }
+     * 
+     */
+    public BuscarCiudadSResponse createBuscarCiudadSResponse() {
+        return new BuscarCiudadSResponse();
+    }
+
+    /**
+     * Create an instance of {@link CrearDetalleFacturaSResponse }
+     * 
+     */
+    public CrearDetalleFacturaSResponse createCrearDetalleFacturaSResponse() {
+        return new CrearDetalleFacturaSResponse();
+    }
+
+    /**
      * Create an instance of {@link BuscarDetalleFacturaS }
      * 
      */
     public BuscarDetalleFacturaS createBuscarDetalleFacturaS() {
         return new BuscarDetalleFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link DetalleFacturacxc }
+     * 
+     */
+    public DetalleFacturacxc createDetalleFacturacxc() {
+        return new DetalleFacturacxc();
+    }
+
+    /**
+     * Create an instance of {@link ListarCiudadSResponse }
+     * 
+     */
+    public ListarCiudadSResponse createListarCiudadSResponse() {
+        return new ListarCiudadSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarClienteSResponse }
+     * 
+     */
+    public BuscarClienteSResponse createBuscarClienteSResponse() {
+        return new BuscarClienteSResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarFormaPagoS }
+     * 
+     */
+    public BuscarFormaPagoS createBuscarFormaPagoS() {
+        return new BuscarFormaPagoS();
+    }
+
+    /**
+     * Create an instance of {@link BuscarDetalleFacturacxcSResponse }
+     * 
+     */
+    public BuscarDetalleFacturacxcSResponse createBuscarDetalleFacturacxcSResponse() {
+        return new BuscarDetalleFacturacxcSResponse();
+    }
+
+    /**
+     * Create an instance of {@link Cobrador }
+     * 
+     */
+    public Cobrador createCobrador() {
+        return new Cobrador();
+    }
+
+    /**
+     * Create an instance of {@link DetalleFactura }
+     * 
+     */
+    public DetalleFactura createDetalleFactura() {
+        return new DetalleFactura();
+    }
+
+    /**
+     * Create an instance of {@link EliminarDetalleFacturaS }
+     * 
+     */
+    public EliminarDetalleFacturaS createEliminarDetalleFacturaS() {
+        return new EliminarDetalleFacturaS();
+    }
+
+    /**
+     * Create an instance of {@link BuscarArticuloSResponse }
+     * 
+     */
+    public BuscarArticuloSResponse createBuscarArticuloSResponse() {
+        return new BuscarArticuloSResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListarFacturasSResponse }
+     * 
+     */
+    public ListarFacturasSResponse createListarFacturasSResponse() {
+        return new ListarFacturasSResponse();
+    }
+
+    /**
+     * Create an instance of {@link AgregarProductoS }
+     * 
+     */
+    public AgregarProductoS createAgregarProductoS() {
+        return new AgregarProductoS();
+    }
+
+    /**
+     * Create an instance of {@link InsertarFormaPagoS }
+     * 
+     */
+    public InsertarFormaPagoS createInsertarFormaPagoS() {
+        return new InsertarFormaPagoS();
+    }
+
+    /**
+     * Create an instance of {@link EliminarCiudadSResponse }
+     * 
+     */
+    public EliminarCiudadSResponse createEliminarCiudadSResponse() {
+        return new EliminarCiudadSResponse();
     }
 
     /**
@@ -888,6 +958,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarDetalleFacturacxcS }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "eliminarDetalleFacturacxcS")
+    public JAXBElement<EliminarDetalleFacturacxcS> createEliminarDetalleFacturacxcS(EliminarDetalleFacturacxcS value) {
+        return new JAXBElement<EliminarDetalleFacturacxcS>(_EliminarDetalleFacturacxcS_QNAME, EliminarDetalleFacturacxcS.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarCiudadSResponse }{@code >}}
      * 
      */
@@ -969,12 +1048,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearDetalleFacturacxcS }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "crearDetalleFacturacxcS")
+    public JAXBElement<CrearDetalleFacturacxcS> createCrearDetalleFacturacxcS(CrearDetalleFacturacxcS value) {
+        return new JAXBElement<CrearDetalleFacturacxcS>(_CrearDetalleFacturacxcS_QNAME, CrearDetalleFacturacxcS.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarCobradorSResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "eliminarCobradorSResponse")
     public JAXBElement<EliminarCobradorSResponse> createEliminarCobradorSResponse(EliminarCobradorSResponse value) {
         return new JAXBElement<EliminarCobradorSResponse>(_EliminarCobradorSResponse_QNAME, EliminarCobradorSResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarDetalleFacturacxcS }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "buscarDetalleFacturacxcS")
+    public JAXBElement<BuscarDetalleFacturacxcS> createBuscarDetalleFacturacxcS(BuscarDetalleFacturacxcS value) {
+        return new JAXBElement<BuscarDetalleFacturacxcS>(_BuscarDetalleFacturacxcS_QNAME, BuscarDetalleFacturacxcS.class, null, value);
     }
 
     /**
@@ -1029,6 +1126,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "buscarDetalleFacturaSResponse")
     public JAXBElement<BuscarDetalleFacturaSResponse> createBuscarDetalleFacturaSResponse(BuscarDetalleFacturaSResponse value) {
         return new JAXBElement<BuscarDetalleFacturaSResponse>(_BuscarDetalleFacturaSResponse_QNAME, BuscarDetalleFacturaSResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarDetalleFacturacxcSResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "eliminarDetalleFacturacxcSResponse")
+    public JAXBElement<EliminarDetalleFacturacxcSResponse> createEliminarDetalleFacturacxcSResponse(EliminarDetalleFacturacxcSResponse value) {
+        return new JAXBElement<EliminarDetalleFacturacxcSResponse>(_EliminarDetalleFacturacxcSResponse_QNAME, EliminarDetalleFacturacxcSResponse.class, null, value);
     }
 
     /**
@@ -1311,6 +1417,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearDetalleFacturacxcSResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "crearDetalleFacturacxcSResponse")
+    public JAXBElement<CrearDetalleFacturacxcSResponse> createCrearDetalleFacturacxcSResponse(CrearDetalleFacturacxcSResponse value) {
+        return new JAXBElement<CrearDetalleFacturacxcSResponse>(_CrearDetalleFacturacxcSResponse_QNAME, CrearDetalleFacturacxcSResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CrearCabeceraFacturaS }{@code >}}
      * 
      */
@@ -1362,6 +1477,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "crearFacturaSResponse")
     public JAXBElement<CrearFacturaSResponse> createCrearFacturaSResponse(CrearFacturaSResponse value) {
         return new JAXBElement<CrearFacturaSResponse>(_CrearFacturaSResponse_QNAME, CrearFacturaSResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarDetalleFacturacxcSResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios.prj_grupo3_server/", name = "buscarDetalleFacturacxcSResponse")
+    public JAXBElement<BuscarDetalleFacturacxcSResponse> createBuscarDetalleFacturacxcSResponse(BuscarDetalleFacturacxcSResponse value) {
+        return new JAXBElement<BuscarDetalleFacturacxcSResponse>(_BuscarDetalleFacturacxcSResponse_QNAME, BuscarDetalleFacturacxcSResponse.class, null, value);
     }
 
     /**
