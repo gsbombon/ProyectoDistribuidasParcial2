@@ -7,23 +7,23 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for itemFactura complex type.
+ * <p>Clase Java para itemFactura complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="itemFactura">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="cantidadItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="nombreItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="precioItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="precioTotalItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="itemFactura"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cantidadItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="nombreItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="precioItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="precioTotalItem" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -43,7 +43,7 @@ public class ItemFactura {
     protected String precioTotalItem;
 
     /**
-     * Gets the value of the cantidadItem property.
+     * Obtiene el valor de la propiedad cantidadItem.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class ItemFactura {
     }
 
     /**
-     * Sets the value of the cantidadItem property.
+     * Define el valor de la propiedad cantidadItem.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +67,7 @@ public class ItemFactura {
     }
 
     /**
-     * Gets the value of the nombreItem property.
+     * Obtiene el valor de la propiedad nombreItem.
      * 
      * @return
      *     possible object is
@@ -79,7 +79,7 @@ public class ItemFactura {
     }
 
     /**
-     * Sets the value of the nombreItem property.
+     * Define el valor de la propiedad nombreItem.
      * 
      * @param value
      *     allowed object is
@@ -91,7 +91,7 @@ public class ItemFactura {
     }
 
     /**
-     * Gets the value of the precioItem property.
+     * Obtiene el valor de la propiedad precioItem.
      * 
      * @return
      *     possible object is
@@ -103,7 +103,7 @@ public class ItemFactura {
     }
 
     /**
-     * Sets the value of the precioItem property.
+     * Define el valor de la propiedad precioItem.
      * 
      * @param value
      *     allowed object is
@@ -115,7 +115,7 @@ public class ItemFactura {
     }
 
     /**
-     * Gets the value of the precioTotalItem property.
+     * Obtiene el valor de la propiedad precioTotalItem.
      * 
      * @return
      *     possible object is
@@ -127,7 +127,7 @@ public class ItemFactura {
     }
 
     /**
-     * Sets the value of the precioTotalItem property.
+     * Define el valor de la propiedad precioTotalItem.
      * 
      * @param value
      *     allowed object is

@@ -33,6 +33,7 @@ import javax.jws.WebParam;
 import static prj_grupo3_server.Conexion.Conexion.actualizarArticulo;
 import static prj_grupo3_server.Conexion.Conexion.actualizarCabeceraFactura;
 import static prj_grupo3_server.Conexion.Conexion.actualizarMovimiento;
+import static prj_grupo3_server.Conexion.Conexion.actualizarStockArticulo;
 import static prj_grupo3_server.Conexion.Conexion.agregarPaga;
 import static prj_grupo3_server.Conexion.Conexion.agregarProducto;
 import static prj_grupo3_server.Conexion.Conexion.buscarArticulo;
@@ -633,6 +634,17 @@ public class ServicioServer {
     }
     
     
+    @WebMethod(operationName = "actualizarStockArticuloS")
+    public int actualizarStockArticuloS(@WebParam(name = "nomArticulo") String nomArticulo, 
+            @WebParam(name = "nuevoStock") String nuevoStock) {
+        try {
+            Conectar();
+            actualizarStockArticulo(nomArticulo,nuevoStock);
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
     
 
 }

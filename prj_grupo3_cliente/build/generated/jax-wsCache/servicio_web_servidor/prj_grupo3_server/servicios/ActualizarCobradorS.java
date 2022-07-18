@@ -8,22 +8,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for actualizarCobradorS complex type.
+ * <p>Clase Java para actualizarCobradorS complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="actualizarCobradorS">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Cedula_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Nombre_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Direccion_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="actualizarCobradorS"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Cedula_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="Nombre_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="Direccion_Cobrador" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -44,7 +44,7 @@ public class ActualizarCobradorS {
     protected String direccionCobrador;
 
     /**
-     * Gets the value of the cedulaCobrador property.
+     * Obtiene el valor de la propiedad cedulaCobrador.
      * 
      * @return
      *     possible object is
@@ -56,7 +56,7 @@ public class ActualizarCobradorS {
     }
 
     /**
-     * Sets the value of the cedulaCobrador property.
+     * Define el valor de la propiedad cedulaCobrador.
      * 
      * @param value
      *     allowed object is
@@ -68,7 +68,7 @@ public class ActualizarCobradorS {
     }
 
     /**
-     * Gets the value of the nombreCobrador property.
+     * Obtiene el valor de la propiedad nombreCobrador.
      * 
      * @return
      *     possible object is
@@ -80,7 +80,7 @@ public class ActualizarCobradorS {
     }
 
     /**
-     * Sets the value of the nombreCobrador property.
+     * Define el valor de la propiedad nombreCobrador.
      * 
      * @param value
      *     allowed object is
@@ -92,7 +92,7 @@ public class ActualizarCobradorS {
     }
 
     /**
-     * Gets the value of the direccionCobrador property.
+     * Obtiene el valor de la propiedad direccionCobrador.
      * 
      * @return
      *     possible object is
@@ -104,7 +104,7 @@ public class ActualizarCobradorS {
     }
 
     /**
-     * Sets the value of the direccionCobrador property.
+     * Define el valor de la propiedad direccionCobrador.
      * 
      * @param value
      *     allowed object is

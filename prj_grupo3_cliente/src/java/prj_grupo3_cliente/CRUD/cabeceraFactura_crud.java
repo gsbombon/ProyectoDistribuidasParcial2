@@ -57,15 +57,17 @@ public class cabeceraFactura_crud {
         boolean res = false;
         for (Articulo a : articulos) {
             if (a.getNombreArticulo().equals(this.nombreItem)) {
-                int cantidadDB = Integer.parseInt(a.getStockArticulo()) ;
-                int cantidadSelec = Integer.parseInt(this.cantidadItem) ;
-                if (cantidadSelec > cantidadDB) {
-                    res = false;
-                } else {
+                int cantidadDB = Integer.parseInt(a.getStockArticulo());
+                int cantidadSelec = Integer.parseInt(this.cantidadItem);
+                if (cantidadSelec <= cantidadDB) {
                     res = true;
+                    this.actualizarArticulo();
+                } else {
+                    res = false;
                 }
             }
         }
+        System.out.println("" + res);
         return res;
     }
 
@@ -87,26 +89,27 @@ public class cabeceraFactura_crud {
 
     public String nuevaCantidadItem() {
         int result = 0;
-        String resultString = "0";
+        String resultString = "";
         for (Articulo a : articulos) {
             if (a.getNombreArticulo().equals(this.nombreItem)) {
-                int cantidadDB = Integer.parseInt(a.getPrecioArticulo());
+                int cantidadDB = Integer.parseInt(a.getStockArticulo());
+                System.out.println("ANTIDAD ANTIGUA: " + cantidadDB);
                 int cantidadSelec = Integer.parseInt(this.cantidadItem);
                 result = cantidadDB - cantidadSelec;
+                System.out.println("CANTIDAD NUEVA: " + result);
             }
         }
         resultString = String.valueOf(result);
         return resultString;
     }
-/*
+
     public void actualizarArticulo() {
         try {
             port.actualizarStockArticuloS(nombreItem, this.nuevaCantidadItem());
         } catch (Exception ex) {
-            System.out.println("Error");
+            System.out.println("Error: "+ex.getMessage());
         }
     }
-*/
 
     public ArrayList<String> cmbNombreArticulos() {
         ArrayList<String> nombresArticulos = new ArrayList<>();
@@ -119,14 +122,17 @@ public class cabeceraFactura_crud {
     public void agregarItem() {
         int resultado;
         try {
-            precioItem = String.valueOf(this.obtenerPrecioItem());
-            precioTotalItem = String.valueOf(this.ObtenerPrecioTotalItem());
-
-            resultado = port.agregarProductoS(numCabecera, nombreItem, cantidadItem, precioItem, precioTotalItem);
-            if (resultado == 1) {
-                mensajeItem = "Articulo insertado correctamente";
+            if (this.validaCantidadItem()) {
+                precioItem = String.valueOf(this.obtenerPrecioItem());
+                precioTotalItem = String.valueOf(this.ObtenerPrecioTotalItem());
+                resultado = port.agregarProductoS(numCabecera, nombreItem, cantidadItem, precioItem, precioTotalItem);
+                if (resultado == 1) {
+                    mensajeItem = "Articulo insertado correctamente";
+                } else {
+                    mensajeItem = "No se pudo insertar";
+                }
             } else {
-                mensajeItem = "No se pudo insertar";
+                mensajeItem = "Cantidad fuera de Stock";
             }
         } catch (Exception ex) {
             mensajeItem = "No se pudo insertar";

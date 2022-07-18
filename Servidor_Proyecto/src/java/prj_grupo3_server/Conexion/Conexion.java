@@ -366,8 +366,7 @@ public class Conexion {
         return FP;
     }
 
-                /* **********ARTICULO***********/
-     
+    /* **********ARTICULO***********/
     public static void insertarArticulo(String codigo, String nombre, String precio, String Stock_Articulo) throws JSONException {
         col = db.getCollection("Articulo");
 
@@ -390,7 +389,7 @@ public class Conexion {
         BasicDBObject newDocument = new BasicDBObject();
         newDocument.put("Nombre_Articulo", nombre); // (2)
         newDocument.put("Precio_Articulo", precio); // (2)
-        newDocument.put("Stock_Articulo", Stock_Articulo); 
+        newDocument.put("Stock_Articulo", Stock_Articulo);
 
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", newDocument); // (3)
@@ -421,11 +420,11 @@ public class Conexion {
             art.setNombre_Articulo(n2);
             art.setPrecio_Articulo(n3);
             art.setStock_Articulo(n4);
-            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo() + "-" + art.getStock_Articulo());
         }
         return art;
     }
-    
+
     public static Articulo buscarArticuloN(String nombre) {
         Articulo art = new Articulo();
         col = db.getCollection("Articulo");
@@ -445,7 +444,7 @@ public class Conexion {
             art.setNombre_Articulo(n2);
             art.setPrecio_Articulo(n3);
             art.setStock_Articulo(n4);
-            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo() + "-" + art.getStock_Articulo());
         }
         return art;
     }
@@ -468,14 +467,16 @@ public class Conexion {
             art.setNombre_Articulo(n2);
             art.setPrecio_Articulo(n3);
             art.setStock_Articulo(n4);
-            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo()+ "-" + art.getStock_Articulo());
+            System.out.println(art.getCodigo_Articulo() + "-" + art.getNombre_Articulo() + "-" + art.getPrecio_Articulo() + "-" + art.getStock_Articulo());
             articulo.add(art);
         }
         return articulo;
     }
-    
-    /************TipoMovimiento**********/
-     public static void insertarMovimiento(String codigo, String nombre, String signo) throws JSONException {
+
+    /**
+     * **********TipoMovimiento*********
+     */
+    public static void insertarMovimiento(String codigo, String nombre, String signo) throws JSONException {
         col = db.getCollection("movimiento");
 
         JSONObject movimiento;
@@ -527,8 +528,7 @@ public class Conexion {
         }
         return mov;
     }
-    
-   
+
     public static Movimiento buscarMovimientoN(String nombre) {
         Movimiento mov = new Movimiento();
         col = db.getCollection("movimiento");
@@ -555,7 +555,7 @@ public class Conexion {
         col = db.getCollection("movimiento");
         DBCursor cur = col.find();
         while (cur.hasNext()) {
-            
+
             String n1 = "";
             String n2 = "";
             String n3 = "";
@@ -571,7 +571,7 @@ public class Conexion {
         }
         return movimiento;
     }
-   
+
     /// CREAR NUEVA DETALLE FACTURA 
     public static void crearDetalleFactura(String numCabecera) throws JSONException {
         col = db.getCollection("DetalleFactura");
@@ -582,7 +582,8 @@ public class Conexion {
         cabFactura.put("Precio_Total_Cabecera", "0");
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
-   /// CREAR NUEVA DETALLE FACTURA cxc
+    /// CREAR NUEVA DETALLE FACTURA cxc
+
     public static void crearDetalleFacturacxc(String numCabecera) throws JSONException {
         col = db.getCollection("DetalleFacturacxc");
         String it[] = {};
@@ -592,13 +593,15 @@ public class Conexion {
         cabFactura.put("Precio_Total_Cabecera", "0");
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
+
     // ELIMINAR CABECERA DETALLE FACTURA
     public static void eliminarDetalleFactura(String numCabecera) {
         col = db.getCollection("DetalleFactura");
         col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
         // ELIMINAR DETALLE CON ESE NUMERO DE CABECERA
     }
-     // ELIMINAR CABECERA DETALLE FACTURA cxc
+    // ELIMINAR CABECERA DETALLE FACTURA cxc
+
     public static void eliminarDetalleFacturacxc(String numCabecera) {
         col = db.getCollection("DetalleFacturacxc");
         col.remove(new BasicDBObject().append("Numero_Cabecera", numCabecera));
@@ -635,14 +638,15 @@ public class Conexion {
 
         detalleFac.setNumCabecera(numFactura);
         detalleFac.setItemsDetalle(itemsArray);
-        if(precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")){
-            precioTotalDetalle="0";
-        } 
+        if (precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")) {
+            precioTotalDetalle = "0";
+        }
         detalleFac.setPrecioTotal(Double.parseDouble(precioTotalDetalle));
 
         return detalleFac;
     }
-     // BUSCAR DETALLE DE LA FACTURA cxc
+    // BUSCAR DETALLE DE LA FACTURA cxc
+
     public static DetalleFacturacxc buscarDetalleFacturacxc(String numFactura) {
 
         DetalleFacturacxc detalleFac = new DetalleFacturacxc();
@@ -672,9 +676,9 @@ public class Conexion {
 
         detalleFac.setNumCabecera(numFactura);
         detalleFac.setItemsDetalle(itemsArray);
-        if(precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")){
-            precioTotalDetalle="0";
-        } 
+        if (precioTotalDetalle.equals("null") || precioTotalDetalle.equals("")) {
+            precioTotalDetalle = "0";
+        }
         detalleFac.setPrecioTotal(Double.parseDouble(precioTotalDetalle));
 
         return detalleFac;
@@ -733,7 +737,7 @@ public class Conexion {
         }
         return cabFac;
     }
-    
+
     // BUSCAR CABECERA DE FACTURA POR NOMBRE RUC
     public static CabeceraFactura buscarCabeceraFacturaPorRuc(String rucCliente) {
         CabeceraFactura cabFac = new CabeceraFactura();
@@ -746,7 +750,7 @@ public class Conexion {
             String rCliente = cur.curr().get("Ruc_Cliente") + "";
             String fecha = cur.curr().get("Fecha_Cabecera") + "";
             String cCiudad = cur.curr().get("Nombre_Ciudad") + "";
-            
+
             cabFac.setNumCabecera(nFactura);
             cabFac.setCodCiudad(cCiudad);
             cabFac.setRucCliente(rCliente);
@@ -769,13 +773,14 @@ public class Conexion {
         cabFactura.put("Ciudad_Factura", nomCiudad);
         col.insert((DBObject) JSON.parse(cabFactura.toString()));
     }
-    
+
     //ELIMINAR FACTURAS
     public static void eliminarFactura(String numCabecera) {
         col = db.getCollection("Factura");
         col.remove(new BasicDBObject().append("Codigo_Factura", numCabecera));
     }
- /// BUSCAR FACTURA 
+    /// BUSCAR FACTURA 
+
     public static Factura buscarFactura(String numFactura) {
         Factura Fac = new Factura();
         col = db.getCollection("Factura");
@@ -785,17 +790,18 @@ public class Conexion {
         while (cur.hasNext()) {
             String totalpago = cur.next().get("Total_Factura") + "";
             String rCliente = cur.curr().get("Cliente_Factura") + "";
-            String Ciudad  = cur.curr().get("Ciudad_Factura") + "";
-            String fecha= cur.curr().get("Fecha_Factura") + "";
+            String Ciudad = cur.curr().get("Ciudad_Factura") + "";
+            String fecha = cur.curr().get("Fecha_Factura") + "";
 
             Fac.setTotalFactura(Double.parseDouble(totalpago));
             Fac.setFecha(fecha);
             Fac.setRucCliente(rCliente);
             Fac.setNomCiudad(Ciudad);
-          ;
+            ;
         }
         return Fac;
     }
+
     // AGREGAR PRODUCTO AL DETALLE
     public static void agregarProducto2(String numCabecera, ItemFactura item) {
         col = db.getCollection("DetalleFactura");
@@ -828,6 +834,7 @@ public class Conexion {
 
         col.update(match, update);
     }
+
     // AGREGAR PRODUCTO AL DETALLE cxc
     public static void agregarPaga(String numCabecera, ItemFacturacxc item) {
         col = db.getCollection("DetalleFacturacxc");
@@ -878,7 +885,6 @@ public class Conexion {
     }
 
     public static void actualizarStockArticulo(String articulo, String cantidad) {
-
         BasicDBObject query = new BasicDBObject();
         query.put("Nombre_Articulo", articulo);
 
@@ -895,20 +901,20 @@ public class Conexion {
         col = db.getCollection("Factura");
         DBCursor cur = col.find();
         while (cur.hasNext()) {
-            String total =  "";
+            String total = "";
             String cliente = "";
-            String ciudad ="";
+            String ciudad = "";
             String fecha = "";
             String codigo = "";
             String tipoPago = "";
-            
-            total =  cur.next().get("Total_Factura") + "";
+
+            total = cur.next().get("Total_Factura") + "";
             cliente = cur.curr().get("Cliente_Factura") + "";
             ciudad = cur.curr().get("Ciudad_Factura") + "";
             fecha = cur.curr().get("Fecha_Factura") + "";
             codigo = cur.curr().get("Codigo_Factura") + "";
             tipoPago = cur.curr().get("Tipo_Pago_Factura") + "";
-            
+
             double totalFac = Double.parseDouble(total);
             Factura fac = new Factura();
             fac.setCodFactura(codigo);
@@ -917,10 +923,12 @@ public class Conexion {
             fac.setRucCliente(cliente);
             fac.setTipoPago(tipoPago);
             fac.setTotalFactura(totalFac);
-            
+
             facturas.add(fac);
         }
         return facturas;
     }
 
+    
+    
 }
